@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+.nerko-one-regular {
+    font-family: "Nerko One", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 70px;
+}
+body,
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    z-index: 1;
+}
+p {
+    text-align: center;
+    max-width: 400px;
+    margin: 0px 20px 20px;
+    font-size: large;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 80vw;
+    max-width: 400px;
+    font-size: larger;
+    height: fit-content;
+    background-color: rgba(72, 113, 93, 0.485);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    padding: 15px;
+    transition: background-color 0.1s;
+}
+
+a:hover {
+    background-color: rgb(27, 111, 61);
+    color: tra;
+}
+
+a:hover .icon {
+    transform: scale(1.2);
+}
+
+.link-text {
+    flex-grow: 1;
+    text-align: center;
+}
+.icon {
+    width: 30px;
+    height: 30px;
+    fill: white;
+    transition: all 0.1s;
+    justify-self: left;
+}
+#notification {
+    font-size: larger;
+    position: absolute;
+    background-color: #132;
+    padding: 10px 20vw;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.1s;
+    z-index: 0;
+}
