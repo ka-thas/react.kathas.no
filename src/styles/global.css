@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+    --background-color: #0f6e5c00;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: urbanist, sans-serif;
+    font-size: larger;
+
+    background: linear-gradient(
+        to right,
+        rgb(46, 71, 63) 0%,
+        rgb(47, 77, 53) 100%
+    );
+    color: #fff;
+    background-color: #222;
+    margin-bottom: 0px;
+}
+
+@media only screen and (min-width: 601px) {
+    h1 {
+        font-size: 100px;
+    }
+}
+
+h1 {
+    font-size: 60px;
+    background-color: var(--background-color);
+    margin: 0;
+}
+h2 {
+    font-size: 40px;
+    background-color: var(--background-color);
+    margin: 0;
+}
+
+main {
+    padding: 0px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--background-color);
+    margin-top: 10px;
+}
+#breadcrumbs,
+#breadcrumbs a {
+    color: #9c9d;
+}
+#breadcrumbs a:hover {
+    color: #fff;
+}
+a {
+    color: #00ff80;
+    text-decoration: none;
+}
+a:hover {
+    color: #efff78;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    margin: 4px 0px;
+}
+img {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 30em;
+    border-radius: 10px;
+}
+.small-image {
+    max-height: 20em;
+}
+
+.shadow {
+    box-shadow: 0px 1.2px 2.2px rgba(0, 0, 0, 0.028),
+        0px 3px 5.3px rgba(0, 0, 0, 0.035), 0px 5.6px 10px rgba(0, 0, 0, 0.038),
+        0px 10.1px 17.9px rgba(0, 0, 0, 0.041),
+        0px 18.8px 33.4px rgba(0, 0, 0, 0.047),
+        0px 45px 80px rgba(0, 0, 0, 0.07);
+    /* https://shadows.brumm.af/ */
+}
+.gradient-text {
+    background: linear-gradient(100deg, #00ff80, #efff78);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
