@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/global.css";
 import "../styles/contact.css";
+import pfp from "/assets/images/pfp.png";
 
 function Contact() {
     const [notificationVisible, setNotificationVisible] = useState(false);
@@ -36,7 +37,7 @@ function Contact() {
             </p>
             <main>
                 <img
-                    src="../assets/images/pfp.png"
+                    src={pfp}
                     alt="profile picture"
                     width="120px"
                     height="120px"

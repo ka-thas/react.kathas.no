@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/global.css";
 import "../styles/social.css";
+import pfp from "/assets/images/pfp.png";
+
 
 function SocialPage() {
     return (
@@ -10,7 +12,7 @@ function SocialPage() {
             </p>
             <main>
                 <img
-                    src="./assets/images/pfp.png"
+                    src={pfp}
                     alt="profile picture"
                     width="200px"
                     height="200px"

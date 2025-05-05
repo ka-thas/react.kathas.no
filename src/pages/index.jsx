@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/global.css";
 import "../styles/index.css";
 
@@ -7,7 +8,6 @@ function IndexPage() {
     const [commitDate, setCommitDate] = useState("Loading...");
 
     useEffect(() => {
-        // Fetch the latest commit details from GitHub
         fetch("https://api.github.com/repos/ka-thas/kathas.no/commits/main")
             .then((response) => {
                 if (!response.ok) {
@@ -49,10 +49,10 @@ function IndexPage() {
                 </p>
                 <ul>
                     <li>
-                        <Link href="./contact/">&gt; Contact</Link>
+                        <Link to="/contact">&gt; Contact</Link>
                     </li>
                     <li>
-                        <Link href="./projects/">&gt; Projects</Link>
+                        <Link to="/social">&gt; Social</Link>
                     </li>
                 </ul>
                 <p style={{ color: "#8a8" }}>
