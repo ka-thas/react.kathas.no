@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/global.css";
 import "../styles/index.css";
+import Breadcrumbs from "../components/breadcrumbs.jsx";
 
 function IndexPage() {
     const [commitHash, setCommitHash] = useState("Loading...");
@@ -35,6 +36,7 @@ function IndexPage() {
 
     return (
         <div>
+            < Breadcrumbs />
             <main>
                 <h1>
                     <span style={{ fontSize: "40px" }}> Hiiiiii! I'm</span>
@@ -49,10 +51,13 @@ function IndexPage() {
                 </p>
                 <ul>
                     <li>
-                        <Link to="/contact">&gt; Contact</Link>
+                        <Link to="/ProjectsPage">&gt; Projects</Link>
                     </li>
                     <li>
-                        <Link to="/social">&gt; Social</Link>
+                        <Link to="/ContactPage">&gt; Contact</Link>
+                    </li>
+                    <li>
+                        <Link to="/SocialPage">&gt; Social</Link>
                     </li>
                 </ul>
                 <p style={{ color: "#8a8" }}>

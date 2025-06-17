@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- This is the original version of the Virtual Plant pet. I tweaked the parameters in index.html so it grows a lot faster -->
+        <title>Ka's Hagesenter - Virtuell plante</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="icon.png" />
+        <link rel="stylesheet" href="stylesheet.css" />
+
+        <style>
+            #brett {
+                width: 600px;
+                height: 600px;
+                padding: 0px;
+                margin: 0px auto;
+            }
+            #brett img {
+                position: absolute;
+                width: 600px;
+                height: 600px;
+                border-radius: 7px;
+                box-shadow: 1px 3px 15px rgba(128, 128, 128, 0.642);
+                transition: all 0.5s;
+            }
+            button {
+                z-index: 20;
+            }
+            #vann {
+                padding: 70px;
+                position: absolute;
+                border-radius: 50%;
+                background-color: rgb(123, 201, 202);
+                margin: 20px;
+                display: none;
+                box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
+                opacity: 0.6;
+                mix-blend-mode: hard-light;
+                transition: all 0.2s;
+            }
+            #vann:hover {
+                opacity: 0.9;
+                mix-blend-mode: normal;
+                transform: scale(1.1);
+            }
+            #tekst {
+                position: relative;
+                z-index: 11;
+                display: block;
+                padding: 10px 30px;
+                margin: 10px auto;
+                text-align: center;
+                text-shadow: 1px 1px 0px rgb(167, 231, 74);
+            }
+            .fargeknapper {
+                border-radius: 20px;
+                padding: 60px;
+                margin: 0px 15px;
+                box-shadow: 0px 1px 10px rgb(80, 81, 87);
+                position: relative;
+                display: inline;
+            }
+            .fargeknapper:hover,
+            .videre:hover {
+                outline: 2px solid white;
+            }
+            .videre {
+                position: relative;
+                z-index: 12;
+                display: block;
+                padding: 10px 30px;
+                margin: 30px auto;
+                box-shadow: 0px 1px 8px rgb(80, 81, 87);
+                font-size: 20px;
+            }
+            #restart {
+                position: absolute;
+                right: 10px;
+                top: 5px;
+                box-shadow: inset 0 1px 5px rgb(29, 1, 1);
+                background-color: rgba(132, 21, 21, 0.4);
+                padding: 2px 5px;
+                font-size: 0.7em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="🎁">
+            <div id="brett">
+                <img
+                    id="bak"
+                    src="./plante/bakgrunn.JPG"
+                    alt="Bakgrunnsbilde av et skrivebord"
+                />
+                <img
+                    id="potte"
+                    src="./plante/potte1.PNG"
+                    alt="Bilde av en potte står på bordet"
+                />
+                <img
+                    id="plante"
+                    src="./plante/level1.PNG"
+                    alt="Bildet av en plante vokser ut av potter"
+                />
+                <img
+                    id="emote"
+                    src="./plante/emoteDraape.PNG"
+                    alt="snakkeboble med enkle følelser"
+                />
+                <button id="vann"></button>
+                <h2 id="tekst">Navn lvl</h2>
+            </div>
+            <button id="restart" class="videre">restart</button>
+        </div>
+
+        <script>
+            let imgEl = document.querySelectorAll("#brett img"); //alle bildelag
+            let brettEl = document.querySelector("#brett"); //
+            let tekstEl = document.querySelector("#tekst");
+            let vannEl = document.querySelector("#vann");
+            let restartEl = document.querySelector("#restart");
+            let frekvens = 2 * 1000; //lavere er raskere
+            let timer;
+            let nattmodusPå = false;
+            let freshStart = false;
+
+            //skjuler enkelte bildelag
+            for (let i = 2; i < imgEl.length; i++) {
+                if (i > 1) {
+                    imgEl[i].style.opacity = "0";
+                }
+                imgEl[i].style.zIndex = i;
+            }
+            restartEl.addEventListener("dblclick", restart);
+            vannEl.addEventListener("click", giVann);
+
+            //ser etter tidligere lagring
+            if (localStorage.planteStart) {
+                angiPottefarge(); //går en sti og henter localStorage
+            } else {
+                freshStart = true;
+                velgPotte(); //customize potten
+                localStorage.valgtPotte = 1;
+            }
+
+            function giVann() {
+                localStorage.sistVann = Math.floor(Date.now() / 60000);
+                sjekkVann(); // kan minke frekvensen men like responsiv knapp pga. ingen delay
+            }
+            function sjekkVann() {
+                let tidNå = Math.floor(Date.now() / 60000);
+                let tidSidenVann = tidNå - localStorage.sistVann; //minutter siden sist vann
+                let tidPlanteAlder = tidNå - localStorage.planteStart;
+                let level = Math.ceil(tidPlanteAlder / 10);
+                let tidTimeAvDøgn = Date.now().getHours;
+                let solLys = 10;
+                console.log(tidSidenVann);
+                console.log(level);
+
+                //dag & natt syklus
+                if (tidTimeAvDøgn >= 22 && tidTimeAvDøgn <= 7) {
+                    solLys = 1 / 10;
+                } else {
+                    solLys = 1;
+                }
+
+                //sjekker tørsthet
+                if (tidSidenVann * solLys > 60 * 4) {
+                    imgEl[2].src = "./plante/level0.PNG";
+                    død();
+                    return;
+                } else if (tidSidenVann / solLys > 4) {
+                    imgEl[3].src = "./plante/emoteDraape.PNG";
+                    imgEl[3].style.opacity = "1";
+                } else if (tidSidenVann / solLys < 2) {
+                    imgEl[3].src = "./plante/emoteHjerte.PNG";
+                    imgEl[3].style.opacity = "1";
+                } else {
+                    imgEl[3].style.opacity = "0";
+                }
+
+                //plantevekst
+                if (level > 5) {
+                    imgEl[2].src = "./plante/level3.PNG";
+                } else if (level > 2) {
+                    imgEl[2].src = "./plante/level2.PNG";
+                } else {
+                    imgEl[2].src = "./plante/level1.PNG";
+                }
+                tekstEl.innerHTML =
+                    localStorage.planteNavn + "<br>level " + level;
+            }
+
+            function velgPotte() {
+                tekstEl.innerHTML = "Velg farge på potten";
+
+                let buttonsEl = []; //array som imiterer querrySelecelectorAll
+                let brunEl = document.createElement("button");
+                brunEl.style.backgroundColor = "hsl(40,70%,70%)";
+                buttonsEl.push(brunEl);
+
+                let blaaEl = document.createElement("button");
+                blaaEl.style.backgroundColor = "hsl(200,80%,70%)";
+                buttonsEl.push(blaaEl);
+
+                let gronnEl = document.createElement("button");
+                gronnEl.style.backgroundColor = "hsl(100,80%,70%)";
+                buttonsEl.push(gronnEl);
+
+                let rosaEl = document.createElement("button");
+                rosaEl.style.backgroundColor = "hsl(350,60%,70%)";
+                buttonsEl.push(rosaEl);
+
+                for (let i = 0; i < buttonsEl.length; i++) {
+                    //lyttere og utseende
+                    buttonsEl[i].addEventListener("click", function () {
+                        visPotte(i);
+                    });
+                    buttonsEl[i].classList.add("fargeknapper");
+                    brettEl.appendChild(buttonsEl[i]);
+                }
+                lagVidereKnapp("Velg", angiPottefarge);
+            }
+            function lagVidereKnapp(beskrivelse, funksjon) {
+                let videreEl = document.createElement("button"); //ny videre-knapp
+                videreEl.innerHTML = beskrivelse;
+                videreEl.addEventListener("click", funksjon);
+                videreEl.classList.add("videre");
+                brettEl.appendChild(videreEl);
+            }
+            function visPotte(i) {
+                //forhåndsviser pottefargen før den velges
+                imgEl[1].src = "./plante/potte" + i + ".PNG";
+                localStorage.valgtPotte = i;
+            }
+            function angiPottefarge() {
+                imgEl[1].src =
+                    "./plante/potte" + localStorage.valgtPotte + ".PNG"; //henter pottefargen
+
+                if (freshStart) {
+                    let buttonsEl = document.querySelectorAll("#brett button"); //ny kobling til knappene pga lokal variabel
+                    for (let i = 1; i < buttonsEl.length; i++) {
+                        /*        buttonsEl[i].parentNode.removeChild(buttonsEl[i]); alternativ løsning */
+                        brettEl.removeChild(buttonsEl[i]);
+                    }
+                }
+
+                if (localStorage.planteNavn) {
+                    start();
+                } else {
+                    velgNavn();
+                    localStorage.planteNavn = "Kas";
+                }
+            }
+            function velgNavn() {
+                let navnInputEl = document.createElement("input");
+                navnInputEl.setAttribute("type", "text");
+                navnInputEl.setAttribute("placeholder", "Mitokondria");
+                navnInputEl.classList.add("videre");
+                brettEl.appendChild(navnInputEl);
+                tekstEl.innerHTML = "Gi planten et navn";
+                lagVidereKnapp("Bekreft", angiPlanteNavn);
+            }
+            function angiPlanteNavn() {
+                let navnEl = document.querySelectorAll("#brett .videre");
+                if (navnEl[0].value == "") {
+                    localStorage.planteNavn = "Mitokondria";
+                } else {
+                    localStorage.planteNavn = navnEl[0].value;
+                }
+                for (let i = 0; i < navnEl.length; i++) {
+                    brettEl.removeChild(navnEl[i]);
+                }
+                start();
+            }
+            function start() {
+                tekstEl.innerHTML = localStorage.planteNavn;
+                vannEl.style.display = "inline";
+                imgEl[2].style.opacity = "1";
+                if (freshStart) {
+                    localStorage.planteStart = Math.floor(Date.now() / 60000);
+                    localStorage.sistVann = Math.floor(Date.now() / 60000);
+                }
+                timer = setInterval(sjekkVann, frekvens);
+                sjekkVann();
+            }
+            function død() {
+                imgEl[2].src = "./plante/level0.PNG";
+                imgEl[3].style.opacity = "0";
+                vannEl.style.display = "none";
+                clearInterval(timer);
+                lagVidereKnapp("Restart?", restart);
+            }
+            function restart() {
+                localStorage.clear();
+                window.location.reload();
+            }
+        </script>
+    </body>
+</html>

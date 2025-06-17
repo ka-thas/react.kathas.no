@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Calendar</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./../stylesheet.css" />
+        <style>
+            body {
+                background-color: #101010;
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+                align-items: center;
+            }
+            main {
+                margin: 0 auto;
+
+                padding: 20px;
+                max-width: 1000px;
+            }
+            div {
+                border-radius: 0;
+                border: 0;
+            }
+
+            #calendar {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+            .year {
+                margin: 5px 0;
+                display: grid;
+                grid-template-columns: repeat(52, 1fr);
+                gap: 1px;
+            }
+
+            @media (max-width: 700px) {
+                .year {
+                    grid-template-columns: repeat(26, 1fr);
+                }
+            }
+
+            @media (max-width: 370px) {
+                .year {
+                    grid-template-columns: repeat(13, 1fr);
+                }
+            }
+            .week {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                margin: 2px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>Life Calendar</h1>
+            <p>
+                Based on Kurzgesagt's life calendar where every week is a circle
+            </p>
+            <input type="date" id="birthday" />
+            <button onclick="updateCalendar()">Update</button>
+
+            <div id="calendar"></div>
+            <script>
+                let calendar = document.querySelector("#calendar");
+                var birthday = new Date("2003-03-31");
+
+                function updateCalendar() {
+                    birthday = new Date(
+                        document.querySelector("#birthday").value
+                    );
+                    calendar.innerHTML = "";
+                    var weeksOld = weeksSinceDate(birthday);
+                    let weekCounter = 0;
+                    let week;
+                    let year;
+                    let colors = [80, 150, 180];
+                    let colorindex = 0;
+                    for (i = 0; i < 100; i++) {
+                        year = document.createElement("div");
+                        year.setAttribute("class", "year");
+                        for (j = 0; j < 52; j++) {
+                            week = document.createElement("div");
+                            week.setAttribute("class", "week");
+                            if (weekCounter < weeksOld - 2) {
+                                week.setAttribute(
+                                    "style",
+                                    `background-color: hsl(${colors[colorindex]}, 90%, 40%)`
+                                );
+                            } else {
+                                week.setAttribute(
+                                    "style",
+                                    `background-color: hsla(0, 100%, 90%, 0.4)`
+                                );
+                            }
+                            year.appendChild(week);
+                            weekCounter++;
+                        }
+                        if (i % 10 == 0) {
+                            year.setAttribute(
+                                "style",
+                                `border-top: 1px solid white`
+                            );
+                        }
+                        calendar.appendChild(year);
+                        colorindex++;
+                        colorindex = colorindex % colors.length;
+                    }
+                }
+
+                function weeksSinceDate(startDate) {
+                    var currentDate = new Date();
+                    var timeDifference =
+                        currentDate.getTime() - startDate.getTime();
+                    var weeks = Math.floor(
+                        timeDifference / (1000 * 60 * 60 * 24 * 7)
+                    );
+                    return weeks;
+                }
+            </script>
+        </main>
+    </body>
+</html>

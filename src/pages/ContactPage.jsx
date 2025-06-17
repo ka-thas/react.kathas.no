@@ -3,7 +3,7 @@ import "../styles/global.css";
 import "../styles/contact.css";
 import pfp from "/assets/images/pfp.png";
 
-function Contact() {
+function ContactPage() {
     const [notificationVisible, setNotificationVisible] = useState(false);
 
     const handleCopyEmail = () => {
@@ -101,4 +101,4 @@ function Contact() {
     );
 }
 
-export default Contact;
+export default ContactPage;

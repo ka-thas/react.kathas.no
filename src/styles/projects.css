@@ -1,0 +1,15 @@
+h1 {
+    margin-top: 20px;
+}
+h2 {
+    padding-bottom: 5px;
+    padding-top: 7px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+#content {
+    background-color: #9c93;
+    border-radius: 8px;
+}
+section {
+    padding: 8px;
+}
