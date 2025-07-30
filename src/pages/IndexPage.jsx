@@ -36,7 +36,7 @@ function IndexPage() {
 
     return (
         <div>
-            < Breadcrumbs />
+            {/* < Breadcrumbs /> */}
             <main>
                 <h1>
                     <span style={{ fontSize: "40px" }}> Hiiiiii! I'm</span>

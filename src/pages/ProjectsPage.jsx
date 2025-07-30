@@ -3,6 +3,7 @@ import "../styles/global.css";
 import "../styles/projects.css";
 import Breadcrumbs from "../components/breadcrumbs.jsx";
 import Footer from "../components/footer.jsx";
+import Project from "../components/Project.jsx";
 
 function ProjectsPage() {
     return <>
@@ -28,6 +29,23 @@ function ProjectsPage() {
                     <li><a href="#other">Other</a></li>
                 </ul>
             </section>
+            <Project
+                id="plant"
+                title="Virtual Plant"
+                imgSrc="nursery-website/galleriBilder/indexPic2.jpg"
+                imgAlt="Drawing of a potted plant"
+                imgProps={{ height: "512px", width: "512px" }}
+                links={[
+                    { href: "./plant/", text: "Plant your own here 🪴" }
+                ]}
+            >
+                <p>
+                    This is a virtual plant that I made using JS, HTML and CSS.
+                    It's essentially a Tamagotchi but with only one need: water.
+                    The plant will grow while it has water or die if it doesn't
+                    get water for a long time.
+                </p>
+            </Project>
             <section>
                 <h2 id="plant">Virtual Plant</h2>
                 <p>
