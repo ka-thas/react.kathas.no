@@ -35,7 +35,7 @@ function ContactPage() {
             >
                 Copied!
             </p>
-            <main>
+            <main flex flex-col justify-flex-start items-center p-8 gap-2 z-10>
                 <img
                     src={pfp}
                     alt="profile picture"

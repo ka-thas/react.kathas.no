@@ -2,14 +2,17 @@ import React from "react";
 import "../styles/global.css";
 import "../styles/social.css";
 import pfp from "/assets/images/pfp.png";
+import Project from "../components/Project.jsx";
+import Footer from "../components/footer.jsx";
+
 
 function SocialPage() {
     return (
-        <div>
+        <>
             <p id="notification" className="shadow">
                 Copied!
             </p>
-            <main>
+            <main flex flex-col justify-flex-start items-center p-8 gap-2 z-10>
                 <img
                     src={pfp}
                     alt="profile picture"
@@ -90,10 +93,10 @@ function SocialPage() {
                         </svg>
                         <span className="link-text"> GitHub </span>
                     </a>
-                </div>
-                🌱
+                </div> {/* link container */}
+            {/* <Footer /> */}
             </main>
-        </div>
+        </>
     );
 }
 

@@ -11,15 +11,9 @@
 h1 {
     font-size: 70px;
 }
-body,
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    gap: 10px;
-    z-index: 1;
+
+body {
+  display: block;
 }
 p {
     text-align: center;

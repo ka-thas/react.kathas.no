@@ -7,7 +7,8 @@ import Project from "../components/Project.jsx";
 
 function ProjectsPage() {
     return <>
-        {/* <Breadcrumbs /> */}
+        <main className="projects-page justify-flex-start">
+        <Breadcrumbs />
             <section>
                 <h1>Projects</h1>
                 <p>
@@ -203,6 +204,7 @@ function ProjectsPage() {
                 </p>
             </section>
             <Footer />
+            </main>
 
 </>
 }

@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
     --background-color: #0f6e5c00;
 }
@@ -6,7 +11,7 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    min-height: 100vh;
+    display: block;
     font-family: urbanist, sans-serif;
     font-size: larger;
     background: linear-gradient(
@@ -25,7 +30,7 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 @media only screen and (min-width: 601px) {
@@ -47,8 +52,16 @@ h2 {
 
 main {
     padding: 0px;
-    max-width: 700px;
+    max-width: 100%;
     margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px;
+    gap: 10px;
+    z-index: 1;
 }
 footer {
     text-align: center;
