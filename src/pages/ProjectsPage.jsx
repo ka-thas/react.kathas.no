@@ -66,7 +66,7 @@ function ProjectsPage() {
                     imgProps={{ height: "512px", width: "512px" }}
                     links={[{ href: "./plant/", text: "Plant your own here 🪴" }]}
                 >
-                    <p className="text-left">
+                    <p>
                         This is a virtual plant that I made using JS, HTML and CSS.
                         It's essentially a Tamagotchi but with only one need: water.
                         The plant will grow while it has water or die if it doesn't

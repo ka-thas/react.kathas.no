@@ -12,6 +12,12 @@ h2 {
     background-color: #9c93;
     border-radius: 8px;
 }
-section {
-    padding: 8px;
+.project {
+    background-color: #9c93;
+    border-radius: 8px;
+
+}
+
+.projects-page section {
+    padding: .6em 1.2em;
 }

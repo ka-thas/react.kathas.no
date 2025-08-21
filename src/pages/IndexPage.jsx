@@ -40,11 +40,10 @@ function IndexPage() {
                 <h1>
                     <span className="gradient-text font-bold">Ka Thas</span>
                 </h1>
-
+                
                 <p>
-                    A robotics and machine learning student @ Institute of
-                    Informatics at the University of Oslo. Please have a look
-                    around my personal nook of the internet. <br />
+                    Hey, and welcome to my personal my nook of the internet! Here you can find info about my projects, interests, and
+                    how to contact me. I am currently doing my master's at UiO in robotics and machine learning.
                 </p>
                 <ul>
                     <li>
@@ -52,9 +51,6 @@ function IndexPage() {
                     </li>
                     <li>
                         <Link to="/ContactPage">&gt; Contact</Link>
-                    </li>
-                    <li>
-                        <Link to="/SocialPage">&gt; Socials</Link>
                     </li>
                 </ul>
                 <p style={{ color: "#8a8" }}>

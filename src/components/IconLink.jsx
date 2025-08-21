@@ -6,7 +6,7 @@ function IconLink({href, icon, className = ""}) {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`shadow ${className}`}
+            className={`${className}`}
         >
             {icon}
         </a>
