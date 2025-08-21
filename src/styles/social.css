@@ -21,13 +21,22 @@ p {
     font-size: large;
     margin-bottom: 10px;
 }
-img {
-    height: 8em;
+.pfp-social {
+    max-height: 8em;
+    max-width: 8em;
+    border-radius: 50%;
     border: 2px solid white;
-}
-
-.pfp-shadow {
     box-shadow: rgba(6, 10, 17, 0.2) 0px 8px 24px;
+        z-index: 1;
+}
+.banner {
+    width: 100vw;
+    height: 100px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
 #link-container a {
@@ -75,5 +84,5 @@ img {
     border-radius: 8px;
     opacity: 0;
     transition: opacity 0.1s;
-    z-index: 0;
+    z-index: 4;
 }

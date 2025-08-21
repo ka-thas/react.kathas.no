@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/global.css";
 import "../styles/social.css";
 import pfp from "/assets/images/pfp.png";
+import bannerImg from "/assets/images/banner.jpeg";
 import Footer from "../components/footer.jsx";
 import LinktreeLink from "../components/LinktreeLink";
 
@@ -36,6 +37,15 @@ const facebookIcon = (
         <path d="M40.43,21.739h-7.645v-5.014c0-1.883,1.248-2.322,2.127-2.322c0.877,0,5.395,0,5.395,0V6.125l-7.43-0.029  c-8.248,0-10.125,6.174-10.125,10.125v5.518h-4.77v8.53h4.77c0,10.947,0,24.137,0,24.137h10.033c0,0,0-13.32,0-24.137h6.77  L40.43,21.739z" />
     </svg>
 );
+const discordIcon = (
+    <svg
+                        class="icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
+                         <path d="M18.8943 4.34399C17.5183 3.71467 16.057 3.256 14.5317 3C14.3396 3.33067 14.1263 3.77866 13.977 4.13067C12.3546 3.89599 10.7439 3.89599 9.14391 4.13067C8.99457 3.77866 8.77056 3.33067 8.58922 3C7.05325 3.256 5.59191 3.71467 4.22552 4.34399C1.46286 8.41865 0.716188 12.3973 1.08952 16.3226C2.92418 17.6559 4.69486 18.4666 6.4346 19C6.86126 18.424 7.24527 17.8053 7.57594 17.1546C6.9466 16.92 6.34927 16.632 5.77327 16.2906C5.9226 16.184 6.07194 16.0667 6.21061 15.9493C9.68793 17.5387 13.4543 17.5387 16.889 15.9493C17.0383 16.0667 17.177 16.184 17.3263 16.2906C16.7503 16.632 16.153 16.92 15.5236 17.1546C15.8543 17.8053 16.2383 18.424 16.665 19C18.4036 18.4666 20.185 17.6559 22.01 16.3226C22.4687 11.7787 21.2836 7.83202 18.8943 4.34399ZM8.05593 13.9013C7.01058 13.9013 6.15725 12.952 6.15725 11.7893C6.15725 10.6267 6.98925 9.67731 8.05593 9.67731C9.11191 9.67731 9.97588 10.6267 9.95454 11.7893C9.95454 12.952 9.11191 13.9013 8.05593 13.9013ZM15.065 13.9013C14.0196 13.9013 13.1652 12.952 13.1652 11.7893C13.1652 10.6267 13.9983 9.67731 15.065 9.67731C16.121 9.67731 16.985 10.6267 16.9636 11.7893C16.9636 12.952 16.1317 13.9013 15.065 13.9013Z"/>
+                    </svg>);
 
 const linkedinIcon = (
     <svg
@@ -62,21 +72,25 @@ function SocialPage() {
             <p id="notification" className="shadow">
                 Copied!
             </p>
+            <img
+                src={bannerImg}
+                alt="banner image"
+                className="banner"
+            />
             <main className="flex flex-col justify-flex-start items-center p-8 gap-2 z-10">
                 <img
                     src={pfp}
                     alt="profile picture"
-                    width="200px"
-                    height="200px"
-                    style={{ borderRadius: "50%", maxHeight: "12em" }}
-                    className="pfp-shadow"
+                    width="150px"
+                    height="150px"
+                    className="pfp-social"
                 />
                 <h1 className="gradient-text nerko-one-regular">Ka Thas</h1>
                 <p>
                     Hi 👋 I'm Ka from Oslo 🇳🇴 I like sketching ✏️ and taking
                     care of plants 🪴
                     <br />
-                    Let's connect 💚
+                    Reach out 💚
                 </p>
                 <div id="link-container">
                     <LinktreeLink
@@ -93,6 +107,11 @@ function SocialPage() {
                         href="https://www.facebook.com/kaaathas"
                         icon={facebookIcon}
                         text="Facebook"
+                    />
+                    <LinktreeLink
+                        href="https://discordapp.com/users/286421509059248128"
+                        icon={discordIcon}
+                        text="Discord"
                     />
                     <LinktreeLink
                         href="https://www.linkedin.com/in/ka-thas-6823a9293/"
