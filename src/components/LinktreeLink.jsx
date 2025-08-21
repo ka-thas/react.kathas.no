@@ -5,11 +5,12 @@ function LinktreeLink({href, icon,text, className = ""}) {
         <a
             href={href}
             target="_blank"
+            rel="noopener noreferrer"
             className={`icon-button shadow ${className}`}
         >
             {icon}
                 
-            <span class="link-text"> {text} </span>
+            <span class="link-text">  </span>
         </a>
     );
 }

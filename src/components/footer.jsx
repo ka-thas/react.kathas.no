@@ -15,7 +15,7 @@ function Footer() {
     return (
         <>
             <p
-                className="text-center"
+                className="text-center p-2 mt-2 cursor-pointer"
                 ref={pRef}
                 onClick={handleSpin}
                 style={{ cursor: "pointer" }}

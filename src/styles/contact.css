@@ -1,23 +1,5 @@
 @import "tailwindcss";
 
-h1 {
-    font-size: 40px;
-}
-body,
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    gap: 30px;
-}
-p {
-    text-align: center;
-    max-width: 400px;
-    margin: 0px 20px;
-    font-size: medium;
-}
 
 .icon-button {
     width: fit-content;
@@ -56,7 +38,7 @@ p {
     transition: opacity 0.3s;
 }
 
-.profile-picture {
+.pfp-contact {
     border-radius: 50%;
     max-height: 10em;
     border: 2px solid white;

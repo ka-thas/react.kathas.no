@@ -35,13 +35,10 @@ function IndexPage() {
     }, []);
 
     return (
-        <div>
-            {/* < Breadcrumbs /> */}
-            <main>
+        <>
+            <main className="max-w-2xl w-full mx-auto flex flex-col items-start justify-center min-h-screen p-8 gap-5">
                 <h1>
-                    <span style={{ fontSize: "40px" }}> Hiiiiii! I'm</span>
-                    <br />
-                    <span className="gradient-text">Ka Thas</span>
+                    <span className="gradient-text font-bold">Ka Thas</span>
                 </h1>
 
                 <p>
@@ -57,7 +54,7 @@ function IndexPage() {
                         <Link to="/ContactPage">&gt; Contact</Link>
                     </li>
                     <li>
-                        <Link to="/SocialPage">&gt; Social</Link>
+                        <Link to="/SocialPage">&gt; Socials</Link>
                     </li>
                 </ul>
                 <p style={{ color: "#8a8" }}>
@@ -71,7 +68,7 @@ function IndexPage() {
                     </a>
                 </p>
             </main>
-        </div>
+        </>
     );
 }
 
