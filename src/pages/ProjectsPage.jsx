@@ -7,7 +7,7 @@ import Project from "../components/Project.jsx";
 
 function ProjectsPage() {
     return <>
-        <main className="projects-page justify-flex-start">
+        <main className="projects-page justify-flex-start text-left gap-2 z-10">
         <Breadcrumbs />
             <section>
                 <h1>Projects</h1>
@@ -17,7 +17,7 @@ function ProjectsPage() {
                     <a href="https://github.com/ka-thas"> GitHub </a>
                 </p>
             </section>
-            <section id="content" class="shadow">
+            <section id="content" className="shadow w-full">
                 <h2>Jump to</h2>
                 <ul>
                     <li><a href="#plant"> Virtual Plant</a></li>
@@ -61,7 +61,7 @@ function ProjectsPage() {
                     alt="Drawing of a potted plant"
                     height="512px"
                     width="512px"
-                    class="shadow"
+                    className="shadow"
                 />
                 <p>
                     <a href="./plant/" target="_blank">
@@ -82,7 +82,7 @@ function ProjectsPage() {
                     alt="preview of nursery website"
                     height="849px"
                     width="1159px"
-                    class="shadow"
+                    className="shadow"
                 />
                 <p>
                     <a href="./nursery-website/" target="_blank">Check it</a>
@@ -112,7 +112,7 @@ function ProjectsPage() {
                 <img
                     src="../assets/images/rock_paper_scissors.png"
                     alt="screenshot of Eco system simulation"
-                    class="shadow"
+                    className="shadow"
                 />
                 <br />
                 <a
@@ -132,7 +132,7 @@ function ProjectsPage() {
                     alt="Map og nearby electric scooters"
                     height="878px"
                     width="1228px"
-                    class="shadow"
+                    className="shadow"
                 />
                 <br />
                 <a href="./electric-scooter-map/" target="_blank">
@@ -150,7 +150,7 @@ function ProjectsPage() {
                     alt="preview of snake"
                     height="849px"
                     width="1159px"
-                    class="shadow"
+                    className="shadow"
                 />
                 <br />
                 <a href="./snake-js/" target="_blank"> Play snake here 🐍 </a>
@@ -165,7 +165,7 @@ function ProjectsPage() {
                 <img
                     src="../assets/images/preview-flashcards.png"
                     alt="preview of flashcards"
-                    class="small-image shadow"
+                    className="small-image shadow"
                 />
                 <br />
                 <a href="./flashcards/flashcards.html" target="_blank">
@@ -192,7 +192,7 @@ function ProjectsPage() {
                 <img
                     src="../assets/images/boids-preview.png"
                     alt="preview of the boids algorithm"
-                    class="small-image shadow"
+                    className="small-image shadow"
                 />
                 <br />
                 <a href="./boids/" target="_blank"> View and interact 🐥 </a>

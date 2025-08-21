@@ -4,7 +4,7 @@ function Project({id, title, children, imgSrc, imgAlt, imgProps, links}) {
     return (
         <section id={id} className="project">
             <h2>{title}</h2>
-            <p>{children}</p>
+            {children}
             {imgSrc && (
                 <img
                     src={imgSrc}
