@@ -13,9 +13,8 @@ h2 {
     border-radius: 8px;
 }
 .project {
-    background-color: #9c93;
+    background-color: rgba(150, 200, 150, 0.2);
     border-radius: 8px;
-
 }
 
 .projects-page section {

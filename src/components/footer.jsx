@@ -1,24 +1,10 @@
-import React, { useRef } from "react";
+import React from "react";
 
 function Footer() {
-    const pRef = useRef(null);
-
-    const handleSpin = () => {
-        if (pRef.current) {
-            pRef.current.classList.add("spin");
-            setTimeout(() => {
-                pRef.current.classList.remove("spin");
-            }, 1000); // Duration matches the animation
-        }
-    };
-
     return (
         <>
             <p
-                className="text-center p-2 mt-2 cursor-pointer"
-                ref={pRef}
-                onClick={handleSpin}
-                style={{ cursor: "pointer" }}
+                className="text-center text-gray-300 p-2 mt-2"
             >
                 🌱
             </p>

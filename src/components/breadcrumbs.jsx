@@ -13,11 +13,11 @@ function Breadcrumbs() {
   const paths = location.pathname.split("/").filter((p) => p);
 
   return (
-    <nav className="text-sm text-white-600">
+    <nav className="inline-block px-3 py-1">
       <ol className="list-none p-0 inline-flex">
         <li className="flex items-center">
-          <Link to="/" className="text-blue-500 hover:underline">Home</Link>
-          {paths.length > 0 && <span className="mx-2">/</span>}
+          <Link to="/" className="text-white hover:underline">Home</Link>
+          {paths.length > 0 && <span className="mx-2 text-white">/</span>}
         </li>
         {paths.map((path, index) => {
           const href = "/" + paths.slice(0, index + 1).join("/");
@@ -25,13 +25,13 @@ function Breadcrumbs() {
           return (
             <li key={href} className="flex items-center">
               {isLast ? (
-                <span>{decodeURIComponent(path)}</span>
+                <span className="text-white">{decodeURIComponent(path)}</span>
               ) : (
                 <>
-                  <Link to={href} className="text-blue-500 hover:underline">
+                  <Link to={href} className="text-white hover:underline">
                     {decodeURIComponent(path)}
                   </Link>
-                  <span className="mx-2">/</span>
+                  <span className="mx-2 text-white">/</span>
                 </>
               )}
             </li>

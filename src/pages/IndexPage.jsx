@@ -49,7 +49,10 @@ function IndexPage() {
                         <Link to="/Projects">&gt; Projects</Link>
                     </li>
                     <li>
-                        <Link to="/Contact">&gt; Contact</Link>
+                        <Link to="/contact">&gt; Contact</Link>
+                    </li>
+                    <li>
+                        <Link to="/social">&gt; Socials</Link>
                     </li>
                 </ul>
                 <p style={{ color: "#8a8" }}>
