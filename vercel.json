@@ -1,12 +1,17 @@
 {
   "rewrites": [
     {
-      "source": "/projects/:folder",
+      "source": "/projects/:path*",
+      "destination": "/projects/:path*"
+    },
+    {
+      "source": "/projects/:folder/",
       "destination": "/projects/:folder/index.html"
     },
     {
-      "source": "/:path*",
+      "source": "/((?!projects/).*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "cleanUrls": true
 }
