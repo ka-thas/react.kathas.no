@@ -1,27 +1,27 @@
 [submodule "plant"]
 	path = public/projects/plant
-	url = git@github.com:ka-thas/plant
+	url = https://github.com/ka-thas/plant
 
 [submodule "snake-js"]
 	path = public/projects/snake-js
-	url = git@github.com:ka-thas/snake-js
+	url = https://github.com/ka-thas/snake-js
 
 [submodule "nursery-website"]
 	path = public/projects/nursery-website
-	url = git@github.com:ka-thas/nursery-website.git
+	url = https://github.com/ka-thas/nursery-website
 
 [submodule "electric-scooter-map"]
 	path = public/projects/electric-scooter-map
-	url = git@github.com:ka-thas/electric-scooter-map.git
+	url = https://github.com/ka-thas/electric-scooter-map
 
 [submodule "flashcards-v1"]
 	path = public/projects/flashcards-v1
-	url = git@github.com:ka-thas/flashcards-v1.git
+	url = https://github.com/ka-thas/flashcards-v1
 
 [submodule "flashcards-v2"]
 	path = public/projects/flashcards-v2
-	url = git@github.com:ka-thas/flashcards.git
+	url = https://github.com/ka-thas/flashcards
 
 [submodule "boids"]
 	path = public/projects/boids
-	url = git@github.com:ka-thas/boids.git
+	url = https://github.com/ka-thas/boids
