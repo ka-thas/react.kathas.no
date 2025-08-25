@@ -58,14 +58,6 @@ main {
     100% { transform: rotate(360deg);
     }
 }
-
-#breadcrumbs,
-#breadcrumbs a {
-    color: #9c9d;
-}
-#breadcrumbs a:hover {
-    color: #fff;
-}
 a {
     color: #00ff80;
     text-decoration: none;

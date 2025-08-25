@@ -13,7 +13,7 @@ function Breadcrumbs() {
   const paths = location.pathname.split("/").filter((p) => p);
 
   return (
-    <nav className="text-sm text-gray-600">
+    <nav className="text-sm text-white-600">
       <ol className="list-none p-0 inline-flex">
         <li className="flex items-center">
           <Link to="/" className="text-blue-500 hover:underline">Home</Link>

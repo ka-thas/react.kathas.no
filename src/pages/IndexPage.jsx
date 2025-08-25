@@ -47,10 +47,10 @@ function IndexPage() {
                 </p>
                 <ul>
                     <li>
-                        <Link to="/ProjectsPage">&gt; Projects</Link>
+                        <Link to="/Projects">&gt; Projects</Link>
                     </li>
                     <li>
-                        <Link to="/ContactPage">&gt; Contact</Link>
+                        <Link to="/Contact">&gt; Contact</Link>
                     </li>
                 </ul>
                 <p style={{ color: "#8a8" }}>

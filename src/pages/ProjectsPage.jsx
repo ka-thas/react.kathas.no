@@ -48,7 +48,7 @@ function ProjectsPage() {
                     imgSrc="../assets/images/preview-boids.png"
                     imgAlt="preview of the boids algorithm"
                     imgProps={{ className: "small-image" }}
-                    links={[{ href: "./boids/", text: "View and interact 🐥" }]}
+                    links={[{ href: "./projects/boids/", text: "View and interact 🐥" }]}
                 >
                     <p>
                         A simulation of the boids algorithm. The boids are birds
@@ -64,7 +64,7 @@ function ProjectsPage() {
                     imgSrc="/assets/images/preview-plant.jpg"
                     imgAlt="Drawing of a potted plant"
                     imgProps={{ height: "512px", width: "512px" }}
-                    links={[{ href: "./plant/", text: "Plant your own here 🪴" }]}
+                    links={[{ href: "./projects/plant/", text: "Plant your own here 🪴" }]}
                 >
                     <p>
                         This is a virtual plant that I made using JS, HTML and CSS.
@@ -81,7 +81,7 @@ function ProjectsPage() {
                 <Project
                     id="flashcards-v2"
                     title="Flashcards v2"
-                    links={[{ href: "./flashcards/", text: "Try it here 📚" }]}
+                    links={[{ href: "./projects/flashcards/", text: "Try it here 📚" }]}
                     imgSrc="../assets/images/preview-flashcards2.png"
                     imgAlt="preview of flashcards"
                     imgProps={{ className: "small-image" }}
@@ -99,7 +99,7 @@ function ProjectsPage() {
                     imgSrc="../assets/images/preview-nursery.png"
                     imgAlt="preview of nursery website"
                     imgProps={{ height: "849px", width: "1159px" }}
-                    links={[{ href: "./nursery-website/", text: "Check it" }]}
+                    links={[{ href: "./projects/nursery-website/", text: "Check it" }]}
                 >
                     <p>
                         Here's an entire website I made for a plant nursery;
@@ -111,7 +111,7 @@ function ProjectsPage() {
                 <Project
                     id="calendar"
                     title="Life calendar"
-                    links={[{ href: "calendar-of-life/", text: "Calendar" }]}
+                    links={[{ href: "./projects/calendar-of-life/", text: "Calendar" }]}
                 >
                     <p>
                         Based on Kurzgesagt's Calendar of Life. Every week in your
@@ -150,7 +150,7 @@ function ProjectsPage() {
                     imgSrc="../assets/images/preview-scooter.png"
                     imgAlt="Map of nearby electric scooters"
                     imgProps={{ height: "878px", width: "1228px" }}
-                    links={[{ href: "./electric-scooter-map/", text: "Try it here 🛴" }]}
+                    links={[{ href: "./projects/electric-scooter-map/", text: "Try it here 🛴" }]}
                 >
                     <p>
                         It shows nearby electric scooters on a map and their battery
@@ -164,7 +164,7 @@ function ProjectsPage() {
                     imgSrc="../assets/images/preview-snake.png"
                     imgAlt="preview of snake"
                     imgProps={{ height: "849px", width: "1159px" }}
-                    links={[{ href: "./snake-js/", text: "Play snake here 🐍" }]}
+                    links={[{ href: "./projects/snake-js/", text: "Play snake here 🐍" }]}
                 >
                     <p>
                         A classic snake game made with JS, HTML and CSS. Use the
@@ -178,7 +178,7 @@ function ProjectsPage() {
                     imgSrc="../assets/images/preview-flashcards.png"
                     imgAlt="preview of flashcards"
                     imgProps={{ className: "small-image" }}
-                    links={[{ href: "./flashcards/flashcards.html", text: "Try it here 📚" }]}
+                    links={[{ href: "./projects/flashcards/flashcards.html", text: "Try it here 📚" }]}
                 >
                     <p>
                         A super simple flashcards app that I made to help me study.
