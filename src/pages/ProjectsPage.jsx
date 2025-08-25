@@ -178,7 +178,7 @@ function ProjectsPage() {
                     imgSrc="../assets/images/preview-flashcards.png"
                     imgAlt="preview of flashcards"
                     imgProps={{ className: "small-image" }}
-                    links={[{ href: "/projects/flashcards/flashcards.html", text: "Try it here 📚" }]}
+                    links={[{ href: "/projects/flashcards-v1", text: "Try it here 📚" }]}
                 >
                     <p>
                         A super simple flashcards app that I made to help me study.
