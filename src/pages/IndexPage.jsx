@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/global.css";
 import "../styles/index.css";
-import Breadcrumbs from "../components/breadcrumbs.jsx";
 
 function IndexPage() {
     const [commitHash, setCommitHash] = useState("Loading...");
     const [commitDate, setCommitDate] = useState("Loading...");
 
     useEffect(() => {
-        fetch("https://api.github.com/repos/ka-thas/kathas.no/commits/main")
+        fetch("https://api.github.com/repos/ka-thas/react.kathas.no/commits/main")
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -56,7 +55,7 @@ function IndexPage() {
                 <p style={{ color: "#8a8" }}>
                     Latest commit <span>{commitDate}</span>:
                     <a
-                        href="https://github.com/ka-thas/kathas.no"
+                        href="https://github.com/ka-thas/react.kathas.no"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

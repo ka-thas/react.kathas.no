@@ -1,15 +1,13 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ],
-  "routes": [
-    { 
-      "src": "/projects/snake-js/(.*)",
-      "dest": "/projects/snake-js/$1"
+    {
+      "source": "/projects/:path*",
+      "destination": "/projects/:path*"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
-  ]
-}
+  ],
+  "cleanUrls": true
+} 
