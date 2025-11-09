@@ -70,13 +70,31 @@ function ProjectsPage() {
                     links={[
                         {
                             href: "https://projects.kathas.no/boids",
-                            text: "View and interact 🐥",
+                            text: "> Try it",
                         },
                     ]}
                 >
                     <p>
                         An implementation of the boids algorithm. Each boid (bird-oid) follows three simple rules: separation, alignment
                         and cohesion. The result is a mesmerizing simulation of a flock of birds or school of fish. <br /> This is also an excellent example of emergent behavior in swarm intelligence; where complex group behavior arises from simple individual rules.
+                    </p>
+                </Project>
+                <Project
+                    id="PSO"
+                    title="Particle Swarm Optimization"
+                    imgSrc="../assets/images/preview-PSO.png"
+                    imgAlt="preview of the PSO algorithm"
+                    imgProps={{ className: "small-image" }}
+                    links={[
+                        {
+                            href: "https://projects.kathas.no/PSO",
+                            text: "> Try it",
+                        },
+                    ]}
+                >
+                    <p>
+                        An implementation of the Particle Swarm Optimization (PSO) algorithm. PSO is a computational method used for optimization problems, inspired by the social behavior of birds flocking or fish schooling. In this simulation, particles move through the solution space to find the optimal solution by updating their positions based on their own experience and that of their neighbors. <br /> It's fascinating to see how simple rules can lead to effective problem-solving strategies in a collective manner.
+                        I also created a modified version where the particles mimic the movements of moths around a light source.
                     </p>
                 </Project>
 
@@ -89,7 +107,7 @@ function ProjectsPage() {
                     links={[
                         {
                             href: "https://projects.kathas.no/plant",
-                            text: "Plant your own here 🪴",
+                            text: "> Try it",
                         },
                     ]}
                 >
@@ -111,7 +129,7 @@ function ProjectsPage() {
                     links={[
                         {
                             href: "https://projects.kathas.no/flashcards-v2",
-                            text: "Try it here 📚",
+                            text: "> Try it",
                         },
                     ]}
                     imgSrc="../assets/images/preview-flashcards2.png"
@@ -134,7 +152,7 @@ function ProjectsPage() {
                     links={[
                         { 
                             href: "https://projects.kathas.no/nursery-website",
-                            text: "Check it" 
+                            text: "> Try it" 
                         },
                     ]}
                 >
@@ -151,7 +169,7 @@ function ProjectsPage() {
                     links={[
                         {
                             href: "https://projects.kathas.no/calendar-of-life",
-                            text: "Calendar",
+                            text: "> Try it",
                         },
                     ]}
                 >
@@ -168,8 +186,7 @@ function ProjectsPage() {
                     imgAlt="screenshot of Eco system simulation"
                     links={[
                         {
-                            href: "https://github.com/ka-thas/Projects/tree/main/steinSaksPapir%20smaaBilder",
-                            text: "Source code on GitHub",
+                            href: "https://github.com/ka-thas/Projects/tree/main/steinSaksPapir%20smaaBilder"
                         },
                     ]}
                 >
@@ -186,6 +203,10 @@ function ProjectsPage() {
                         rock, paper, or scissors depending on what list they're
                         in.
                     </p>
+                    <IconLink
+                        href="https://github.com/ka-thas/Projects/tree/main/steinSaksPapir%20smaaBilder"
+                        icon={githubIcon}
+                    />
                 </Project>
 
                 <Project
@@ -197,7 +218,7 @@ function ProjectsPage() {
                     links={[
                         {
                             href: "https://projects.kathas.no/electric-scooter-map",
-                            text: "Try it here 🛴",
+                            text: "> Try it",
                         },
                     ]}
                 >
@@ -216,7 +237,7 @@ function ProjectsPage() {
                     links={[
                         {
                             href: "https://projects.kathas.no/snake-js",
-                            text: "Play snake here 🐍",
+                            text: "> Try it",
                         },
                     ]}
                 >
@@ -235,7 +256,7 @@ function ProjectsPage() {
                     links={[
                         {
                             href: "https://projects.kathas.no/flashcards-v1",
-                            text: "Try it here 📚",
+                            text: "> Try it",
                         },
                     ]}
                 >
