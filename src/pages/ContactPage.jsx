@@ -50,7 +50,7 @@ function ContactPage() {
                 </h1>
 
                 <p>Robotics and Machine Learning student at UiO</p>
-                <p>
+                <p className="text-center">
                     kavinthas@gmail.com <br />
                     +47 46 66 35 30
                 </p>
