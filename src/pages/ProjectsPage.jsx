@@ -56,6 +56,28 @@ function ProjectsPage() {
             </li>
           </ul>
         </section>
+
+
+        <Project
+          id="chameleon"
+          title="Chameleon"
+          imgSrc="../assets/images/preview-chameleon.png"
+          imgAlt="preview of the chameleon project"
+          imgProps={{ className: "small-image" }}
+          links={[
+            {
+              href: "https://projects.kathas.no/chameleon",
+              text: "> Try it",
+            },
+          ]}
+        >
+          <p>
+            The popular board game Chameleon, playable from one phone. One
+            player is secretly assigned the role of the Chameleon, while the
+            others work together to identify them.
+          </p>
+        </Project>
+
         <Project
           id="boids"
           title="Boids algorithm"
