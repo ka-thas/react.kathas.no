@@ -5,12 +5,13 @@ import Breadcrumbs from "../components/breadcrumbs.jsx";
 import Footer from "../components/footer.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 import ProjectModal from "../components/ProjectModal.jsx";
+import { projectImages } from "../assets/projectImages";
 
 const projectsData = [
   {
     id: "chameleon",
     title: "Chameleon",
-    imgSrc: "/assets/images/preview-chameleon.png",
+    imgSrc: projectImages.chameleon,
     imgAlt: "preview of the chameleon project",
     description:
       "The popular board game Chameleon, playable from one phone. One player is secretly assigned the role of the Chameleon, while the others work together to identify them.",
@@ -21,7 +22,7 @@ const projectsData = [
   {
     id: "boids",
     title: "Boids algorithm",
-    imgSrc: "/assets/images/preview-boids.png",
+    imgSrc: projectImages.boids,
     imgAlt: "preview of the boids algorithm",
     description:
       "An implementation of the boids algorithm. Each boid (bird-oid) follows three simple rules: separation, alignment and cohesion. The result is a mesmerizing simulation of a flock of birds or school of fish.\n\nThis is also an excellent example of emergent behavior in swarm intelligence; where complex group behavior arises from simple individual rules.",
@@ -32,7 +33,7 @@ const projectsData = [
   {
     id: "PSO",
     title: "Particle Swarm Optimization",
-    imgSrc: "/assets/images/preview-PSO.png",
+    imgSrc: projectImages.PSO,
     imgAlt: "preview of the PSO algorithm",
     description:
       "An implementation of the Particle Swarm Optimization (PSO) algorithm. PSO is a computational method used for optimization problems, inspired by the social behavior of birds flocking or fish schooling.\n\nIn this simulation, particles move through the solution space to find the optimal solution by updating their positions based on their own experience and that of their neighbors. I also created a modified version where the particles mimic the movements of moths around a light source.",
@@ -43,7 +44,7 @@ const projectsData = [
   {
     id: "plant",
     title: "Virtual Plant",
-    imgSrc: "/assets/images/preview-plant.jpg",
+    imgSrc: projectImages.plant,
     imgAlt: "Drawing of a potted plant",
     description:
       "This is a virtual plant that I made using JS, HTML and CSS. It's essentially a Tamagotchi but with only one need: water. The plant will grow while it has water or die if it doesn't get water for a long time.",
@@ -55,7 +56,7 @@ const projectsData = [
   {
     id: "flashcards-v2",
     title: "Flashcards v2",
-    imgSrc: "/assets/images/preview-flashcards2.png",
+    imgSrc: projectImages.flashcardsV2,
     imgAlt: "preview of flashcards",
     description:
       "This one is a bit more extensive in some ways. The project itself is more modular, but it does not show the explanations for each card.",
@@ -66,7 +67,7 @@ const projectsData = [
   {
     id: "nursery",
     title: "Plant nursery website",
-    imgSrc: "/assets/images/preview-nursery.png",
+    imgSrc: projectImages.nursery,
     imgAlt: "preview of nursery website",
     description:
       "Here's an entire website I made for a plant nursery; complete with a contact page, a gallery, a blog, and the Virtual Plant.",
@@ -77,8 +78,8 @@ const projectsData = [
   {
     id: "calendar",
     title: "Life calendar",
-    imgSrc: null,
-    imgAlt: null,
+    imgSrc: projectImages.lifeCalendar,
+    imgAlt: "preview of life calendar",
     description:
       "Based on Kurzgesagt's Calendar of Life. Every week in your life is a dot, so it looks like a progress bar.",
     links: [
@@ -88,7 +89,7 @@ const projectsData = [
   {
     id: "ecoSim",
     title: "Eco system simulation",
-    imgSrc: "/assets/images/rock_paper_scissors.png",
+    imgSrc: projectImages.ecoSim,
     imgAlt: "screenshot of Eco system simulation",
     description:
       "Rocks eat scissors, scissors eat paper, and paper eats rock. Each population size fluctuates like in nature, based on the number of predators and prey. Really mesmerizing to watch.\n\nThis project is made using pygame zero. Every entity on screen is of the class \"hand\" and is classified into rock, paper, or scissors depending on what list they're in.",
@@ -103,7 +104,7 @@ const projectsData = [
   {
     id: "scooter",
     title: "Electric scooter map",
-    imgSrc: "/assets/images/preview-scooter.png",
+    imgSrc: projectImages.scooter,
     imgAlt: "Map of nearby electric scooters",
     description: "It shows nearby electric scooters on a map and their battery level.",
     links: [
@@ -117,7 +118,7 @@ const projectsData = [
   {
     id: "snake",
     title: "Snake",
-    imgSrc: "/assets/images/preview-snake.png",
+    imgSrc: projectImages.snake,
     imgAlt: "preview of snake",
     description:
       "A classic snake game made with JS, HTML and CSS. Use the arrow keys to move the snake.",
@@ -128,7 +129,7 @@ const projectsData = [
   {
     id: "flashcards",
     title: "Flashcards v1",
-    imgSrc: "/assets/images/preview-flashcards.png",
+    imgSrc: projectImages.flashcards,
     imgAlt: "preview of flashcards",
     description:
       "A super simple flashcards app that I made to help me study. All the cards are stored locally on the client's computer using localStorage.",
