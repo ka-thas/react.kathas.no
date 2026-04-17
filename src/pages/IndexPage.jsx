@@ -14,7 +14,7 @@ function IndexPage() {
                 </h1>
                 
                 <p>
-                    Hey, and welcome to my personal my nook of the internet! Here you can find info about my projects, interests, and
+                    Hey, and welcome to my personal nook of the internet! Here you can find info about my projects, interests, and
                     how to contact me. I am currently doing my master's at UiO in robotics and machine learning.
                 </p>
                 <ul>

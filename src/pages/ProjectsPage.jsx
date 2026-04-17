@@ -9,6 +9,17 @@ import { projectImages } from "../assets/projectImages";
 
 const projectsData = [
   {
+    id: "lawnmower",
+    title: "Wild Lawnmower",
+    imgSrc: projectImages.wildLawnmower,
+    imgAlt: "Menu screen of wild lawnmower game",
+    description:
+      "IFI Game Jam 2026. A cute little game inspired by snake",
+    links: [
+      { href: "https://github.com/mathias1601/Snakeler", text: "GitHub", type: "repo" },
+    ],
+  },
+  {
     id: "chameleon",
     title: "Chameleon",
     imgSrc: projectImages.chameleon,
@@ -166,7 +177,6 @@ function ProjectsPage() {
             />
           ))}
         </div>
-        <Footer />
       </main>
       {selectedProject && (
         <ProjectModal

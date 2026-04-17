@@ -10,6 +10,7 @@ import ecoSim from "./images/preview-ecoSim.png"
 import scooter from "./images/preview-scooter.png"
 import snake from "./images/preview-snake.png"
 import lifeCalendar from "./images/preview-lifeCalendar.png"
+import wildLawnmower from "./images/preview-wildLawnmower.png"
 
 export const projectImages = {
   chameleon,
@@ -24,4 +25,5 @@ export const projectImages = {
   scooter,
   snake,
   lifeCalendar,
+  wildLawnmower,
 };
