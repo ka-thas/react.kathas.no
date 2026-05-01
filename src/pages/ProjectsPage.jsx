@@ -8,6 +8,17 @@ import { projectImages } from "../assets/projectImages";
 
 const projectsData = [
   {
+    id: "ondspera",
+    title: "Ondspera",
+    imgSrc: projectImages.ondspera,
+    imgAlt: "preview of Ondspera",
+    description: "Ondspera is the evil version of inspera, the exam platform. It's a ragebaiting puzzle game created in next.js by me and my friend Mathias. The game simulates the truly evil nature of inspera.",
+    links: [
+      { href: "https://ondspera.vercel.app/", text: "Try it", type: "demo" },
+      { href: "https://github.com/ka-thas/ondspera", text: "GitHub", type: "repo" },
+    ],
+  },
+  {
     id: "lawnmower",
     title: "Wild Lawnmower",
     imgSrc: projectImages.wildLawnmower,

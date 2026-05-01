@@ -11,6 +11,7 @@ import scooter from "./images/preview-scooter.png"
 import snake from "./images/preview-snake.png"
 import lifeCalendar from "./images/preview-lifeCalendar.png"
 import wildLawnmower from "./images/preview-wildLawnmower.png"
+import ondspera from "./images/preview-ondspera.png"
 
 export const projectImages = {
   chameleon,
@@ -26,4 +27,5 @@ export const projectImages = {
   snake,
   lifeCalendar,
   wildLawnmower,
+  ondspera,
 };
