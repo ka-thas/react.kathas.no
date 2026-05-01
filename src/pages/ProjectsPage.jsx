@@ -1,7 +1,6 @@
 import "../styles/global.css";
 import "../styles/projects.css";
 import { useState } from "react";
-import Breadcrumbs from "../components/breadcrumbs.jsx";
 import Footer from "../components/footer.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 import ProjectModal from "../components/ProjectModal.jsx";
@@ -160,7 +159,6 @@ function ProjectsPage() {
   return (
     <>
       <main className="projects-page text-left gap-5 z-10">
-        <Breadcrumbs />
         <section className="projects-intro">
           <h1 className="font-bold">Projects</h1>
           <p>

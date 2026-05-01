@@ -138,7 +138,6 @@ function SocialPage() {
                     />
                 </div>{" "}
                 {/* link container */}
-                <Footer />
             </main>
         </>
     );

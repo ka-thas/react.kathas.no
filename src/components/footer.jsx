@@ -66,7 +66,6 @@ function Footer() {
                         }
                     />
                 </div>
-                <p className="text-sm">🌱</p>
             </footer>
         </>
     );
