@@ -184,6 +184,7 @@ function ProjectsPage() {
           onClose={() => setSelectedProject(null)}
         />
       )}
+      <Footer />
     </>
   );
 }

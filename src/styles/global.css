@@ -95,3 +95,41 @@ img {
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+.icon-button {
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    fill: white;
+    transition: transform 0.1s;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+#footer-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+#notification {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #132d;
+    padding: 10px 40px;
+    border-radius: 8px;
+    pointer-events: none;
+}
