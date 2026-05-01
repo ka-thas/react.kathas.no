@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/global.css";
 import "../styles/index.css";
 import Footer from "../components/footer";
+import KaCaptcha from "../components/KaCaptcha";
 
 function IndexPage() {
     return (
@@ -16,14 +17,7 @@ function IndexPage() {
                     Hey, and welcome to my personal nook of the internet! Here you can find info about my projects, interests, and
                     how to contact me. I am currently doing my master's at UiO in robotics and machine learning.
                 </p>
-                <ul>
-                    <li>
-                        <Link to="/Projects">&gt; Projects</Link>
-                    </li>
-                    <li>
-                        <Link to="/social">&gt; Socials</Link>
-                    </li>
-                </ul>
+                <KaCaptcha />
             </main>
             <Footer />
         </>
