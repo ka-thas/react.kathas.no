@@ -94,11 +94,14 @@ function SocialPage() {
                     className="pfp-social"
                 />
                 <h1 className="gradient-text nerko-one-regular">Ka Thas</h1>
-                <p>
-                    Hi 👋 I'm Ka from Oslo 🇳🇴 I like sketching ✏️ and taking
-                    care of plants 🪴
-                    <br />
-                    Reach out 💚
+                <p className="text-center max-w-[500px]">
+                    Hi, nice to meet you 👋
+                    <br className="mb-2" />
+                    I've added all my social links in one place so you can add me wherever you want 🫶
+                    <br className="mb-2" />
+                    Oslo 🇳🇴 Sketching ✏️ Plant care 🪴 Coffee ☕
+                    <br className="mb-2" />
+                    Let's chat 💚
                 </p>
                 <div id="link-container">
                     <LinktreeLink

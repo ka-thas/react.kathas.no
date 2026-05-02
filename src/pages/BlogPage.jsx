@@ -1,0 +1,5 @@
+/* gonna add pictures from exchange
+Gotta add info about masters thesis and projects
+
+
+*/
