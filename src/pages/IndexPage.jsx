@@ -4,6 +4,7 @@ import "../styles/global.css";
 import "../styles/index.css";
 import Footer from "../components/footer";
 import KaCaptcha from "../components/KaCaptcha";
+import kaThasTitle from "../assets/images/ka-thas-title.png";
 
 function IndexPage() {
          fetch("https://api.github.com/repos/ka-thas/react.kathas.no/commits/main")
@@ -21,10 +22,7 @@ function IndexPage() {
     return (
         <>
             <main className="max-w-2xl w-full mx-auto flex flex-col items-start justify-center min-h-screen p-8 gap-5">
-                <h1>
-                    <span className="gradient-text font-bold">Ka Thas</span>
-                </h1>
-
+                <img src={kaThasTitle} alt="Ka Thas" className="w-full max-w-md mx-auto object-contain md:object-cover" />
                 <p>
                     Hey, and welcome to my personal nook of the internet! Here you can find info about my projects, interests, and
                     how to contact me. I am currently doing my master's at UiO in robotics and machine learning.

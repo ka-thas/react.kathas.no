@@ -76,11 +76,6 @@ ul {
 li {
     margin: 4px 0px;
 }
-img {
-    height: auto;
-    width: auto;
-    border-radius: 10px;
-}
 .small-image {
     max-height: 20em;
 }
