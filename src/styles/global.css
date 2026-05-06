@@ -24,11 +24,12 @@ body {
     background-size: 100% 200px;
     background-repeat: repeat-y;
     color: #fff;
-    background-color: #182C22;
+    background-color: #182c22;
     margin-bottom: 0px;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -57,13 +58,13 @@ main {
     z-index: 1;
 }
 
-
 .spin {
-    animation: spin .2s linear;
+    animation: spin 0.2s linear;
 }
 
 @keyframes spin {
-    100% { transform: rotate(360deg);
+    100% {
+        transform: rotate(360deg);
     }
 }
 a {
@@ -85,8 +86,10 @@ li {
 }
 
 .shadow {
-    box-shadow: 0px 1.2px 2.2px rgba(0, 0, 0, 0.028),
-        0px 3px 5.3px rgba(0, 0, 0, 0.035), 0px 5.6px 10px rgba(0, 0, 0, 0.038),
+    box-shadow:
+        0px 1.2px 2.2px rgba(0, 0, 0, 0.028),
+        0px 3px 5.3px rgba(0, 0, 0, 0.035),
+        0px 5.6px 10px rgba(0, 0, 0, 0.038),
         0px 10.1px 17.9px rgba(0, 0, 0, 0.041),
         0px 18.8px 33.4px rgba(0, 0, 0, 0.047),
         0px 45px 80px rgba(0, 0, 0, 0.07);
@@ -106,8 +109,12 @@ li {
     .cv-body-grid {
         grid-template-columns: 1fr;
     }
-    .cv-body-grid > aside { order: 2; }
-    .cv-body-grid > div { order: 1; }
+    .cv-body-grid > aside {
+        order: 2;
+    }
+    .cv-body-grid > div {
+        order: 1;
+    }
 }
 
 .icon-button {

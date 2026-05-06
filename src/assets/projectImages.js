@@ -1,17 +1,23 @@
-import boids from "./images/preview-boids.png"
-import chameleon from "./images/preview-chameleon.png"
-import flashcards from "./images/preview-flashcards.png"
-import flashcardsV2 from "./images/preview-flashcards2.png"
-import moths from "./images/preview-moths.png"
-import nursery from "./images/preview-nursery.png"
-import plant from "./images/preview-plant.jpg"
-import PSO from "./images/preview-PSO.png"
-import ecoSim from "./images/preview-ecoSim.png"
-import scooter from "./images/preview-scooter.png"
-import snake from "./images/preview-snake.png"
-import lifeCalendar from "./images/preview-lifeCalendar.png"
-import wildLawnmower from "./images/preview-wildLawnmower.png"
-import ondspera from "./images/preview-ondspera.png"
+// png to webp conversion command:
+// cwebp -q 50 input.png -o output.webp
+//
+// loop for all files in a dir:
+// for file in images/*; do cwebp -q 50 "$file" -o "${file%.*}.webp"; done
+
+import boids from "./images/projects/preview-boids.webp";
+import chameleon from "./images/projects/preview-chameleon.webp";
+import flashcards from "./images/projects/preview-flashcards.webp";
+import flashcardsV2 from "./images/projects/preview-flashcards2.webp";
+import moths from "./images/projects/preview-moths.webp";
+import nursery from "./images/projects/preview-nursery.webp";
+import plant from "./images/projects/preview-plant.webp";
+import PSO from "./images/projects/preview-PSO.webp";
+import ecoSim from "./images/projects/preview-ecoSim.webp";
+import scooter from "./images/projects/preview-scooter.webp";
+import snake from "./images/projects/preview-snake.webp";
+import lifeCalendar from "./images/projects/preview-lifeCalendar.webp";
+import wildLawnmower from "./images/projects/preview-wildLawnmower.webp";
+import ondspera from "./images/projects/preview-ondspera.webp";
 
 export const projectImages = {
   chameleon,
@@ -21,8 +27,8 @@ export const projectImages = {
   moths,
   nursery,
   plant,
-  PSO: PSO,
-  ecoSim: ecoSim,
+  PSO,
+  ecoSim,
   scooter,
   snake,
   lifeCalendar,

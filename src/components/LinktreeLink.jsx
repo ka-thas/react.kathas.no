@@ -10,7 +10,7 @@ function LinktreeLink({href, icon,text, className = ""}) {
         >
             {icon}
                 
-            <span class="link-text"> {text} </span>
+            <span className="link-text"> {text} </span>
         </a>
     );
 }
