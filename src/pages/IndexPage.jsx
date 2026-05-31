@@ -22,7 +22,7 @@ function IndexPage() {
 
   return (
     <>
-      <main className="max-w-2xl w-full mx-auto flex flex-col items-start justify-center min-h-screen p-8 gap-5">
+      <main className="max-w-2xl w-full mx-auto flex flex-col items-start justify-center p-8 gap-5">
         <KaThasTitle />
         <p>
           Hey, and welcome to my personal nook of the internet! Here you can
@@ -32,7 +32,7 @@ function IndexPage() {
 
         <p>
           Read about {" "}
-          <Link to="/blog/my-masters-thesis">
+          <Link to="/blog/my-masters-thesis" className="text-[#00ff80]">
             my masters thesis
           </Link>
           .
@@ -44,8 +44,8 @@ function IndexPage() {
             <span id="commit-hash">Loading...</span>{" "}
           </a>
         </p>
-
-        <div className="flex flex-col items-center w-full mt-9 hidden">
+{/* 
+        <div className="flex flex-col items-center w-full mt-9">
           <KaCaptcha />
           <div>
             This will unlock something
@@ -54,7 +54,7 @@ function IndexPage() {
             </span>
           </div>
         </div>
-
+ */}
       </main>
       <Footer />
     </>

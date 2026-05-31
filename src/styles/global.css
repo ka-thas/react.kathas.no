@@ -3,59 +3,51 @@
 @import "tailwindcss";
 
 :root {
-    --background-color: #0f6e5c00;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+#root {
+    min-height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+}
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
-    display: block;
     font-family: "DM Sans", sans-serif;
     font-size: larger;
-    background: linear-gradient(
-        to right,
-        rgb(46, 71, 63) 0%,
-        rgb(47, 77, 53) 100%
-    );
+    background: linear-gradient(to right, rgb(46, 71, 63) 0%, rgb(47, 77, 53) 100%);
     background-size: 100% 200px;
     background-repeat: repeat-y;
-    color: #fff;
     background-color: #182c22;
-    margin-bottom: 0px;
-}
-
-html,
-body {
+    color: #fff;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-}
-
-body {
     padding-top: 56px;
-}
-
-@media only screen and (min-width: 601px) {
-    h1 {
-        font-size: 100px;
-    }
-}
-
-h1 {
-    font-size: 60px;
-    background-color: var(--background-color);
-    margin: 0;
 }
 
 main {
     display: flex;
     flex-direction: column;
+    flex: 1;
     z-index: 1;
+}
+
+a {
+    color: #00ff80;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #efff78;
 }
 
 .spin {
@@ -67,13 +59,7 @@ main {
         transform: rotate(360deg);
     }
 }
-a {
-    color: #00ff80;
-    text-decoration: none;
-}
-a:hover {
-    color: #efff78;
-}
+
 .small-image {
     max-height: 20em;
 }
@@ -86,8 +72,8 @@ a:hover {
         0px 10.1px 17.9px rgba(0, 0, 0, 0.041),
         0px 18.8px 33.4px rgba(0, 0, 0, 0.047),
         0px 45px 80px rgba(0, 0, 0, 0.07);
-    /* https://shadows.brumm.af/ */
 }
+
 .gradient-text {
     background: linear-gradient(100deg, #00ff80, #efff78);
     -webkit-background-clip: text;
@@ -98,6 +84,7 @@ a:hover {
 .cv-body-grid {
     grid-template-columns: 220px 1fr;
 }
+
 @media (max-width: 680px) {
     .cv-body-grid {
         grid-template-columns: 1fr;

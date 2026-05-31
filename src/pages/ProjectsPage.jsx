@@ -171,7 +171,7 @@ function ProjectsPage() {
     <>
       <main className="projects-page text-left gap-5 z-10">
         <section className="projects-intro">
-          <h1 className="font-bold">Projects</h1>
+          <h1 className="font-bold text-5xl mb-4">Projects</h1>
           <p>
             Here is a curated collection of my projects. Check out the source
             code on my <a href="https://github.com/ka-thas">GitHub</a>.

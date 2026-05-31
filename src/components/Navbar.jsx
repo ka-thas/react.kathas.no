@@ -5,9 +5,15 @@ const navLinks = [
     { to: "/", label: "Home" },
     { to: "/projects", label: "Projects" },
     { to: "/cv", label: "CV" },
-    { to: "/blog", label: "Blog" },
+    { to: "/blog", label: "Blog", isNew: true },
     { to: "/social", label: "Socials" },
 ];
+
+const newBadge = (
+    <span className="text-[0.62rem] font-bold tracking-[0.04em] uppercase bg-[rgba(0,255,128,0.18)] text-[#00ff80] border border-[rgba(0,255,128,0.35)] rounded py-px px-[5px] leading-[1.4]">
+        new
+    </span>
+);
 
 const soonBadge = (
     <span className="text-[0.62rem] font-bold tracking-[0.04em] uppercase bg-[rgba(239,255,120,0.18)] text-[#efff78] border border-[rgba(239,255,120,0.35)] rounded py-px px-[5px] leading-[1.4]">
@@ -46,7 +52,7 @@ function Navbar() {
                 </Link>
 
                 <nav className="flex items-center gap-1 max-[600px]:hidden">
-                    {navLinks.map(({ to, label, soon }) =>
+                    {navLinks.map(({ to, label, soon, isNew }) =>
                         soon ? (
                             <span key={to} className="relative inline-flex items-center gap-[0.4rem] py-[0.35rem] px-3 rounded-lg text-[0.95rem] font-medium text-white/72 opacity-45 cursor-default pointer-events-none">
                                 {label}
@@ -55,6 +61,7 @@ function Navbar() {
                         ) : (
                             <Link key={to} to={to} className={desktopLinkCls(isActive(to))}>
                                 {label}
+                                {isNew && newBadge}
                             </Link>
                         )
                     )}
@@ -72,7 +79,7 @@ function Navbar() {
             </div>
 
             <nav className={`flex flex-col overflow-hidden transition-[max-height,padding] duration-300 ease border-t px-5 ${open ? "max-h-[400px] pt-2 pb-3 border-white/7" : "max-h-0 border-transparent"}`}>
-                {navLinks.map(({ to, label, soon }) =>
+                {navLinks.map(({ to, label, soon, isNew }) =>
                     soon ? (
                         <span key={to} className="flex items-center gap-2 py-[0.65rem] px-2 text-base font-medium text-white/72 rounded-lg opacity-45 cursor-default pointer-events-none">
                             {label}
@@ -81,6 +88,7 @@ function Navbar() {
                     ) : (
                         <Link key={to} to={to} className={mobileLinkCls(isActive(to))} onClick={() => setOpen(false)}>
                             {label}
+                            {isNew && newBadge}
                         </Link>
                     )
                 )}
