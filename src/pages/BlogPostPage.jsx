@@ -78,13 +78,16 @@ function BlogPostPage() {
 
   if (!mod) {
     return (
-      <main className="max-w-[680px] mx-auto px-4 py-20 text-center">
+      <>
+      <main className="max-w-[680px] mx-auto px-4 py-24 text-center">
         <p className="text-5xl mb-4 opacity-30">404</p>
         <p className="opacity-60 mb-6">Post not found.</p>
-        <Link to="/blog" className="text-[#00ff80] underline">
+        <Link to="/blog" className="text-[#00ff80] px-5 py-2.5 rounded-lg bg-[rgba(0,255,128,0.1)] border border-[rgba(0,255,128,0.3)] text-[#00ff80] no-underline font-medium hover:bg-[rgba(0,255,128,0.18)] transition-colors duration-150">
           ← Back to blog
         </Link>
       </main>
+        <Footer />
+      </>
     );
   }
 
@@ -96,7 +99,7 @@ function BlogPostPage() {
       <main className="max-w-[680px] mx-auto px-4 pb-16">
         <Link
           to="/blog"
-          className="inline-flex items-center gap-1.5 text-sm text-white/50 no-underline mt-5 mb-8 hover:text-[#00ff80] transition-colors duration-150"
+          className="text-sm text-white/50 no-underline mt-5 mb-8 hover:text-[#00ff80] transition-colors duration-150"
         >
           ← Blog
         </Link>

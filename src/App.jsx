@@ -5,6 +5,7 @@ import ProjectsPage from "./pages/ProjectsPage.jsx";
 import CVPage from "./pages/CVPage.jsx";
 import BlogPage from "./pages/BlogPage.jsx";
 import BlogPostPage from "./pages/BlogPostPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 import Navbar from "./components/Navbar.jsx";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/cv" element={<CVPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );
