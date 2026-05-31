@@ -19,6 +19,7 @@ function IndexPage() {
       document.getElementById("commit-date").textContent = formattedDate;
     })
     .catch((error) => console.error("Error fetching commit:", error));
+
   return (
     <>
       <main className="max-w-2xl w-full mx-auto flex flex-col items-start justify-center min-h-screen p-8 gap-5">
@@ -28,12 +29,22 @@ function IndexPage() {
           find info about my projects, interests, and how to contact me. I am
           currently doing my master's at UiO in robotics and machine learning.
         </p>
+
+        <p>
+          Read about {" "}
+          <Link to="/blog/my-masters-thesis">
+            my masters thesis
+          </Link>
+          .
+        </p>
+
         <p className="text-white/60">
           This website was updated <span id="commit-date"></span>:{" "}
           <a href="https://github.com/ka-thas/react.kathas.no" target="_blank">
             <span id="commit-hash">Loading...</span>{" "}
           </a>
         </p>
+
         <div className="flex flex-col items-center w-full mt-9 hidden">
           <KaCaptcha />
           <div>
@@ -43,6 +54,7 @@ function IndexPage() {
             </span>
           </div>
         </div>
+
       </main>
       <Footer />
     </>

@@ -1,0 +1,122 @@
+---
+title: My master’s thesis
+date: 2026-05-23
+description: Writing my thesis in Japan, using LLMs to guide evolutionary search for novel artificial life in Lenia.
+---
+
+This article is written for a general audience. It covers what I’m doing for my thesis, why and how I’m going to Japan, and how it relates to Robotics and AI.
+
+My master’s study program is called *Informatics: Robotics and Intelligent Systems* at the University of Oslo. For the second and final year of my masters program i will focus solely on writing my thesis from Japan. More specifically Nagoya University with the supervision of Reiji Suzuki, as well as Kyrre Glette remotely from Oslo.
+
+## Background
+
+My bachelor's was also in robotics and intelligent systems at UiO. I did calculus, linear algebra, object-oriented programming, algorithms, electronics, digital design, robotics, AI, machine learning, and operating systems. Just a mix of software and hardware with a lot of math thrown in.
+
+Kept at it for my master's: deep learning, multi-agent systems, advanced AI topics, and operating systems again but way more painful this time.
+
+## Field of study
+
+### Evolutionary algorithm
+
+Here’s my introduction to evolutionary algorithms that I believe anyone could understand. The text on the slides are in Norwegian, but the captions explain the terms in English.
+
+![](/ea-images/1.webp)
+
+Let’s define *algorithm* so it sounds a bit less scary: It’s just a set of rules/steps to follow to get to the goal. Even the specific way you shuffle a deck of cards to make it random could be called an algorithm.
+
+Now, let’s focus on the “evolution” part: We try a bunch of random solutions until we find one that’s good enough. Just like humans evolved to be good enough, not perfect. The algorithm is inspired by actual biological evolution. 
+
+![](/ea-images/2.webp)
+
+I do like to refer to EA as systematic fuck around and find out, because there’s a lot of trial and error involved.
+
+![](/ea-images/3.webp)
+
+This is the toy example I will be using for this presentation. We have some LEGOs and we want to build the best defended castle against attackers.
+
+There are too many possible castles, so we can’t simply calculate what castle is the best.
+
+![](/ea-images/4.webp)
+
+You might ask: how is this related to robotics? Well, it allows us to try out a lot of bodies and find the best suited one for the specific problem.
+
+Now for the more detailed nitty gritty part.
+
+![](/ea-images/5.webp)
+
+We start of with a random *population*. That’s the first four castles to the left.
+
+Then, we have a small chance to apply random *mutations* to our individuals.
+
+We select some pairs of parents and mix features to create offspring. This process is called *recombination*.
+
+![](/ea-images/6.webp)
+
+After mutation and recombination we have 8 individuals that will have to compete for survival through a process we call *selection*. 
+
+There’s only room for 4 castles in this town. 
+
+The top-left castle will be evaluated in the next slide →
+
+![](/ea-images/7.webp)
+
+Here we evaluate their performance under attack and see how well they hold up.
+
+This castle gets points for sturdiness, and a cool flag, but they couldn’t spot the attackers earlier because its short and has no windows.
+
+![](/ea-images/8.webp)
+
+Here we eliminate the worst four castles. Superior features survive and gets passed on to later generations.
+
+![](/ea-images/9.webp)
+
+…and end up with a new population
+
+After hundreds or thousands of these cycles, we might end up with a castle that looks like this →
+
+![](/ea-images/10.webp)
+
+It’s worth noting, as I’ve illustrated here, that the evolutionary algorithm doesn’t guarantee that you find the perfect or best castle. You just get a castle that is good enough for its environment. Just like normal biological evolution that we know and love.
+
+However, this can also be a strength. The sideways tower is not something a human would come up with, but it might prove insanely useful for its environment. Evolutionary algorithms exceed human intuition and can discover unexpected solutions that humans might not think of.
+
+(sideways tower could have appeared through some random mutation)
+
+### Artificial Life
+
+What if instead of building castles, we tried to grow digital creatures? That's Artificial Life (ALIFE). I’ll study to understand what life actually is, by trying to build it from scratch in a simulation.
+
+One really cool technology/interface for doing this is called [Lenia](https://en.wikipedia.org/wiki/Lenia), which is a type of continuous cellular automata, derived from Conways game of life, that can produce creatures that genuinely look and behave like living things. Blobs that move, hunt, react to their environment that emerged from some math.
+
+Buuuut the space of possible creatures in Lenia is huge, and most of what you evolve is boring. The challenge lies in finding the interesting ones.
+
+### Where LLMs Come In
+
+Foundation models could help automate the search for interesting artificial life. Using AI to guide the search for something interesting
+
+My thesis will look into how we can integrate LLMs into this process and using them to help an evolutionary algorithm find a wider range of interesting creatures in Lenia, without manually defining “interesting”.
+
+The broader family of approaches I'll be drawing from is called Quality-Diversity (QD) algorithms, where the goal is not to find one best solution, but to find a whole repertoire of different, novel solutions. 🏰 Not just the best castle, but a hundred wildly different castles, each good in its own way.
+
+## The Japlan
+
+I'll be at **Nagoya University from September 2026 to May 2027** as a special research student, working in Prof. Suzuki's lab.
+
+The rough timeline looks like this:
+
+**Fall 2026**
+
+- Extended project description due October 1, 2026
+- Set up the simulation environment
+- Implement the algorithm
+- Testing and data collection
+- Submit a paper to the AROB symposium by October 15, 2026
+
+**Spring 2027**
+
+- Present at AROB in Kyushu (January 2027)
+- Analysis and writing
+- Submit the master's thesis to UiO: May 15, 2027
+- Defense: early June 2027
+
+The thesis will be evaluated by and defended at the University of Oslo, even though the research happens in Japan.
