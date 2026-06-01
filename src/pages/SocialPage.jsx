@@ -6,6 +6,7 @@ import pfp from "/assets/images/pfp.webp";
 import Footer from "../components/footer.jsx";
 import LinktreeLink from "../components/LinktreeLink";
 import KaThasTitle from "../components/KaThasTitle.jsx";
+import Marquee from "../components/Marquee.jsx";
 
 const snapchatIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" className="icon" viewBox="0 0 24 24">
@@ -69,6 +70,12 @@ function SocialPage() {
       <p id="notification" className="shadow">
         Copied!
       </p>
+      <Marquee
+        text="Hello · வணக்கம் · Hei · 안녕하세요 · Hola · こんにちは · Bonjour · Zdravo · Ciao ·"
+        speed={50}
+        gap=".3rem"
+        className="py-2 opacity-60 text-sm"
+      />
       {/* <img src={bannerImg} alt="banner image" className="banner" /> */}
       <main className="flex flex-col justify-flex-start items-center p-8 gap-2 z-10">
         <img
