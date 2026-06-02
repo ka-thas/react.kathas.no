@@ -1,12 +1,12 @@
 import React from "react";
 import "../styles/global.css";
 import "../styles/social.css";
-import pfp from "/assets/images/pfp.webp";
 // import bannerImg from "/assets/images/banner.jpeg";
 import Footer from "../components/footer.jsx";
 import LinktreeLink from "../components/LinktreeLink";
 import KaThasTitle from "../components/KaThasTitle.jsx";
 import Marquee from "../components/Marquee.jsx";
+import Portrait from "../components/Portrait.jsx";
 
 const snapchatIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" className="icon" viewBox="0 0 24 24">
@@ -78,23 +78,12 @@ function SocialPage() {
       />
       {/* <img src={bannerImg} alt="banner image" className="banner" /> */}
       <main className="flex flex-col justify-flex-start items-center p-8 gap-2 z-10">
-        <img
-          src={pfp}
-          alt="profile picture"
-          width="150px"
-          height="150px"
-          className="pfp-social"
-        />
-        <KaThasTitle />
+        <Portrait className="portrait-pfp" />
+        <KaThasTitle className="mb-5"/>
         <p className="text-center max-w-[500px]">
-          Hi, nice to meet you 👋
-          <br className="mb-2" />
-          I've added all my social links in one place so you can add me wherever
-          you want 🫶
-          <br className="mb-2" />
-          Oslo 🇳🇴 Sketching ✏️ Plant care 🪴 Coffee ☕
-          <br className="mb-2" />
-          Let's chat 💚
+          Hi, I'm Ka from Oslo 🌱  <br />
+          I like Sketching ✏️ Plants 🪴 and Coffee ☕ <br />
+          Always happy to chat ~
         </p>
         <div id="link-container">
           <LinktreeLink

@@ -5,6 +5,8 @@ import "../styles/index.css";
 import Footer from "../components/footer";
 import KaCaptcha from "../components/KaCaptcha";
 import KaThasTitle from "../components/KaThasTitle";
+import StickerCluster from "../components/StickerCluster";
+import Portrait from "../components/Portrait";
 
 function IndexPage() {
   fetch("https://api.github.com/repos/ka-thas/react.kathas.no/commits/main")
@@ -24,11 +26,14 @@ function IndexPage() {
     <>
       <main className="max-w-2xl w-full mx-auto flex flex-col items-start justify-center p-8 gap-5">
         <KaThasTitle />
-        <p>
-          Hey, and welcome to my personal nook of the internet! Here you can
-          find info about my projects, interests, and how to contact me. I am
-          currently doing my master's at UiO in robotics and machine learning.
-        </p>
+        <div className="flex flex-col sm:flex-row items-start gap-5 w-full">
+          <Portrait />
+          <p>
+            Hey, and welcome to my personal nook of the internet! Here you can
+            find info about my projects, interests, and how to contact me. I am
+            currently doing my master's at UiO in robotics and machine learning.
+          </p>
+        </div>
 
         <p>
           Read about {" "}
@@ -44,7 +49,9 @@ function IndexPage() {
             <span id="commit-hash">Loading...</span>{" "}
           </a>
         </p>
-{/* 
+
+        <StickerCluster />
+{/*
         <div className="flex flex-col items-center w-full mt-9">
           <KaCaptcha />
           <div>

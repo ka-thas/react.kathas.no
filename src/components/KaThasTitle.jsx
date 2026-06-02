@@ -1,11 +1,11 @@
 import kaThasTitle from "../assets/images/ka-thas-title.webp";
 
-function KaThasTitle() {
+function KaThasTitle({ className = "" }) {
     return (
-        <img 
-            src={kaThasTitle} 
-            alt="Ka Thas" 
-            className="w-full max-w-md mx-auto object-contain md:object-cover aspect-[2386/1000]"
+        <img
+            src={kaThasTitle}
+            alt="Ka Thas"
+            className={`w-full max-w-md mx-auto object-contain md:object-cover aspect-[2386/1000] ${className}`}
             fetchPriority="high"
             loading="eager"
             />

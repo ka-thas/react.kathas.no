@@ -1,0 +1,55 @@
+/* Home-page portrait slot with a periodic dissolve cross-fade. */
+
+.portrait-slot {
+    position: relative;
+    width: 11rem;
+    height: 11rem;
+    border-radius: 1.4rem;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+    border: 3px solid rgba(255, 255, 255, 0.92);
+    background: #14241c;
+}
+
+.portrait-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+    will-change: opacity;
+}
+
+.portrait-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.75rem;
+    border-style: dashed;
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.portrait-empty span {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* Circular variant — matches the social page's profile picture. */
+.portrait-pfp {
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+    border-width: 2px;
+    box-shadow: rgba(6, 10, 17, 0.2) 0px 8px 24px;
+    z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .portrait-img {
+        transition: none;
+    }
+}

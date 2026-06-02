@@ -10,7 +10,7 @@
 }
 
 #root {
-    min-height: calc(100vh - 56px);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -31,7 +31,6 @@ body {
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    padding-top: 56px;
 }
 
 main {

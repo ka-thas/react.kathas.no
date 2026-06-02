@@ -6,12 +6,13 @@ import CVPage from "./pages/CVPage.jsx";
 import BlogPage from "./pages/BlogPage.jsx";
 import BlogPostPage from "./pages/BlogPostPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
-import Navbar from "./components/Navbar.jsx";
+import HomeSticker from "./components/HomeSticker.jsx";
+import "./styles/stickers.css";
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <HomeSticker />
       <Routes>
         <Route path="/" element={<IndexPage />} />
         <Route path="/projects" element={<ProjectsPage />} />

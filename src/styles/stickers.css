@@ -1,0 +1,65 @@
+/* Playful sticker-buttons used for site navigation. */
+
+.sticker-btn {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+        filter 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sticker-btn:hover,
+.sticker-btn:focus-visible {
+    transform: scale(1.12);
+    outline: none;
+    z-index: 5;
+}
+
+.sticker-img {
+    display: block;
+    width: 7.5rem;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35));
+    transform: rotate(var(--rot, 0deg));
+    animation: sticker-float var(--float-dur, 4s) ease-in-out infinite;
+    will-change: transform;
+}
+
+.sticker-btn:hover .sticker-img,
+.sticker-btn:focus-visible .sticker-img {
+    animation-play-state: paused;
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.45));
+}
+
+/* Small variant — used for the persistent corner home sticker. */
+.sticker-sm .sticker-img {
+    width: 4.6rem;
+}
+
+/* Persistent home sticker, fixed to a corner on every inner page. */
+.sticker-home {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    z-index: 50;
+}
+
+@keyframes sticker-float {
+    0%,
+    100% {
+        transform: translateY(0) rotate(var(--rot, 0deg));
+    }
+    50% {
+        transform: translateY(-9px) rotate(calc(var(--rot, 0deg) + 1.5deg));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sticker-inner {
+        animation: none;
+    }
+}
