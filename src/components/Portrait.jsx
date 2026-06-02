@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { portraitImages } from "../assets/portraitImages";
 import "../styles/portrait.css";
 
@@ -11,7 +12,7 @@ import "../styles/portrait.css";
  * one, prefetched a cycle ahead) are ever rendered, so the initial page load
  * fetches one image instead of the whole set.
  */
-function Portrait({ interval = 4000, className = "" }) {
+function Portrait({ interval = 4000, className = "", to }) {
     const images = portraitImages;
     const [index, setIndex] = useState(0);
     // Indices we've mounted an <img> for. Starts with the first photo and the
@@ -40,8 +41,8 @@ function Portrait({ interval = 4000, className = "" }) {
         );
     }, [index, images.length]);
 
-    if (images.length === 0) {
-        return (
+    const content =
+        images.length === 0 ? (
             <div className={`portrait-slot portrait-empty ${className}`}>
                 <span>
                     add a photo in
@@ -49,24 +50,31 @@ function Portrait({ interval = 4000, className = "" }) {
                     src/assets/portraitImages.js
                 </span>
             </div>
+        ) : (
+            <div className={`portrait-slot ${className}`}>
+                {images.map((src, i) =>
+                    mounted.has(i) ? (
+                        <img
+                            key={i}
+                            src={src}
+                            alt="Ka Thas"
+                            className="portrait-img"
+                            style={{ opacity: i === index ? 1 : 0 }}
+                        />
+                    ) : null,
+                )}
+            </div>
+        );
+
+    if (to) {
+        return (
+            <Link to={to} className="portrait-link" aria-label="See more photos">
+                {content}
+            </Link>
         );
     }
 
-    return (
-        <div className={`portrait-slot ${className}`}>
-            {images.map((src, i) =>
-                mounted.has(i) ? (
-                    <img
-                        key={i}
-                        src={src}
-                        alt="Ka Thas"
-                        className="portrait-img"
-                        style={{ opacity: i === index ? 1 : 0 }}
-                    />
-                ) : null,
-            )}
-        </div>
-    );
+    return content;
 }
 
 export default Portrait;

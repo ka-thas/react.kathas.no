@@ -38,6 +38,17 @@
     color: rgba(255, 255, 255, 0.55);
 }
 
+/* Clickable portrait — links through to the photo wall. */
+.portrait-link {
+    display: inline-block;
+    line-height: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.portrait-link:hover {
+    transform: scale(1.04);
+}
+
 /* Circular variant — matches the social page's profile picture. */
 .portrait-pfp {
     width: 8em;

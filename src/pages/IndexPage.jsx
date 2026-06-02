@@ -27,23 +27,22 @@ function IndexPage() {
       <main className="max-w-2xl w-full mx-auto flex flex-col items-start justify-center p-8 gap-5">
         <KaThasTitle />
         <div className="flex flex-col sm:flex-row items-start gap-5 w-full">
-          <Portrait />
-          <p>
-            Hey, and welcome to my personal nook of the internet! Here you can
-            find info about my projects, interests, and how to contact me. I am
-            currently doing my master's at UiO in robotics and machine learning.
+          <Portrait to="/blog/photos" />
+          <p className="text-justify">
+            Welcome to my personal nook of the internet! Here you'll find my projects, interests, and some contact information. I am
+            a master's student at UiO in robotics and machine learning.
           </p>
         </div>
 
         <p>
-          Read about {" "}
+          Here's a quick read about {" "}
           <Link to="/blog/my-masters-thesis" className="text-[#00ff80]">
             my masters thesis
           </Link>
-          .
+          . The essence is an VLM guided Evolutionary Algorithm. Also, I'll be writing from japan 🇯🇵
         </p>
 
-        <p className="text-white/60">
+        <p className="text-white/60 text-sm">
           This website was updated <span id="commit-date"></span>:{" "}
           <a href="https://github.com/ka-thas/react.kathas.no" target="_blank">
             <span id="commit-hash">Loading...</span>{" "}

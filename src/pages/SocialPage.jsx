@@ -78,7 +78,7 @@ function SocialPage() {
       />
       {/* <img src={bannerImg} alt="banner image" className="banner" /> */}
       <main className="flex flex-col justify-flex-start items-center p-8 gap-2 z-10">
-        <Portrait className="portrait-pfp" />
+        <Portrait className="portrait-pfp" to="/blog/photos" />
         <KaThasTitle className="mb-5"/>
         <p className="text-center max-w-[500px]">
           Hi, I'm Ka from Oslo 🌱  <br />
