@@ -7,50 +7,36 @@ import KaCaptcha from "../components/KaCaptcha";
 import KaThasTitle from "../components/KaThasTitle";
 import StickerCluster from "../components/StickerCluster";
 import Portrait from "../components/Portrait";
+import CommitInfo from "../components/CommitInfo";
 
 function IndexPage() {
-  fetch("https://api.github.com/repos/ka-thas/react.kathas.no/commits/main")
-    .then((response) => response.json())
-    .then((data) => {
-      const commitDate = new Date(data.commit.author.date);
-      const formattedDate = `${commitDate.getDate().toString().padStart(2, "0")}-${(commitDate.getMonth() + 1).toString().padStart(2, "0")}-${commitDate.getFullYear()}`;
-      document.getElementById("commit-hash").textContent = data.sha.substring(
-        0,
-        7,
-      );
-      document.getElementById("commit-date").textContent = formattedDate;
-    })
-    .catch((error) => console.error("Error fetching commit:", error));
-
   return (
     <>
-      <main className="max-w-2xl w-full mx-auto flex flex-col items-start justify-center p-8 gap-5">
-        <KaThasTitle />
-        <div className="flex flex-col sm:flex-row items-start gap-5 w-full">
-          <Portrait to="/blog/photos" />
-          <p className="text-justify">
-            Welcome to my personal nook of the internet! Here you'll find my projects, interests, and some contact information. I am
-            a master's student at UiO in robotics and machine learning.
-          </p>
-        </div>
+      <main className="max-w-2xl w-full mx-auto flex flex-col items-center justify-center p-8 pt-15 gap-15">
+          <KaThasTitle />
+
+          <div className="flex flex-col sm:flex-row items-start gap-5 w-full">
+            <Portrait to="/blog/photos" />
+            <div className="flex flex-col gap-4">
+              <p className="text-left">
+                Welcome to my personal nook of the internet! Here you'll find my
+                projects, interests, and some contact information. I am a
+                master's student at UiO in robotics and machine learning.
+              </p>
+            </div>
+          </div>
+        <StickerCluster />
 
         <p>
-          Here's a quick read about {" "}
+          Here's a quick read about{" "}
           <Link to="/blog/my-masters-thesis" className="text-[#00ff80]">
             my masters thesis
           </Link>
-          . The essence is an VLM guided Evolutionary Algorithm. Also, I'll be writing from japan 🇯🇵
+          . The essence is an VLM guided Evolutionary Algorithm. Also, I'll be
+          writing from japan 🇯🇵
         </p>
 
-        <p className="text-white/60 text-sm">
-          This website was updated <span id="commit-date"></span>:{" "}
-          <a href="https://github.com/ka-thas/react.kathas.no" target="_blank">
-            <span id="commit-hash">Loading...</span>{" "}
-          </a>
-        </p>
-
-        <StickerCluster />
-{/*
+        {/*
         <div className="flex flex-col items-center w-full mt-9">
           <KaCaptcha />
           <div>
@@ -62,7 +48,11 @@ function IndexPage() {
         </div>
  */}
       </main>
-      <Footer />
+      <div className="flex flex-col items-center gap-0">
+
+            <Footer />
+            <CommitInfo />
+      </div>
     </>
   );
 }
