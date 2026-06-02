@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/global.css";
-import "../styles/index.css";
 import Footer from "../components/footer";
 import KaCaptcha from "../components/KaCaptcha";
 import KaThasTitle from "../components/KaThasTitle";

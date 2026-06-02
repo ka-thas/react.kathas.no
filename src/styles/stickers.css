@@ -13,8 +13,13 @@
 .sticker-btn:hover,
 .sticker-btn:focus-visible {
     transform: scale(1.12);
-    outline: none;
     z-index: 5;
+}
+
+.sticker-btn:focus-visible {
+    outline: 3px solid #00ff80;
+    outline-offset: 4px;
+    border-radius: 12px;
 }
 
 .sticker-img {
@@ -59,7 +64,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .sticker-inner {
+    .sticker-img {
         animation: none;
     }
 }

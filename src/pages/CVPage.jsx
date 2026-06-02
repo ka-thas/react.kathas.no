@@ -136,10 +136,10 @@ function CVPage() {
       </p>
 
       {/* Two-column body */}
-      <div className="cv-body-grid grid gap-8">
+      <div className="grid grid-cols-1 gap-8 min-[681px]:grid-cols-[220px_1fr]">
 
         {/* Sidebar */}
-        <aside className="flex flex-col gap-5">
+        <aside className="flex flex-col gap-5 order-2 min-[681px]:order-none">
 
           <SidebarCard heading="Contact">
             <SidebarItem icon={<path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>}>
@@ -202,7 +202,7 @@ function CVPage() {
         </aside>
 
         {/* Main column */}
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 order-1 min-[681px]:order-none">
 
           <section>
             <SectionTitle>Education</SectionTitle>

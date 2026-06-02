@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { portraitImages } from "../assets/portraitImages";
-import "../styles/portrait.css";
 
 /**
  * Portrait slot for the home page. Cross-fades between the photos listed in
@@ -11,6 +10,10 @@ import "../styles/portrait.css";
  * Images load lazily: only the photos the slideshow has reached (plus the next
  * one, prefetched a cycle ahead) are ever rendered, so the initial page load
  * fetches one image instead of the whole set.
+ *
+ * `className`, when given, replaces the default square treatment for the slot
+ * (the social page passes a circular variant). Leave it empty for the home
+ * page's rounded square.
  */
 function Portrait({ interval = 4000, className = "", to }) {
     const images = portraitImages;
@@ -41,24 +44,30 @@ function Portrait({ interval = 4000, className = "", to }) {
         );
     }, [index, images.length]);
 
+    const slotBase = "relative overflow-hidden shrink-0 bg-[#14241c]";
+    const slotShape =
+        className || "w-44 h-44 rounded-[1.4rem] shadow-[0_6px_16px_rgba(0,0,0,0.28)]";
+
     const content =
         images.length === 0 ? (
-            <div className={`portrait-slot portrait-empty ${className}`}>
-                <span>
+            <div
+                className={`${slotBase} w-44 h-44 rounded-[1.4rem] flex items-center justify-center text-center p-3 border border-dashed border-white/35 ${className}`}
+            >
+                <span className="text-[0.72rem] leading-[1.35] text-white/55">
                     add a photo in
                     <br />
                     src/assets/portraitImages.js
                 </span>
             </div>
         ) : (
-            <div className={`portrait-slot ${className}`}>
+            <div className={`${slotBase} ${slotShape}`}>
                 {images.map((src, i) =>
                     mounted.has(i) ? (
                         <img
                             key={i}
                             src={src}
                             alt="Ka Thas"
-                            className="portrait-img"
+                            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out will-change-[opacity] motion-reduce:transition-none"
                             style={{ opacity: i === index ? 1 : 0 }}
                         />
                     ) : null,
@@ -68,7 +77,11 @@ function Portrait({ interval = 4000, className = "", to }) {
 
     if (to) {
         return (
-            <Link to={to} className="portrait-link" aria-label="See more photos">
+            <Link
+                to={to}
+                className="inline-block leading-none cursor-pointer transition-transform duration-200 hover:scale-[1.04]"
+                aria-label="See more photos"
+            >
                 {content}
             </Link>
         );

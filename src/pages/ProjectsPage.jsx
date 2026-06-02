@@ -1,5 +1,4 @@
 import "../styles/global.css";
-import "../styles/projects.css";
 import { useState } from "react";
 import Footer from "../components/footer.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
@@ -169,15 +168,15 @@ function ProjectsPage() {
 
   return (
     <>
-      <main className="projects-page text-left gap-5 z-10">
-        <section className="projects-intro">
-          <h1 className="font-bold text-5xl mb-4">Projects</h1>
+      <main className="flex flex-col items-start w-full max-w-[1000px] mx-auto px-4 text-left gap-5 z-10">
+        <section className="py-[0.6em] w-full max-w-[600px]">
+          <h1 className="font-bold text-5xl mt-5 mb-4">Projects</h1>
           <p>
             Here is a curated collection of my projects. Check out the source
             code on my <a href="https://github.com/ka-thas">GitHub</a>.
           </p>
         </section>
-        <div className="projects-grid">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4 w-full">
           {projectsData.map((project) => (
             <ProjectCard
               key={project.id}

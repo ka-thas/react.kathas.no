@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/global.css";
-import "../styles/social.css";
 // import bannerImg from "/assets/images/banner.jpeg";
 import Footer from "../components/footer.jsx";
 import LinktreeLink from "../components/LinktreeLink";
@@ -9,13 +8,13 @@ import Marquee from "../components/Marquee.jsx";
 import Portrait from "../components/Portrait.jsx";
 
 const snapchatIcon = (
-  <svg xmlns="http://www.w3.org/2000/svg" className="icon" viewBox="0 0 24 24">
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-[30px] h-[30px] fill-white shrink-0 transition-transform duration-100 group-hover:scale-[1.2]" viewBox="0 0 24 24">
     <path d="M5.829 4.533c-.6 1.344-.363 3.752-.267 5.436-.648.359-1.48-.271-1.951-.271-.49 0-1.075.322-1.167.802-.066.346.089.85 1.201 1.289.43.17 1.453.37 1.69.928.333.784-1.71 4.403-4.918 4.931-.251.041-.43.265-.416.519.056.975 2.242 1.357 3.211 1.507.099.134.179.7.306 1.131.057.193.204.424.582.424.493 0 1.312-.38 2.738-.144 1.398.233 2.712 2.215 5.235 2.215 2.345 0 3.744-1.991 5.09-2.215.779-.129 1.448-.088 2.196.058.515.101.977.157 1.124-.349.129-.437.208-.992.305-1.123.96-.149 3.156-.53 3.211-1.505.014-.254-.165-.477-.416-.519-3.154-.52-5.259-4.128-4.918-4.931.236-.557 1.252-.755 1.69-.928.814-.321 1.222-.716 1.213-1.173-.011-.585-.715-.934-1.233-.934-.527 0-1.284.624-1.897.286.096-1.698.332-4.095-.267-5.438-1.135-2.543-3.66-3.829-6.184-3.829-2.508 0-5.014 1.268-6.158 3.833z" />
   </svg>
 );
 
 const instagramIcon = (
-  <svg xmlns="http://www.w3.org/2000/svg" className="icon" viewBox="0 0 24 24">
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-[30px] h-[30px] fill-white shrink-0 transition-transform duration-100 group-hover:scale-[1.2]" viewBox="0 0 24 24">
     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
   </svg>
 );
@@ -27,7 +26,7 @@ const facebookIcon = (
     id="Layer_1"
     version="1.1"
     viewBox="0 0 56.693 56.693"
-    className="icon"
+    className="w-[30px] h-[30px] fill-white shrink-0 transition-transform duration-100 group-hover:scale-[1.2]"
     xml:space="preserve"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -37,7 +36,7 @@ const facebookIcon = (
 );
 const discordIcon = (
   <svg
-    className="icon"
+    className="w-[30px] h-[30px] fill-white shrink-0 transition-transform duration-100 group-hover:scale-[1.2]"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="none"
@@ -47,19 +46,19 @@ const discordIcon = (
 );
 
 const linkedinIcon = (
-  <svg xmlns="http://www.w3.org/2000/svg" className="icon" viewBox="0 0 24 24">
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-[30px] h-[30px] fill-white shrink-0 transition-transform duration-100 group-hover:scale-[1.2]" viewBox="0 0 24 24">
     <path d="M20.447 20.452h-3.554v-5.569c0-1.327-.027-3.033-1.848-3.033-1.849 0-2.131 1.44-2.131 2.926v5.676h-3.554V9h3.413v1.561h.049c.477-.9 1.64-1.85 3.37-1.85 3.6 0 4.262 2.37 4.262 5.45v6.291zM5.337 7a2.063 2.063 0 110-4.126 2.063 2.063 0 010 4.126zm1.777 13.452H3.56V9h3.554v11.452z" />
   </svg>
 );
 
 const githubIcon = (
-  <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <svg className="w-[30px] h-[30px] fill-white shrink-0 transition-transform duration-100 group-hover:scale-[1.2]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M12 .3a12 12 0 00-3.79 23.4c.6.1.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.23 1.84 1.23 1.07 1.82 2.82 1.3 3.51.99.11-.77.42-1.3.76-1.6-2.66-.3-5.46-1.34-5.46-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.52 11.52 0 016 0c2.28-1.55 3.3-1.23 3.3-1.23.66 1.64.24 2.86.12 3.16.77.84 1.24 1.9 1.24 3.22 0 4.62-2.8 5.64-5.47 5.94.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58A12 12 0 0012 .3" />
   </svg>
 );
 
 const steamIcon = (
-  <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <svg className="w-[30px] h-[30px] fill-white shrink-0 transition-transform duration-100 group-hover:scale-[1.2]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z" />
   </svg>
 );
@@ -67,7 +66,7 @@ const steamIcon = (
 function SocialPage() {
   return (
     <>
-      <p id="notification" className="shadow">
+      <p className="text-[larger] absolute bg-[#132] py-[10px] px-[20vw] rounded-lg opacity-0 transition-opacity duration-100 z-[4] shadow-[0px_1.2px_2.2px_rgba(0,0,0,0.028),0px_3px_5.3px_rgba(0,0,0,0.035),0px_5.6px_10px_rgba(0,0,0,0.038),0px_10.1px_17.9px_rgba(0,0,0,0.041),0px_18.8px_33.4px_rgba(0,0,0,0.047),0px_45px_80px_rgba(0,0,0,0.07)]">
         Copied!
       </p>
       <Marquee
@@ -78,14 +77,17 @@ function SocialPage() {
       />
       {/* <img src={bannerImg} alt="banner image" className="banner" /> */}
       <main className="flex flex-col justify-flex-start items-center p-8 gap-2 z-10">
-        <Portrait className="portrait-pfp" to="/blog/photos" />
+        <Portrait
+          className="w-32 h-32 rounded-full border-2 border-white shadow-[rgba(6,10,17,0.2)_0px_8px_24px] z-[1]"
+          to="/blog/photos"
+        />
         <KaThasTitle className="mb-5"/>
         <p className="text-center max-w-[500px]">
           Hi, I'm Ka from Oslo 🌱  <br />
           I like Sketching ✏️ Plants 🪴 and Coffee ☕ <br />
           Always happy to chat ~
         </p>
-        <div id="link-container">
+        <div className="flex flex-col items-center">
           <LinktreeLink
             href="https://www.instagram.com/kaaathas/"
             icon={instagramIcon}

@@ -6,7 +6,7 @@ function ScrollToTop() {
   const navType = useNavigationType(); // "POP" | "PUSH" | "REPLACE"
 
   useEffect(() => {
-    if (navType !== "POP") window.scrollTo(0, 0);
+    if (navType !== "POP") window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname, navType]);
 
   return null;

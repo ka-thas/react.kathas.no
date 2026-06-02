@@ -17,7 +17,7 @@ function Footer() {
     return (
         <>
             <p
-                id="notification"
+                className="fixed top-[10px] left-1/2 -translate-x-1/2 bg-[#132d] py-[10px] px-[40px] rounded-lg pointer-events-none"
                 style={{
                     opacity: notificationVisible ? 1 : 0,
                     transition: "opacity 0.5s ease",
@@ -26,15 +26,15 @@ function Footer() {
                 Copied!
             </p>
             <footer className="flex flex-col items-center gap-3 py-8 text-gray-300">
-                <div id="footer-buttons">
+                <div className="flex gap-5">
                     <button
                         id="copyEmailButton"
-                        className="icon-button"
+                        className="w-fit h-fit bg-transparent text-white border-none rounded-lg cursor-pointer p-0"
                         onClick={handleCopyEmail}
                         title="Copy email"
                     >
                         <svg
-                            className="icon"
+                            className="w-[30px] h-[30px] fill-white transition-transform duration-100 hover:scale-[1.2]"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                         >
@@ -45,7 +45,7 @@ function Footer() {
                         href="https://github.com/ka-thas"
                         icon={
                             <svg
-                                className="icon"
+                                className="w-[30px] h-[30px] fill-white transition-transform duration-100 hover:scale-[1.2]"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                             >
@@ -57,7 +57,7 @@ function Footer() {
                         href="https://www.linkedin.com/in/ka-thas-6823a9293/"
                         icon={
                             <svg
-                                className="icon"
+                                className="w-[30px] h-[30px] fill-white transition-transform duration-100 hover:scale-[1.2]"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                             >
