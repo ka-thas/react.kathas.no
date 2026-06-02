@@ -7,11 +7,13 @@ import BlogPage from "./pages/BlogPage.jsx";
 import BlogPostPage from "./pages/BlogPostPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import HomeSticker from "./components/HomeSticker.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 import "./styles/stickers.css";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <HomeSticker />
       <Routes>
         <Route path="/" element={<IndexPage />} />
