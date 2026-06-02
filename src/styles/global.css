@@ -57,6 +57,12 @@ a:hover {
     to { transform: translateX(var(--marquee-offset)); }
 }
 
+/* Used by Masonry.jsx — the lightbox backdrop fades in on open. */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 /* Gradient text helper — kept here per project convention. */
 .gradient-text {
     background: linear-gradient(100deg, #00ff80, #efff78);
