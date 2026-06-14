@@ -46,7 +46,8 @@ function Portrait({ interval = 4000, className = "", to }) {
 
     const slotBase = "relative overflow-hidden shrink-0 bg-[#14241c]";
     const slotShape =
-        className || "w-44 h-44 rounded-[1.4rem] shadow-[0_6px_16px_rgba(0,0,0,0.28)]";
+        className ||
+        "w-full aspect-square rounded-none sm:w-44 sm:h-44 sm:aspect-auto sm:rounded-[1.4rem] sm:shadow-[0_6px_16px_rgba(0,0,0,0.28)]";
 
     const content =
         images.length === 0 ? (
@@ -79,7 +80,7 @@ function Portrait({ interval = 4000, className = "", to }) {
         return (
             <Link
                 to={to}
-                className="inline-block leading-none cursor-pointer transition-transform duration-200 hover:scale-[1.04]"
+                className="block w-screen relative left-1/2 -translate-x-1/2 sm:w-auto sm:left-auto sm:translate-x-0 sm:inline-block leading-none cursor-pointer transition-transform duration-200 sm:hover:scale-[1.04]"
                 aria-label="See more photos"
             >
                 {content}
