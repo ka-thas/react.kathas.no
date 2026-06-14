@@ -6,7 +6,7 @@ function Footer() {
 
     const handleCopyEmail = () => {
         navigator.clipboard
-            .writeText("kavinthas@gmail.com")
+            .writeText("ka@kathas.no")
             .then(() => {
                 setNotificationVisible(true);
                 setTimeout(() => setNotificationVisible(false), 2000);

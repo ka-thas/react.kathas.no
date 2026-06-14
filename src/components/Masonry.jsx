@@ -36,10 +36,13 @@ function Masonry({ images = portraitImages }) {
 
         const prevOverflow = document.body.style.overflow;
         document.body.style.overflow = "hidden";
+        // Hide the fixed corner home sticker while the lightbox is open.
+        document.body.classList.add("photobox-open");
 
         return () => {
             window.removeEventListener("keydown", onKey);
             document.body.style.overflow = prevOverflow;
+            document.body.classList.remove("photobox-open");
         };
     }, [isOpen, close, prev, next]);
 

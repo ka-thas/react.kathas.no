@@ -23,8 +23,8 @@ body {
     font-family: "DM Sans", sans-serif;
     font-size: larger;
     background:
-        radial-gradient(50% 40% at 15% 0%, rgba(0, 255, 128, 0.12), transparent 70%),
-        radial-gradient(45% 45% at 90% 20%, rgba(239, 255, 120, 0.08), transparent 70%),
+        radial-gradient(50% 40% at 15% 0%, rgba(0, 255, 128, 0.12), transparent 90%),
+        radial-gradient(45% 45% at 90% 20%, rgba(239, 255, 120, 0.08), transparent 90%),
         #16271e;
     background-attachment: fixed;
     color: #fff;
@@ -32,6 +32,13 @@ body {
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+}
+
+/* Drop the aurora radial-gradients on phones — keep the solid base color. */
+@media (max-width: 640px) {
+    body {
+        background: #16271e;
+    }
 }
 
 main {

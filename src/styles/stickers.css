@@ -40,6 +40,24 @@
     filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.45));
 }
 
+/* Visible caption naming the sticker's destination. */
+.sticker-label {
+    display: block;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 0.72);
+    transition: color 0.2s ease;
+}
+
+.sticker-btn:hover .sticker-label,
+.sticker-btn:focus-visible .sticker-label {
+    color: #00ff80;
+}
+
 /* Small variant — used for the persistent corner home sticker. */
 .sticker-sm .sticker-img {
     width: 6.7rem;
@@ -51,6 +69,11 @@
     bottom: 1.25rem;
     right: 1.25rem;
     z-index: 50;
+}
+
+/* Hidden while a photobox/lightbox is open (set on <body> by Masonry). */
+.photobox-open .sticker-home {
+    display: none;
 }
 
 @keyframes sticker-float {

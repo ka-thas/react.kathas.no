@@ -6,7 +6,7 @@ function EmailCopyButton({ children, className, style }) {
   const [state, setState] = useState("idle");
 
   const handleClick = () => {
-    navigator.clipboard.writeText("kavinthas@gmail.com").catch(() => {});
+    navigator.clipboard.writeText("ka@kathas.no").catch(() => {});
     setState("copied");
   };
 
@@ -146,7 +146,7 @@ function CVPage() {
               <EmailCopyButton
                 className="bg-transparent border-none p-0 cursor-pointer text-[#00ff80] text-[0.9rem] font-[inherit] hover:text-[#efff78] transition-colors"
               >
-                kavinthas@gmail.com
+                ka@kathas.no
               </EmailCopyButton>
             </SidebarItem>
             <SidebarItem icon={<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>}>

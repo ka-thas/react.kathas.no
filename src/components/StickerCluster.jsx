@@ -4,7 +4,7 @@ import { stickerImages } from "../assets/stickerImages";
 
 /**
  * Loose cluster of navigation stickers shown on the home page.
- * No labels say "menu" — visitors discover the pages by poking the stickers.
+ * Each sticker shows a caption naming the page it links to.
  */
 const destinations = [
     { to: "/projects", img: stickerImages.projects, label: "projects", rotate: -7, floatDur: 4.2, nudge: 0 },
@@ -24,6 +24,7 @@ function StickerCluster() {
                         label={d.label}
                         rotate={d.rotate}
                         floatDur={d.floatDur}
+                        showLabel
                     />
                 </div>
             ))}

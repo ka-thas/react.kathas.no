@@ -57,7 +57,7 @@ function BlogPage() {
   return (
     <>
       <main className="max-w-[780px] mx-auto px-4 w-full">
-        <h1 className="font-bold text-5xl mb-4">Blog</h1>
+        <h1 className="font-bold text-5xl mt-5 mb-4">Blog</h1>
         <p className="mb-8 opacity-70 max-w-[520px]">
           Articles I've written about my projects, my studies, and other interests.
         </p>
