@@ -70,6 +70,14 @@ a:hover {
     to { opacity: 1; }
 }
 
+/* Used by VisitorButton.jsx — a 🌱 sprouts and floats up on each press.
+   Per-press drift (--dx) and tilt (--r) are set inline on each sprite. */
+@keyframes sprout-float {
+    0%   { opacity: 0; transform: translate(-50%, 0) scale(0.4) rotate(0deg); }
+    20%  { opacity: 1; transform: translate(-50%, -10px) scale(1) rotate(var(--r)); }
+    100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), -72px) scale(1) rotate(var(--r)); }
+}
+
 /* Gradient text helper — kept here per project convention. */
 .gradient-text {
     background: linear-gradient(100deg, #00ff80, #efff78);

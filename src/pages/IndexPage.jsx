@@ -27,15 +27,17 @@ function IndexPage() {
           </div>
         <StickerCluster />
 
-        <VisitorButton />
+        <div className="flex flex-col items-center gap-2">
+          <VisitorButton />
+        </div>
 
         <p>
           Here's a quick read about{" "}
           <Link to="/blog/my-masters-thesis" className="text-[#00ff80]">
-            my masters thesis
+            my master's thesis
           </Link>
-          . The essence is an VLM guided Evolutionary Algorithm. Also, I'll be
-          writing from japan 🇯🇵
+          . The essence is a VLM guided Evolutionary Algorithm. Also, I'll be
+          writing from Japan 🇯🇵
         </p>
 
         {/*
