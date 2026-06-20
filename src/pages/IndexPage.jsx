@@ -7,6 +7,7 @@ import KaThasTitle from "../components/KaThasTitle";
 import StickerCluster from "../components/StickerCluster";
 import Portrait from "../components/Portrait";
 import CommitInfo from "../components/CommitInfo";
+import VisitorButton from "../components/VisitorButton";
 
 function IndexPage() {
   return (
@@ -25,6 +26,8 @@ function IndexPage() {
             </div>
           </div>
         <StickerCluster />
+
+        <VisitorButton />
 
         <p>
           Here's a quick read about{" "}
