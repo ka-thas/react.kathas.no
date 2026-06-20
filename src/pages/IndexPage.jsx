@@ -7,6 +7,7 @@ import KaThasTitle from "../components/KaThasTitle";
 import StickerCluster from "../components/StickerCluster";
 import Portrait from "../components/Portrait";
 import CommitInfo from "../components/CommitInfo";
+import VisitorButton from "../components/VisitorButton";
 
 function IndexPage() {
   return (
@@ -26,13 +27,17 @@ function IndexPage() {
           </div>
         <StickerCluster />
 
+        <div className="flex flex-col items-center gap-2">
+          <VisitorButton />
+        </div>
+
         <p>
           Here's a quick read about{" "}
           <Link to="/blog/my-masters-thesis" className="text-[#00ff80]">
-            my masters thesis
+            my master's thesis
           </Link>
-          . The essence is an VLM guided Evolutionary Algorithm. Also, I'll be
-          writing from japan 🇯🇵
+          . The essence is a VLM guided Evolutionary Algorithm. Also, I'll be
+          writing from Japan 🇯🇵
         </p>
 
         {/*
