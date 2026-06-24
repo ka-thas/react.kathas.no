@@ -40,6 +40,22 @@ const projectsData = [
     ],
   },
   {
+    id: "ecoSim",
+    title: "Eco system simulation",
+    imgSrc: projectImages.ecoSim,
+    imgAlt: "screenshot of Eco system simulation",
+    description:
+      "Emulates a foodchain with rock-paper-scissors rules. If one species hunts another to extinction, it will also go extinct. Each population size fluctuates like in nature, based on the number of predators and prey. Really mesmerizing to watch.",
+    links: [
+      { href: "https://projects.kathas.no/steinsakspapir", text: "Try it", type: "demo" },
+      {
+        href: "https://github.com/ka-thas/steinsakspapir",
+        text: "GitHub",
+        type: "repo",
+      },
+    ],
+  },
+  {
     id: "boids",
     title: "Boids algorithm",
     imgSrc: projectImages.boids,
@@ -104,21 +120,6 @@ const projectsData = [
       "Based on Kurzgesagt's Calendar of Life. Every week in your life is a dot, so it looks like a progress bar.",
     links: [
       { href: "https://projects.kathas.no/calendar-of-life", text: "Try it", type: "demo" },
-    ],
-  },
-  {
-    id: "ecoSim",
-    title: "Eco system simulation",
-    imgSrc: projectImages.ecoSim,
-    imgAlt: "screenshot of Eco system simulation",
-    description:
-      "Rocks eat scissors, scissors eat paper, and paper eats rock. Each population size fluctuates like in nature, based on the number of predators and prey. Really mesmerizing to watch.\n\nThis project is made using pygame zero. Every entity on screen is of the class \"hand\" and is classified into rock, paper, or scissors depending on what list they're in.",
-    links: [
-      {
-        href: "https://github.com/ka-thas/Projects/tree/main/steinSaksPapir%20smaaBilder",
-        text: "GitHub",
-        type: "repo",
-      },
     ],
   },
   {
