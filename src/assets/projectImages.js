@@ -18,6 +18,7 @@ import snake from "./images/projects/preview-snake.webp";
 import lifeCalendar from "./images/projects/preview-lifeCalendar.webp";
 import wildLawnmower from "./images/projects/preview-wildLawnmower.webp";
 import ondspera from "./images/projects/preview-ondspera.webp";
+import pomodoro from "./images/projects/preview-pomodoro.webp";
 
 export const projectImages = {
   chameleon,
@@ -34,4 +35,5 @@ export const projectImages = {
   lifeCalendar,
   wildLawnmower,
   ondspera,
+  pomodoro,
 };

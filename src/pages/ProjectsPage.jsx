@@ -78,6 +78,29 @@ const projectsData = [
     ],
   },
   {
+    id: "flashcards-v2",
+    title: "Flashcards v2",
+    imgSrc: projectImages.flashcardsV2,
+    imgAlt: "preview of flashcards",
+    description:
+      "This one is a bit more extensive in some ways. The project itself is more modular, but it does not show the explanations for each card.",
+    links: [
+      { href: "https://projects.kathas.no/flashcards", text: "Try it", type: "demo" },
+    ],
+  },
+  {
+    id: "pomodoro",
+    title: "Pomodoro timer",
+    imgSrc: projectImages.pomodoro,
+    imgAlt: "preview of the Pomodoro timer",
+    description:
+      "A minimal Pomodoro timer to help you focus: work sessions, short breaks and long breaks, with a session tracker. Built with plain JS, HTML and CSS.",
+    links: [
+      { href: "https://projects.kathas.no/pomodoro", text: "Try it", type: "demo" },
+      { href: "https://github.com/ka-thas/pomodoro", text: "GitHub", type: "repo" },
+    ],
+  },
+  {
     id: "plant",
     title: "Virtual Plant",
     imgSrc: projectImages.plant,
@@ -87,17 +110,6 @@ const projectsData = [
     links: [
       { href: "https://projects.kathas.no/plant", text: "Try it", type: "demo" },
       { href: "https://github.com/ka-thas/plant", text: "GitHub", type: "repo" },
-    ],
-  },
-  {
-    id: "flashcards-v2",
-    title: "Flashcards v2",
-    imgSrc: projectImages.flashcardsV2,
-    imgAlt: "preview of flashcards",
-    description:
-      "This one is a bit more extensive in some ways. The project itself is more modular, but it does not show the explanations for each card.",
-    links: [
-      { href: "https://projects.kathas.no/flashcards", text: "Try it", type: "demo" },
     ],
   },
   {
