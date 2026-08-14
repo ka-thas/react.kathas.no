@@ -2,7 +2,7 @@
 
 Accessible at kathas.no
 
-Tech stack: React, TypeScript, Tailwind CSS, Vite
+Tech stack: Vite React, TS, Tailwind
 
 ### Credits
 
