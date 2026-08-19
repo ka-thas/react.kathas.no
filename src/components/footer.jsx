@@ -2,45 +2,48 @@ import React, { useState } from "react";
 import IconLink from "./IconLink";
 
 function Footer() {
-    const [notificationVisible, setNotificationVisible] = useState(false);
+    const [copyState, setCopyState] = useState("idle");
 
     const handleCopyEmail = () => {
         navigator.clipboard
             .writeText("ka@kathas.no")
-            .then(() => {
-                setNotificationVisible(true);
-                setTimeout(() => setNotificationVisible(false), 2000);
-            })
+            .then(() => setCopyState("copied"))
             .catch((err) => console.error("Failed to copy email: ", err));
     };
 
     return (
         <>
-            <p
-                className="fixed top-[10px] left-1/2 -translate-x-1/2 bg-[#132d] py-[10px] px-[40px] rounded-lg pointer-events-none"
-                style={{
-                    opacity: notificationVisible ? 1 : 0,
-                    transition: "opacity 0.5s ease",
-                }}
-            >
-                Copied!
-            </p>
-            <footer className="flex flex-col items-center gap-3 py-8 text-gray-300">
+            <footer className="flex flex-col items-center gap-3 py-8 text-gray-300 bg-[#243] w-full">
                 <div className="flex gap-5">
-                    <button
-                        id="copyEmailButton"
-                        className="w-fit h-fit bg-transparent text-white border-none rounded-lg cursor-pointer p-0"
-                        onClick={handleCopyEmail}
-                        title="Copy email"
-                    >
-                        <svg
-                            className="w-[30px] h-[30px] fill-white transition-transform duration-100 hover:scale-[1.2]"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
+                    <span className="relative inline-block">
+                        <button
+                            id="copyEmailButton"
+                            className="w-fit h-fit bg-transparent text-white border-none rounded-lg cursor-pointer p-0"
+                            onClick={handleCopyEmail}
+                            onMouseEnter={() => setCopyState(s => s === "copied" ? "copied" : "hover")}
+                            onMouseLeave={() => setCopyState("idle")}
                         >
-                            <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 6L12 11L4 6H20ZM4 18V8L12 13L20 8V18H4Z" />
-                        </svg>
-                    </button>
+                            <svg
+                                className="w-[30px] h-[30px] fill-white transition-transform duration-100 hover:scale-[1.2]"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 6L12 11L4 6H20ZM4 18V8L12 13L20 8V18H4Z" />
+                            </svg>
+                        </button>
+                        {copyState !== "idle" && (
+                            <span
+                                className="absolute bottom-[calc(100%+6px)] left-1/2 -translate-x-1/2 z-50 rounded-[6px] px-[10px] py-[3px] text-[0.75rem] font-semibold whitespace-nowrap pointer-events-none shadow-[0_4px_14px_rgba(0,0,0,0.35)] transition-[background,color] duration-150"
+                                style={{
+                                    background: copyState === "copied" ? "rgba(0,255,128,0.18)" : "rgba(30,61,43,0.97)",
+                                    color: copyState === "copied" ? "#00ff80" : "rgba(255,255,255,0.85)",
+                                    border: copyState === "copied" ? "1px solid rgba(0,255,128,0.35)" : "1px solid rgba(255,255,255,0.12)",
+                                }}
+                            >
+                                {copyState === "copied" ? "Copied!" : "Copy email"}
+                            </span>
+                        )}
+                    </span>
                     <IconLink
                         href="https://github.com/ka-thas"
                         icon={
