@@ -8,11 +8,14 @@ import StickerCluster from "../components/StickerCluster";
 import Portrait from "../components/Portrait";
 import CommitInfo from "../components/CommitInfo";
 import VisitorButton from "../components/VisitorButton";
+import PostCard from "../components/PostCard";
+import { posts } from "../lib/posts";
 
 function IndexPage() {
+  const recentPosts = posts.slice(0, 3);
   return (
     <>
-      <main className="max-w-2xl w-full mx-auto flex flex-col items-center justify-center p-8 pt-15 gap-15">
+      <main className="max-w-2xl w-full mx-auto flex flex-col items-center justify-center p-8 pt-15 mb-6 gap-15">
           <KaThasTitle />
 
           <div className="flex flex-col sm:flex-row items-start gap-5 w-full">
@@ -31,6 +34,8 @@ function IndexPage() {
           <VisitorButton />
         </div>
 
+        
+
         <p>
           Here's a quick read about{" "}
           <Link to="/blog/my-masters-thesis" className="text-[#00ff80]">
@@ -39,6 +44,17 @@ function IndexPage() {
           . The essence is a VLM guided Evolutionary Algorithm. Also, I'll be
           writing from Japan 🇯🇵
         </p>
+
+        {recentPosts.length > 0 && (
+          <div className="flex flex-col items-center gap-4 w-full">
+            <h2>Recent Posts</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+              {recentPosts.map((post) => (
+                <PostCard key={post.slug} {...post} />
+              ))}
+            </div>
+          </div>
+        )}
 
         {/*
         <div className="flex flex-col items-center w-full mt-9">
@@ -52,7 +68,7 @@ function IndexPage() {
         </div>
  */}
       </main>
-      <div className="flex flex-col items-center gap-0">
+      <div className="flex flex-col items-center gap-0 bg-[#243] w-full">
 
             <Footer />
             <CommitInfo />

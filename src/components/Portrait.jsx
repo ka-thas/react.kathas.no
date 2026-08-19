@@ -77,12 +77,11 @@ function Portrait({ interval = 4000, className = "", to }) {
         );
 
     if (to) {
+        const linkClassName = className
+            ? "inline-block leading-none cursor-pointer transition-transform duration-200 hover:scale-[1.04]"
+            : "block w-screen relative left-1/2 -translate-x-1/2 sm:w-auto sm:left-auto sm:translate-x-0 sm:inline-block leading-none cursor-pointer transition-transform duration-200 sm:hover:scale-[1.04]";
         return (
-            <Link
-                to={to}
-                className="block w-screen relative left-1/2 -translate-x-1/2 sm:w-auto sm:left-auto sm:translate-x-0 sm:inline-block leading-none cursor-pointer transition-transform duration-200 sm:hover:scale-[1.04]"
-                aria-label="See more photos"
-            >
+            <Link to={to} className={linkClassName} aria-label="See more photos">
                 {content}
             </Link>
         );

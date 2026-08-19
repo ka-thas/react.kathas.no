@@ -104,7 +104,7 @@ const languages = [
 ];
 
 function CVPage() {
-  return (
+  return (<>
     <main className="max-w-[1000px] mx-auto px-4 pb-16 flex flex-col">
 
       {/* Hero */}
@@ -252,8 +252,9 @@ function CVPage() {
 
         </div>
       </div>
-            <Footer />
     </main>
+      <Footer />
+      </>
   );
 }
 

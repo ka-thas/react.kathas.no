@@ -26,7 +26,7 @@ function CommitInfo() {
   }, []);
 
   return (
-    <p className="text-white/60 text-sm">
+    <p className="text-white/60 text-sm mb-4">
       This website was updated {date}:{" "}
       <a
         href="https://github.com/ka-thas/react.kathas.no"
