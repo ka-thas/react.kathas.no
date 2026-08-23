@@ -17,7 +17,7 @@
 }
 
 .sticker-btn:focus-visible {
-    outline: 3px solid #00ff80;
+    outline: 3px solid var(--color-accent-green);
     outline-offset: 4px;
     border-radius: 12px;
 }
@@ -49,13 +49,13 @@
     font-size: 0.95rem;
     letter-spacing: 0.02em;
     text-transform: capitalize;
-    color: rgba(255, 255, 255, 0.72);
+    color: rgba(0, 0, 0, 0.65);
     transition: color 0.2s ease;
 }
 
 .sticker-btn:hover .sticker-label,
 .sticker-btn:focus-visible .sticker-label {
-    color: #00ff80;
+    color: var(--color-accent-green);
 }
 
 /* Small variant — used for the persistent corner home sticker. */

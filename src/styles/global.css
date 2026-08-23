@@ -2,6 +2,13 @@
 
 @import "tailwindcss";
 
+@theme {
+    /* Darker than the raw brand hues so text/links clear WCAG AA (4.5:1)
+       against the light body background below. */
+    --color-accent-green: #047857;
+    --color-accent-yellow: #b45309;
+}
+
 :root {
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -23,11 +30,11 @@ body {
     font-family: "DM Sans", sans-serif;
     font-size: larger;
     background:
-        radial-gradient(50% 40% at 15% 0%, rgba(0, 255, 128, 0.12), transparent 90%),
-        radial-gradient(45% 45% at 90% 20%, rgba(239, 255, 120, 0.08), transparent 90%),
-        #16271e;
+        radial-gradient(50% 40% at 15% 0%, rgba(0, 170, 128, 0.12), transparent 90%),
+        radial-gradient(45% 45% at 90% 20%, rgba(239, 170, 120, 0.08), transparent 90%),
+        #f1fff8;
     background-attachment: fixed;
-    color: #fff;
+    color: #000;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -37,7 +44,7 @@ body {
 /* Drop the aurora radial-gradients on phones — keep the solid base color. */
 @media (max-width: 640px) {
     body {
-        background: #16271e;
+        background: #f1fff8;
     }
 }
 
@@ -49,12 +56,12 @@ main {
 }
 
 a {
-    color: #00ff80;
+    color: var(--color-accent-green);
     text-decoration: none;
 }
 
 a:hover {
-    color: #efff78;
+    color: var(--color-accent-yellow);
 }
 
 /* Used by Marquee.jsx — the offset is set per-instance via the
@@ -80,7 +87,7 @@ a:hover {
 
 /* Gradient text helper — kept here per project convention. */
 .gradient-text {
-    background: linear-gradient(100deg, #00ff80, #efff78);
+    background: linear-gradient(100deg, var(--color-accent-green), var(--color-accent-yellow));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
