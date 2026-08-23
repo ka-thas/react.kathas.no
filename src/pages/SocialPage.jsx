@@ -66,9 +66,6 @@ const steamIcon = (
 function SocialPage() {
   return (
     <>
-      <p className="text-[larger] text-white absolute bg-[#132] py-[10px] px-[20vw] rounded-lg opacity-0 transition-opacity duration-100 z-[4] shadow-[0px_1.2px_2.2px_rgba(0,0,0,0.028),0px_3px_5.3px_rgba(0,0,0,0.035),0px_5.6px_10px_rgba(0,0,0,0.038),0px_10.1px_17.9px_rgba(0,0,0,0.041),0px_18.8px_33.4px_rgba(0,0,0,0.047),0px_45px_80px_rgba(0,0,0,0.07)]">
-        Copied!
-      </p>
       <Marquee
         text="Hello · வணக்கம் · Hei · 안녕하세요 · Hola · こんにちは · Bonjour · Zdravo · Ciao ·"
         speed={50}
