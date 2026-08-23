@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import "../styles/global.css";
-import Footer from "../components/footer.jsx";
+import Footer from "../components/Footer.jsx";
 
 // eager: true bundles all posts synchronously — no async loading needed at render time
 const postModules = import.meta.glob("../posts/**/*.{md,mdx}", { eager: true });

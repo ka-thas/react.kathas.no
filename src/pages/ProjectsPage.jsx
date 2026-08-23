@@ -1,6 +1,6 @@
 import "../styles/global.css";
 import { useState } from "react";
-import Footer from "../components/footer.jsx";
+import Footer from "../components/Footer.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 import ProjectModal from "../components/ProjectModal.jsx";
 import { projectImages } from "../assets/projectImages";
