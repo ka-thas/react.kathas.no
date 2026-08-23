@@ -55,13 +55,17 @@ main {
     z-index: 1;
 }
 
-a {
-    color: var(--color-accent-green);
-    text-decoration: none;
-}
+/* Layered so text-color utilities (e.g. LinktreeLink's text-white) can
+   still override this default — unlayered CSS always beats @layer utilities. */
+@layer base {
+    a {
+        color: var(--color-accent-green);
+        text-decoration: none;
+    }
 
-a:hover {
-    color: var(--color-accent-yellow);
+    a:hover {
+        color: var(--color-accent-yellow);
+    }
 }
 
 /* Used by Marquee.jsx — the offset is set per-instance via the

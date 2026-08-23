@@ -10,7 +10,7 @@ function NotFoundPage() {
         <p className="text-xl opacity-60 mt-4 mb-8">This page doesn't exist 🥀</p>
         <Link
           to="/"
-          className="px-5 py-2.5 rounded-lg bg-[rgba(0,255,128,0.1)] border border-[rgba(0,255,128,0.3)] text-[#00ff80] no-underline font-medium hover:bg-[rgba(0,255,128,0.18)] transition-colors duration-150"
+          className="px-5 py-2.5 rounded-lg bg-accent-green/10 border border-accent-green/30 text-accent-green no-underline font-medium hover:bg-accent-green/18 transition-colors duration-150"
         >
           Back to safety
         </Link>

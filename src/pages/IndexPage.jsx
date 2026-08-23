@@ -38,7 +38,7 @@ function IndexPage() {
 
         <p>
           Here's a quick read about{" "}
-          <Link to="/blog/my-masters-thesis" className="text-[#00ff80]">
+          <Link to="/blog/my-masters-thesis" className="text-accent-green">
             my master's thesis
           </Link>
           . The essence is a VLM guided Evolutionary Algorithm. Also, I'll be
@@ -61,18 +61,15 @@ function IndexPage() {
           <KaCaptcha />
           <div>
             This will unlock something
-            <span className="text-[0.62rem] font-bold tracking-[0.04em] uppercase bg-[rgba(239,255,120,0.18)] text-[#efff78] border border-[rgba(239,255,120,0.35)] rounded py-px px-[5px] leading-[1.4] ml-2">
+            <span className="text-[0.62rem] font-bold tracking-[0.04em] uppercase bg-accent-yellow/18 text-accent-yellow border border-accent-yellow/35 rounded py-px px-[5px] leading-[1.4] ml-2">
               soon
             </span>
           </div>
         </div>
  */}
       </main>
-      <div className="flex flex-col items-center gap-0 bg-[#243] w-full">
-
             <Footer />
             <CommitInfo />
-      </div>
     </>
   );
 }

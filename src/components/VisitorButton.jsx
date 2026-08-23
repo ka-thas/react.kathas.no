@@ -49,7 +49,7 @@ export default function VisitorButton() {
       onClick={handleClick}
       disabled={pending || count === null}
       aria-label="Visitor counter"
-      className="relative cursor-pointer inline-flex items-center gap-2 py-2 px-5 rounded-lg font-mono font-semibold text-[0.95rem] no-underline bg-[rgba(0,255,128,0.15)] text-[#00ff80] border border-[rgba(0,255,128,0.35)] hover:opacity-80 transition-opacity"
+      className="relative cursor-pointer inline-flex items-center gap-2 py-2 px-5 rounded-lg font-mono font-semibold text-[0.95rem] no-underline bg-accent-green/15 text-accent-green border border-accent-green/35 hover:opacity-80 transition-opacity"
     >
       🌱 {count !== null ? `${count}` : "…"}
       {sprouts.map((s) => (

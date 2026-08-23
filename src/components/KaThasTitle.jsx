@@ -5,7 +5,7 @@ function KaThasTitle({ className = "" }) {
         <img
             src={kaThasTitle}
             alt="Ka Thas"
-            className={`w-full max-w-md mx-auto object-contain md:object-cover aspect-[2386/1000] ${className}`}
+            className={`w-full max-w-md mx-auto drop-shadow-lg object-contain md:object-cover aspect-[2386/1000] ${className}`}
             fetchPriority="high"
             loading="eager"
             />

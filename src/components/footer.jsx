@@ -13,7 +13,7 @@ function Footer() {
 
     return (
         <>
-            <footer className="flex flex-col items-center gap-3 py-8 text-gray-300 bg-[#243] w-full">
+            <footer className="flex flex-col items-center gap-3 py-8 text-gray-300">
                 <div className="flex gap-5">
                     <span className="relative inline-block">
                         <button
@@ -24,7 +24,7 @@ function Footer() {
                             onMouseLeave={() => setCopyState("idle")}
                         >
                             <svg
-                                className="w-[30px] h-[30px] fill-white transition-transform duration-100 hover:scale-[1.2]"
+                                className="w-[30px] h-[30px] fill-black transition-transform duration-100 hover:scale-[1.2]"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                             >
@@ -36,7 +36,7 @@ function Footer() {
                                 className="absolute bottom-[calc(100%+6px)] left-1/2 -translate-x-1/2 z-50 rounded-[6px] px-[10px] py-[3px] text-[0.75rem] font-semibold whitespace-nowrap pointer-events-none shadow-[0_4px_14px_rgba(0,0,0,0.35)] transition-[background,color] duration-150"
                                 style={{
                                     background: copyState === "copied" ? "rgba(0,255,128,0.18)" : "rgba(30,61,43,0.97)",
-                                    color: copyState === "copied" ? "#00ff80" : "rgba(255,255,255,0.85)",
+                                    color: copyState === "copied" ? "var(--color-accent-green)" : "rgba(255,255,255,0.85)",
                                     border: copyState === "copied" ? "1px solid rgba(0,255,128,0.35)" : "1px solid rgba(255,255,255,0.12)",
                                 }}
                             >
@@ -48,7 +48,7 @@ function Footer() {
                         href="https://github.com/ka-thas"
                         icon={
                             <svg
-                                className="w-[30px] h-[30px] fill-white transition-transform duration-100 hover:scale-[1.2]"
+                                className="w-[30px] h-[30px] fill-black transition-transform duration-100 hover:scale-[1.2]"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                             >
@@ -60,7 +60,7 @@ function Footer() {
                         href="https://www.linkedin.com/in/ka-thas-6823a9293/"
                         icon={
                             <svg
-                                className="w-[30px] h-[30px] fill-white transition-transform duration-100 hover:scale-[1.2]"
+                                className="w-[30px] h-[30px] fill-black transition-transform duration-100 hover:scale-[1.2]"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                             >

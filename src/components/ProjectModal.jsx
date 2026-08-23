@@ -15,7 +15,7 @@ const externalLinkIcon = (
 );
 
 const linkVariants = {
-    demo: "bg-[rgba(0,255,128,0.15)] text-[#00ff80] border border-[rgba(0,255,128,0.35)]",
+    demo: "bg-accent-green/15 text-accent-green border border-accent-green/35",
     repo: "bg-white/8 text-white border border-white/20",
 };
 

@@ -1,7 +1,7 @@
 function ProjectCard({ project, onClick }) {
     return (
         <button
-            className="cursor-pointer rounded-[10px] overflow-hidden bg-[rgba(150,200,150,0.2)] border border-white/8 text-inherit text-left flex flex-col w-full p-0 transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:border-[rgba(0,255,128,0.3)]"
+            className="cursor-pointer rounded-[10px] overflow-hidden bg-[rgba(150,200,150,0.2)] border border-black/10 text-inherit text-left flex flex-col w-full p-0 transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.25)] hover:border-accent-green/40"
             onClick={onClick}
             aria-label={`View details for ${project.title}`}
         >
@@ -14,7 +14,7 @@ function ProjectCard({ project, onClick }) {
                     />
                 ) : (
                     <div
-                        className="w-full h-full bg-gradient-to-br from-[rgba(0,255,128,0.08)] to-[rgba(239,255,120,0.08)]"
+                        className="w-full h-full bg-gradient-to-br from-accent-green/8 to-accent-yellow/8"
                         aria-hidden="true"
                     />
                 )}
