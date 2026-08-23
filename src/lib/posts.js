@@ -21,6 +21,6 @@ export function isNew(date) {
 
 export function formatDate(d) {
   return d
-    ? new Date(d).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
+    ? new Date(d).toLocaleDateString("en-GB", { year: "numeric", month: "short", day: "numeric" })
     : "";
 }
