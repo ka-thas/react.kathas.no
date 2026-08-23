@@ -82,7 +82,7 @@ function SocialPage() {
           to="/blog/photos"
         />
         <KaThasTitle className="mb-5"/>
-        <p className="text-center max-w-[500px]">
+        <p className="text-center max-w-[500px] mb-6 ">
           Hi, I'm Ka from Oslo 🌱  <br />
           I like Sketching ✏️ Plants 🪴 and Coffee ☕ <br />
           Always happy to chat ~
@@ -123,9 +123,10 @@ function SocialPage() {
             icon={steamIcon}
             text="Steam"
           />
-        </div>{" "}
+        </div>
         {/* link container */}
       </main>
+      <Footer />
     </>
   );
 }

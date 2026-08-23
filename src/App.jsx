@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <HomeSticker />
+      {/* <HomeSticker /> */}
       <Navbar />
       <Routes>
         <Route path="/" element={<IndexPage />} />
