@@ -9,12 +9,14 @@ import NotFoundPage from "./pages/NotFoundPage.jsx";
 import HomeSticker from "./components/HomeSticker.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import "./styles/stickers.css";
+import Navbar from "./components/Navbar.jsx";
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
       <HomeSticker />
+      <Navbar />
       <Routes>
         <Route path="/" element={<IndexPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
