@@ -153,7 +153,7 @@ function CVPage() {
               <span>Oslo, Norway</span>
             </SidebarItem>
             <SidebarItem icon={<path d="M20.447 20.452h-3.554v-5.569c0-1.327-.027-3.033-1.848-3.033-1.849 0-2.131 1.44-2.131 2.926v5.676h-3.554V9h3.413v1.561h.049c.477-.9 1.64-1.85 3.37-1.85 3.6 0 4.262 2.37 4.262 5.45v6.291zM5.337 7a2.063 2.063 0 110-4.126 2.063 2.063 0 010 4.126zm1.777 13.452H3.56V9h3.554v11.452z"/>}>
-              <a className="text-accent-green text-[0.9rem] hover:text-accent-yellow" href="https://linkedin.com/in/ka-thas-6823a9293" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a className="text-accent-green text-[0.9rem] hover:text-accent-yellow" href="https://linkedin.com/in/ka-thas" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </SidebarItem>
           </SidebarCard>
 
@@ -215,11 +215,15 @@ function CVPage() {
           <section>
             <SectionTitle>Work Experience</SectionTitle>
             <Entry
-              title="Teaching Assistant" org="UiO" meta="Aug 2023 – Present"
+              title="Software Developer — Summer Internship" org="Bekk" meta="Jun 2026 – Jul 2026"
+              desc="Built a new web application for internal use, with React, Tanstack Router, and Next.js."
+            />
+            <Entry
+              title="Teaching Assistant" org="UiO" meta="Aug 2023 – Jun 2026"
               desc="Taught courses in Introduction to OOP, Mechatronics, Introduction to Operating Systems and Networks, and Algorithms and Data Structures."
             />
             <Entry
-              title="Lab Assistant" org="Sonen" meta="Jan 2025 – Present"
+              title="Lab Assistant" org="Sonen" meta="Jan 2025 – Feb 2026"
               desc="Maintain and provide training in the use of 3D printers, laser cutters, and other equipment."
             />
             <Entry

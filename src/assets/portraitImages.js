@@ -4,6 +4,10 @@
 // `magick input.HEIC -auto-orient -resize 1000x1000 -quality 72 out.webp`),
 // then import and add them to the array below.
 //
+// Each entry is { src, caption }. `caption` is optional — omit it (or leave
+// it undefined) for photos that don't need one. Captions show up in the
+// Masonry photo wall's lightbox, not in the small home-page portrait slot.
+//
 // 0 images  -> a labeled placeholder slot is shown.
 // 1 image   -> static photo.
 // 2+ images -> they cross-fade (dissolve) on a timer.
@@ -16,7 +20,6 @@ import me04 from "./images/me/img_1307.webp";
 import me05 from "./images/me/img_1494.webp";
 import me06 from "./images/me/img_1504.webp";
 import me07 from "./images/me/img_1698.webp";
-import me08 from "./images/me/img_1700.webp";
 import me09 from "./images/me/img_1788.webp";
 import me10 from "./images/me/img_1857.webp";
 import me11 from "./images/me/img_1977.webp";
@@ -31,7 +34,24 @@ import me19 from "./images/me/img_8292.webp";
 import me20 from "./images/me/img_9369.webp";
 
 export const portraitImages = [
-  me11, me00, me01, me02, me03, me04, me05, me06,
-  me07, me08, me09, me10, me12, me13,
-  me14, me15, me16, me17, me18, me19, me20,
+  { src: me11 },
+  { src: me00, caption: "Gangnam, Seoul" },
+  { src: me01, caption: "Osaka Castle" },
+  { src: me02, caption: "Miyajima Island, JP" },
+  { src: me03 },
+  { src: me04 },
+  { src: me05, caption: "Amsterdam" },
+  { src: me06, caption: "Leiden" },
+  { src: me07, caption: "Leiden" },
+  { src: me09},
+  { src: me10, caption: "Samf, Trondheim" },
+  { src: me12},
+  { src: me13, caption: "Trondheim" },
+  { src: me14, caption: "Botanisk Hage" },
+  { src: me15, caption: "Copenhagen" },
+  { src: me16, caption: "Science Museum, London" },
+  { src: me17, caption: "Jajce, Bosnia" },
+  { src: me18, caption: "Jajce, Bosnia" },
+  { src: me19, caption: "Fadder" },
+  { src: me20, caption: "Halloween 2023" },
 ];

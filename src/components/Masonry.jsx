@@ -49,20 +49,25 @@ function Masonry({ images = portraitImages }) {
     return (
         <>
             <div className="columns-2 min-[681px]:columns-3 gap-3 my-6">
-                {images.map((src, i) => (
+                {images.map(({ src, caption }, i) => (
                     <button
                         key={i}
                         type="button"
                         onClick={() => setActive(i)}
                         aria-label={`Open photo ${i + 1} of ${images.length}`}
-                        className="block w-full mb-3 break-inside-avoid rounded-[0.6rem] overflow-hidden transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                        className="relative block w-full mb-3 break-inside-avoid rounded-[0.6rem] overflow-hidden transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                     >
                         <img
                             src={src}
-                            alt={`Ka Thas, photo ${i + 1}`}
+                            alt={caption || `Ka Thas, photo ${i + 1}`}
                             loading="lazy"
                             className="w-full block rounded-[0.6rem] shadow-[0_4px_12px_rgba(0,0,0,0.25)]"
                         />
+                        {caption && (
+                            <span className="absolute inset-x-0 bottom-0 px-2 py-1.5 text-[0.75rem] leading-tight text-white text-left bg-gradient-to-t from-black/70 to-transparent">
+                                {caption}
+                            </span>
+                        )}
                     </button>
                 ))}
             </div>
@@ -76,8 +81,8 @@ function Masonry({ images = portraitImages }) {
                     className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 animate-[fadeIn_150ms_ease-out]"
                 >
                     <img
-                        src={images[active]}
-                        alt={`Ka Thas, photo ${active + 1}`}
+                        src={images[active].src}
+                        alt={images[active].caption || `Ka Thas, photo ${active + 1}`}
                         onClick={(e) => e.stopPropagation()}
                         className="max-h-[90vh] max-w-[92vw] object-contain rounded-lg shadow-[0_8px_40px_rgba(0,0,0,0.6)]"
                     />
@@ -109,10 +114,19 @@ function Masonry({ images = portraitImages }) {
                             >
                                 ›
                             </button>
-                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white/10 text-white text-sm tabular-nums">
+                            <div className={`absolute left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white/10 text-white text-sm tabular-nums ${images[active].caption ? "bottom-14" : "bottom-4"}`}>
                                 {active + 1} / {images.length}
                             </div>
                         </>
+                    )}
+
+                    {images[active].caption && (
+                        <div
+                            onClick={(e) => e.stopPropagation()}
+                            className="absolute bottom-4 left-1/2 -translate-x-1/2 max-w-[90vw] px-3 py-1.5 rounded-full bg-white/10 text-white text-sm text-center"
+                        >
+                            {images[active].caption}
+                        </div>
                     )}
                 </div>
             )}

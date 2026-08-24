@@ -62,7 +62,7 @@ function Portrait({ interval = 4000, className = "", to }) {
             </div>
         ) : (
             <div className={`${slotBase} ${slotShape}`}>
-                {images.map((src, i) =>
+                {images.map(({ src }, i) =>
                     mounted.has(i) ? (
                         <img
                             key={i}

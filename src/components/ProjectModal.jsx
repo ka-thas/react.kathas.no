@@ -16,7 +16,7 @@ const externalLinkIcon = (
 
 const linkVariants = {
     demo: "bg-accent-green/15 text-accent-green border border-accent-green/35",
-    repo: "bg-white/8 text-white border border-white/20",
+    repo: "bg-black/6 text-black border border-black/20",
 };
 
 function ProjectModal({ project, onClose }) {
@@ -46,24 +46,24 @@ function ProjectModal({ project, onClose }) {
             aria-label={project.title}
         >
             <div
-                className="bg-[linear-gradient(160deg,#1e3d2b,#1a3020)] border border-white/10 rounded-[14px] max-w-[620px] w-full max-h-[90vh] overflow-y-auto p-8 relative shadow-[0_24px_64px_rgba(0,0,0,0.55)]"
+                className="bg-[#f8fffb] border border-black/10 rounded-[14px] max-w-[620px] w-full max-h-[90vh] overflow-y-auto p-8 relative shadow-[0_24px_64px_rgba(0,0,0,0.35)]"
                 onClick={(e) => e.stopPropagation()}
             >
                 <button
-                    className="absolute top-[0.9rem] right-[0.9rem] bg-white/8 border-none text-white text-[1.4rem] cursor-pointer leading-none py-[0.2rem] px-[0.55rem] rounded-md transition-[background] duration-150 hover:bg-white/18"
+                    className="absolute top-[0.9rem] right-[0.9rem] bg-black/6 border-none text-black text-[1.4rem] cursor-pointer leading-none py-[0.2rem] px-[0.55rem] rounded-md transition-[background] duration-150 hover:bg-black/12"
                     onClick={onClose}
                     aria-label="Close"
                 >
                     ×
                 </button>
-                <h2 className="text-[1.6rem] font-bold mt-0 mb-4 p-0 border-b border-white/15 pb-[0.6rem]">
+                <h2 className="text-[1.6rem] font-bold mt-0 mb-4 p-0 border-b border-black/10 pb-[0.6rem]">
                     {project.title}
                 </h2>
                 {project.imgSrc && (
                     <img
                         src={project.imgSrc}
                         alt={project.imgAlt}
-                        className="w-full h-auto max-h-[280px] object-contain rounded-lg mb-4 bg-black/20"
+                        className="w-full h-auto max-h-[280px] object-contain rounded-lg mb-4 bg-black/5"
                     />
                 )}
                 <div className="mb-6 leading-[1.65] opacity-[0.92] [&_p+p]:mt-3">
