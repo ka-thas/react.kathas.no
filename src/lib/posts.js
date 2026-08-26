@@ -1,18 +1,27 @@
-// eager: true bundles all posts synchronously — no async loading needed at render time
-const postModules = import.meta.glob("../posts/**/*.{md,mdx}", { eager: true });
+import { client } from "./sanityClient";
 
-function slugFromPath(path) {
-  return path.split("/").pop().replace(/\.(md|mdx)$/, "");
+const POSTS_QUERY = `*[_type == "post" && defined(slug.current)] | order(publishedAt desc){
+  "slug": slug.current,
+  title,
+  "date": publishedAt,
+  "description": excerpt
+}`;
+
+const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]{
+  title,
+  "date": publishedAt,
+  "description": excerpt,
+  body,
+  mainImage
+}`;
+
+export async function getAllPosts() {
+  return client.fetch(POSTS_QUERY);
 }
 
-export const posts = Object.entries(postModules)
-  .map(([path, mod]) => ({
-    slug: mod.frontmatter?.slug ?? slugFromPath(path),
-    title: mod.frontmatter?.title ?? slugFromPath(path),
-    date: mod.frontmatter?.date ?? "",
-    description: mod.frontmatter?.description ?? "",
-  }))
-  .sort((a, b) => new Date(b.date) - new Date(a.date));
+export async function getPostBySlug(slug) {
+  return client.fetch(POST_QUERY, { slug });
+}
 
 export function isNew(date) {
   if (!date) return false;

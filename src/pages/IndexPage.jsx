@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/global.css";
 import Footer from "../components/Footer";
@@ -9,9 +9,15 @@ import Portrait from "../components/Portrait";
 import CommitInfo from "../components/CommitInfo";
 import VisitorButton from "../components/VisitorButton";
 import PostCard from "../components/PostCard";
-import { posts } from "../lib/posts";
+import { getAllPosts } from "../lib/posts";
 
 function IndexPage() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    getAllPosts().then(setPosts);
+  }, []);
+
   const recentPosts = posts.slice(0, 3);
   return (
     <>

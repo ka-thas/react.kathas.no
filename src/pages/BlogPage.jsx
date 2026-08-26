@@ -1,9 +1,16 @@
+import { useEffect, useState } from "react";
 import "../styles/global.css";
 import Footer from "../components/Footer.jsx";
 import PostCard from "../components/PostCard";
-import { posts } from "../lib/posts";
+import { getAllPosts } from "../lib/posts";
 
 function BlogPage() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    getAllPosts().then(setPosts);
+  }, []);
+
   const recentPosts = posts.slice(0, 3);
   const olderPosts = posts.slice(3);
 
