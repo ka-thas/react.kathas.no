@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { captchaImages } from "../assets/captchaImages";
 
-const all_images = Object.values(captchaImages);
+// const all_images = Object.values(captchaImages);
 
 const placeholders = [
   { id: 1, src: captchaImages.squid_game, verified: true },

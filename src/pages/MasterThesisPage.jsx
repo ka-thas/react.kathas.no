@@ -1,5 +1,5 @@
 import "../styles/global.css";
-import Footer from "../components/footer.jsx";
+import Footer from "../components/Footer.jsx";
 import Countdown from "../components/Countdown.jsx";
 import PostCard from "../components/PostCard.jsx";
 
