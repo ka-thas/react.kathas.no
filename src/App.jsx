@@ -1,15 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar.jsx";
 import IndexPage from "./pages/IndexPage.jsx";
 import SocialPage from "./pages/SocialPage.jsx";
 import ProjectsPage from "./pages/ProjectsPage.jsx";
 import CVPage from "./pages/CVPage.jsx";
 import BlogPage from "./pages/BlogPage.jsx";
 import BlogPostPage from "./pages/BlogPostPage.jsx";
+import MasterThesisPage from "./pages/MasterThesisPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
-import HomeSticker from "./components/HomeSticker.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import "./styles/stickers.css";
-import Navbar from "./components/Navbar.jsx";
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
         <Route path="/cv" element={<CVPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="/thesis" element={<MasterThesisPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
