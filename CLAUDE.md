@@ -40,4 +40,3 @@ To exercise the `/api/visit` serverless function locally you need the Vercel dev
 - Components are `.jsx` and authored as React 19 function components.
 - **Styling is Tailwind utility classes inline in JSX**, frequently with arbitrary values for the site's dark/neon theme (accent green `#00ff80`, yellow `#efff78`). Page-scoped CSS lives in `src/styles/` (`global.css`, `stickers.css`). Match the existing inline-utility style rather than adding new CSS files.
 - ESLint flag config in `eslint.config.js`: `no-unused-vars` ignores PascalCase/CONSTANT identifiers (`varsIgnorePattern: '^[A-Z_]'`), so unused capitalized imports won't error. React Hooks rules are enforced.
-- `CommitInfo.jsx` fetches the latest commit from the GitHub API (`ka-thas/react.kathas.no`) to show a "last updated" line — it depends on the repo name/path staying correct.
