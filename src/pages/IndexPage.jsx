@@ -9,6 +9,7 @@ import Portrait from "../components/Portrait";
 import CommitInfo from "../components/CommitInfo";
 import VisitorButton from "../components/VisitorButton";
 import PostCard from "../components/PostCard";
+import Countdown from "../components/Countdown";
 import { posts } from "../lib/posts";
 
 function IndexPage() {
@@ -27,14 +28,17 @@ function IndexPage() {
                 master's student at UiO in robotics and machine learning.
               </p>
             </div>
-          </div>
+        </div>
+
+        <Countdown date="2026-09-08" label="leaving for Nagoya" />
+
         <StickerCluster />
 
         <div className="flex flex-col items-center gap-2">
           <VisitorButton />
         </div>
 
-        
+
 
         <p>
           Here's a quick read about{" "}
