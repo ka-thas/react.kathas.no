@@ -51,6 +51,12 @@ const linkedinIcon = (
   </svg>
 );
 
+const lineIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-[30px] h-[30px] fill-black shrink-0 transition-transform duration-100 group-hover:scale-[1.2]" viewBox="0 0 24 24">
+    <path d="M12 3C6.477 3 2 6.646 2 11.143c0 4.029 3.591 7.398 8.438 8.035.328.07.773.218.887.5.103.256.067.657.033.916l-.145.875c-.045.258-.206 1.012.887.552 1.093-.46 5.897-3.471 8.048-5.943C21.62 14.594 22 12.949 22 11.143 22 6.646 17.523 3 12 3zm-4.168 9.52H5.898V8.872h1.934v3.648zm3.787 0h-1.934V8.872h1.934v3.648zm4.917 0h-1.934l-1.996-3.648h1.934l1.996 3.648zm1.566 0h-1.934V8.872h1.934v3.648z" />
+  </svg>
+);
+
 const githubIcon = (
   <svg className="w-[30px] h-[30px] fill-black shrink-0 transition-transform duration-100 group-hover:scale-[1.2]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M12 .3a12 12 0 00-3.79 23.4c.6.1.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.23 1.84 1.23 1.07 1.82 2.82 1.3 3.51.99.11-.77.42-1.3.76-1.6-2.66-.3-5.46-1.34-5.46-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.52 11.52 0 016 0c2.28-1.55 3.3-1.23 3.3-1.23.66 1.64.24 2.86.12 3.16.77.84 1.24 1.9 1.24 3.22 0 4.62-2.8 5.64-5.47 5.94.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58A12 12 0 0012 .3" />
@@ -115,6 +121,11 @@ function SocialPage() {
             href="https://www.linkedin.com/in/ka-thas"
             icon={linkedinIcon}
             text="LinkedIn"
+          />
+          <LinktreeLink
+            href="https://line.me/ti/p/FdS7gcPgSS"
+            icon={lineIcon}
+            text="LINE"
           />
           <LinktreeLink
             href="https://github.com/ka-thas"
