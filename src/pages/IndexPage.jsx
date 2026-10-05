@@ -19,7 +19,7 @@ function IndexPage() {
       <main className="max-w-2xl w-full mx-auto flex flex-col items-center justify-center p-8 pt-15 mb-6 gap-15">
           <KaThasTitle />
 
-          <div className="flex flex-col sm:flex-row items-start gap-5 w-full">
+          <div className="flex flex-col sm:flex-row items-center gap-5 w-full">
             <Portrait to="/blog/photos" />
             <div className="flex flex-col gap-4">
               <p className="text-left">
@@ -30,7 +30,7 @@ function IndexPage() {
             </div>
         </div>
 
-        <Countdown date="2026-09-08" label="leaving for Nagoya" />
+        <Countdown date="2026-09-09" label="arriving in Nagoya" />
 
         <StickerCluster />
 
@@ -38,15 +38,12 @@ function IndexPage() {
           <VisitorButton />
         </div>
 
-
-
         <p>
           Here's a quick read about{" "}
           <Link to="/blog/my-masters-thesis" className="text-accent-green">
             my master's thesis
           </Link>
-          . The essence is a VLM guided Evolutionary Algorithm. Also, I'll be
-          writing from Japan 🇯🇵
+          . The essence is a VLM guided Evolutionary Algorithm. Also, I'm writing from Japan 🇯🇵
         </p>
 
         {recentPosts.length > 0 && (
