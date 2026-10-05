@@ -103,7 +103,7 @@ function SocialPage() {
         </p>
         <div className="flex flex-col items-center">
           <LinktreeLink
-            href="https://www.instagram.com/kaaathas/"
+            href="https://www.instagram.com/ka.thas"
             icon={instagramIcon}
             text="Instagram"
           />
