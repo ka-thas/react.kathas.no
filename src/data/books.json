@@ -26,5 +26,40 @@
     "rating": 3,
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1450699039l/1772910.jpg",
     "date": "2026-03-23"
+  },
+  {
+    "title": "Babel",
+    "id": "57945316",
+    "rating": 5,
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1677361825l/57945316._SY475_.jpg",
+    "date": "2025-11-28"
+  },
+  {
+    "title": "Dune (Dune, #1)",
+    "id": "44767458",
+    "rating": 4,
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1555447414l/44767458.jpg",
+    "date": "2024-05-01"
+  },
+  {
+    "title": "Holes (Holes, #1)",
+    "id": "38709",
+    "rating": 5,
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1618269830l/38709._SX318_.jpg",
+    "date": "2017-03-01"
+  },
+  {
+    "title": "Ready Player One (Ready Player One, #1)",
+    "id": "9969571",
+    "rating": 5,
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1500930947l/9969571._SY475_.jpg",
+    "date": "2015-11-01"
+  },
+  {
+    "title": "The Little Prince",
+    "id": "157993",
+    "rating": 5,
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1367545443l/157993.jpg",
+    "date": "2014-01-01"
   }
 ]
