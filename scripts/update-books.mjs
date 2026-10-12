@@ -45,17 +45,15 @@ const items = await fetchItems();
 if (items.length === 0) throw new Error("Feed returned no books; refusing to overwrite");
 
 const books = items
-  .map((item) => {
-    // Most books have no read date, so fall back to when they were added.
-    const date = new Date(field(item, "user_read_at") || field(item, "user_date_added"));
-    return {
-      title: field(item, "title"),
-      id: field(item, "book_id"),
-      rating: Number(field(item, "user_rating")) || 0,
-      cover: field(item, "book_large_image_url") || field(item, "book_image_url"),
-      date: date.toISOString().slice(0, 10),
-    };
-  })
+  // Only books with a read date set on Goodreads; the rest are skipped.
+  .filter((item) => field(item, "user_read_at"))
+  .map((item) => ({
+    title: field(item, "title"),
+    id: field(item, "book_id"),
+    rating: Number(field(item, "user_rating")) || 0,
+    cover: field(item, "book_large_image_url") || field(item, "book_image_url"),
+    date: new Date(field(item, "user_read_at")).toISOString().slice(0, 10),
+  }))
   .filter((b) => !SKIP_IDS.has(b.id))
   .sort((a, b) => a.date.localeCompare(b.date))
   .reverse();
