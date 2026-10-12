@@ -18,7 +18,8 @@ import {
   whatsappIcon,
   githubIcon,
   steamIcon,
-  spotifyIcon
+  spotifyIcon,
+  goodreadsIcon
 } from "../assets/socialIcons.jsx";
 
 function SocialPage() {
@@ -92,6 +93,11 @@ function SocialPage() {
             href="https://open.spotify.com/user/kavinthas"
             icon={spotifyIcon}
             text="Spotify"
+          />
+          <LinktreeLink
+            href="https://www.goodreads.com/user/show/195763733"
+            icon={goodreadsIcon}
+            text="Goodreads"
           />
         </div>
       </main>
