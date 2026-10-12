@@ -1,0 +1,32 @@
+---
+title: Books I've read
+date: 2026-10-12
+description: Every book on my Goodreads "read" shelf.
+---
+
+import books from "../data/books.json";
+
+Follow along on [my Goodreads profile](https://www.goodreads.com/user/show/195763733).
+
+<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 mt-6">
+  {books.map((b) => (
+    <a
+      key={b.id}
+      href={`https://www.goodreads.com/book/show/${b.id}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={b.title}
+      className="group flex flex-col items-center"
+    >
+      <img
+        src={b.cover}
+        alt={b.title}
+        loading="lazy"
+        className="w-full aspect-[2/3] object-cover rounded-md shadow-md transition-transform duration-100 group-hover:scale-[1.05]"
+      />
+      <span className="mt-1.5 text-sm tracking-wide" aria-label={`${b.rating} of 5 stars`}>
+        {"★".repeat(b.rating)}<span className="text-black/20">{"★".repeat(5 - b.rating)}</span>
+      </span>
+    </a>
+  ))}
+</div>
