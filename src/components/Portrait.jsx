@@ -47,7 +47,7 @@ function Portrait({ interval = 4000, className = "", to }) {
     const slotBase = "relative overflow-hidden shrink-0 bg-[#14241c]";
     const slotShape =
         className ||
-        "w-full aspect-square rounded-none sm:w-44 sm:h-44 sm:aspect-auto sm:rounded-[1.4rem] sm:shadow-[0_6px_16px_rgba(0,0,0,0.28)]";
+        "w-full aspect-square rounded-[1rem] sm:w-44 sm:h-44 sm:aspect-auto sm:shadow-[0_6px_16px_rgba(0,0,0,0.28)]";
 
     const content =
         images.length === 0 ? (
@@ -79,7 +79,7 @@ function Portrait({ interval = 4000, className = "", to }) {
     if (to) {
         const linkClassName = className
             ? "inline-block leading-none cursor-pointer transition-transform duration-200 hover:scale-[1.04]"
-            : "block w-screen relative left-1/2 -translate-x-1/2 sm:w-auto sm:left-auto sm:translate-x-0 sm:inline-block leading-none cursor-pointer transition-transform duration-200 sm:hover:scale-[1.04]";
+            : "block w-[calc(100vw-20px)] mx-[calc(50%-50vw+10px)] sm:w-auto sm:mx-0 sm:inline-block leading-none cursor-pointer transition-transform duration-200 sm:hover:scale-[1.04]";
         return (
             <Link to={to} className={linkClassName} aria-label="See more photos">
                 {content}
