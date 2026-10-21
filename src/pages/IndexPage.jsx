@@ -23,7 +23,9 @@ function IndexPage() {
             <Portrait/>
             <div className="flex flex-col gap-4">
               <p className="text-left">
-                Hi there! Welcome to my own little nook of the internet. Here you'll find some projects, interests, and other tidbits. I'm a master's student at UiO in robotics and machine learning.
+              Hi there! Welcome to my own little nook of the internet.
+              Here you'll find some projects, interests, and other tidbits.
+              I'm doing my master's at UiO, studying robotics and AI.
               </p>
             </div>
         </div>
