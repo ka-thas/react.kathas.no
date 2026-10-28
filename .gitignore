@@ -26,3 +26,6 @@ dist-ssr
 .claude
 .vercel
 .env*
+
+# Goodreads export (contains private notes)
+goodreads_library_export*.csv
