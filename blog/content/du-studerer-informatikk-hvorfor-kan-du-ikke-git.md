@@ -2,6 +2,7 @@
 title: Du studerer informatikk. Hvorfor kan du ikke Git?
 date: 2026-03-13
 description: Vi lærer nevrale nettverk og OS-programmering, men mange IFI-studenter kan ikke Git. Det må vi gjøre noe med.
+featured: true
 ---
 
 > Vi lærer å programmere, trene nevrale netverk, og bygge OS. Likevel står mange IFI-studenter fortsatt og fomler med helt grunnleggende versjonskontroll. Å gå på IFI uten å kunne git er som å gå på barneskolen uten å kunne lese. Vi må slutte å late som Git er valgfritt.

@@ -108,12 +108,12 @@ plugins:
   - source: "@quartz-community/tag-page"
     enabled: true
   - source: "@quartz-community/explorer"
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 50
   - source: "@quartz-community/graph"
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 10
@@ -171,7 +171,9 @@ plugins:
     options: {}
     order: 45
   # Off: breadcrumbs, dark mode, reader mode, the footer (the kathas.no navbar
-  # from quartz.ts replaces it), and the new v5 properties box.
+  # from quartz.ts replaces it), and the new v5 properties box. Explorer and
+  # graph are off too: the left pane is built in quartz.ts (jzhao.xyz-style
+  # Selected Writing / Recent Notes), and the right pane is TOC + backlinks.
   - source: "@quartz-community/breadcrumbs"
     enabled: false
   - source: "@quartz-community/darkmode"

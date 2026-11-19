@@ -2,6 +2,7 @@
 title: Evolutionary algorithm
 date: 2026-05-23
 description: EA concepts explained and illustrated with castles
+featured: true
 ---
 
 Here’s my introduction to evolutionary algorithms, written for a general audience.

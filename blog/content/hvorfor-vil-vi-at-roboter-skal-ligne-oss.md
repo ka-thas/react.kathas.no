@@ -2,6 +2,7 @@
 title: Hvorfor vil vi at roboter skal ligne oss?
 date: 2026-04-21
 description: Roboter må ikke være formet som mennesker, men det er én veldig god grunn til at de er det.
+featured: true
 ---
 
 > Roboter *må* ikke være formet som mennesker. De kan kjøre rundt på hjul i stedet for bein, eller de kan fly rundt med propeller. Så hvorfor insisterer selskapene på å lage humanoide roboter?
