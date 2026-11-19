@@ -8,7 +8,7 @@
     { "source": "/blog/my-masters-thesis", "destination": "/my-masters-thesis", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/blog/:path*", "destination": "/blog/404.html" },
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    { "source": "/blog/:path*", "destination": "/blog/404" },
+    { "source": "/((?!api/).*)", "destination": "/" }
   ]
 }
