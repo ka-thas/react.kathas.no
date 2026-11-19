@@ -23,6 +23,12 @@ cp icon.png .quartz/quartz/static/icon.png
 # Custom components, plus the nav links shared with the React navbar.
 cp components/*.tsx ../src/data/navLinks.json .quartz/quartz/components/
 
+# 404 button text (Quartz's en-GB locale; it's only used by the 404 page).
+# Fails the build if a Quartz upgrade moves the string, instead of silently reverting.
+LOCALE=.quartz/quartz/i18n/locales/en-GB.ts
+sed -i.bak 's/home: "Return to Homepage"/home: "Back to safety"/' "$LOCALE" && rm -f "$LOCALE.bak"
+grep -q 'home: "Back to safety"' "$LOCALE" || { echo "build.sh: 404 button text not patched in $LOCALE" >&2; exit 1; }
+
 # Notes (the Obsidian vault). Quartz skips .obsidian/ and templates/ via ignorePatterns.
 rm -rf .quartz/content
 cp -R content .quartz/content
