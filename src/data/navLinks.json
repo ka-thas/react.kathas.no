@@ -1,0 +1,8 @@
+[
+  { "to": "/", "label": "Home" },
+  { "to": "/projects", "label": "Projects" },
+  { "to": "/cv", "label": "CV" },
+  { "to": "/thesis", "label": "Thesis", "isNew": true },
+  { "to": "/blog/", "label": "Blog", "fullReload": true },
+  { "to": "/social", "label": "Socials" }
+]

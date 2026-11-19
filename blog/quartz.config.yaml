@@ -1,0 +1,203 @@
+# yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
+# Quartz v5 config for kathas.no/blog. build.sh copies it into .quartz/.
+# Colours/fonts mirror src/styles/global.css (DM Sans, mint background,
+# green #047857 links, amber #b45309 hover). Light only: the darkmode plugin is
+# off, so darkMode just repeats the light palette.
+configuration:
+  pageTitle: Ka's blog
+  pageTitleSuffix: " · Ka Thas"
+  enableSPA: true
+  enablePopovers: true
+  prefetch: viewport
+  analytics: null
+  locale: en-GB
+  baseUrl: kathas.no/blog
+  ignorePatterns:
+    - private
+    - templates
+    - .obsidian
+    - .trash
+  theme:
+    fontOrigin: googleFonts
+    cdnCaching: true
+    typography:
+      header:
+        name: DM Sans
+        weights: [400, 700, 800]
+      body:
+        name: DM Sans
+        weights: [400, 600]
+        includeItalic: true
+      code: IBM Plex Mono
+    colors:
+      lightMode: &light
+        light: "#f1fff8"
+        lightgray: "#d3e9dd"
+        gray: "#7f9a8c"
+        darkgray: "#1f2a24"
+        dark: "#000000"
+        secondary: "#047857"
+        tertiary: "#b45309"
+        highlight: rgba(4, 120, 87, 0.08)
+        textHighlight: "#efff78aa"
+      darkMode: *light
+  links:
+    markdownLinkResolution: shortest
+  contentIndex:
+    enableSiteMap: true
+    enableRSS: true
+plugins:
+  # Real post dates come from `date:` frontmatter; git/filesystem dates on
+  # Vercel would just be the build time.
+  - source: "@quartz-community/created-modified-date"
+    enabled: true
+    options:
+      defaultDateType: created
+      priority:
+        - frontmatter
+    order: 10
+  - source: "@quartz-community/syntax-highlighting"
+    enabled: true
+    options:
+      theme:
+        light: github-light
+        dark: github-light
+      keepBackground: false
+    order: 20
+  - source: "@quartz-community/github-flavored-markdown"
+    enabled: true
+    order: 30
+  - source: "@quartz-community/obsidian-flavored-markdown"
+    enabled: true
+    options:
+      enableInHtmlEmbed: false
+      enableCheckbox: true
+    order: 40
+  - source: "@quartz-community/table-of-contents"
+    enabled: true
+    order: 50
+    layout:
+      position: right
+      priority: 30
+  - source: "@quartz-community/description"
+    enabled: true
+    order: 70
+  - source: "@quartz-community/latex"
+    enabled: true
+    options:
+      renderEngine: katex
+    order: 80
+  - source: "@quartz-community/quartz-fonts"
+    enabled: true
+  - source: "@quartz-community/alias-redirects"
+    enabled: true
+  - source: "@quartz-community/favicon"
+    enabled: true
+  # Slow, and kathas.no already has an og-image.
+  - source: "@quartz-community/og-image"
+    enabled: false
+  # kathas.no's domain is set in Vercel, not by a CNAME file.
+  - source: "@quartz-community/cname"
+    enabled: false
+  - source: "@quartz-community/canvas-page"
+    enabled: true
+  - source: "@quartz-community/content-page"
+    enabled: true
+  - source: "@quartz-community/folder-page"
+    enabled: true
+  - source: "@quartz-community/tag-page"
+    enabled: true
+  - source: "@quartz-community/explorer"
+    enabled: true
+    layout:
+      position: left
+      priority: 50
+  - source: "@quartz-community/graph"
+    enabled: true
+    layout:
+      position: right
+      priority: 10
+  - source: "@quartz-community/search"
+    enabled: true
+    layout:
+      position: left
+      priority: 20
+      group: toolbar
+      groupOptions:
+        grow: true
+  - source: "@quartz-community/backlinks"
+    enabled: true
+    layout:
+      position: right
+      priority: 50
+  - source: "@quartz-community/article-title"
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 10
+  - source: "@quartz-community/content-meta"
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 20
+      # The landing page has no `date:`, so its meta would just show the build date.
+      condition: not-index
+  - source: "@quartz-community/tag-list"
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 30
+  - source: "@quartz-community/page-title"
+    enabled: true
+    layout:
+      position: left
+      priority: 10
+  - source: "@quartz-community/spacer"
+    enabled: true
+    options: {}
+    order: 25
+    layout:
+      position: left
+      priority: 25
+      display: mobile-only
+  - source: "@quartz-community/bases-page"
+    enabled: true
+    options: {}
+    order: 50
+  - source: "@quartz-community/unlisted-pages"
+    enabled: true
+    options: {}
+    order: 45
+  # Off: breadcrumbs, dark mode, reader mode, the footer (the kathas.no navbar
+  # from quartz.ts replaces it), and the new v5 properties box.
+  - source: "@quartz-community/breadcrumbs"
+    enabled: false
+  - source: "@quartz-community/darkmode"
+    enabled: false
+  - source: "@quartz-community/reader-mode"
+    enabled: false
+  - source: "@quartz-community/footer"
+    enabled: false
+  - source: "@quartz-community/note-properties"
+    enabled: false
+layout:
+  groups:
+    toolbar:
+      priority: 35
+      direction: row
+      gap: 0.5rem
+  byPageType:
+    "404":
+      positions:
+        beforeBody: []
+        left: []
+        right: []
+    content: {}
+    folder:
+      positions:
+        right: []
+    tag:
+      positions:
+        right: []
+    canvas: {}
+    bases: {}

@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "dev:blog": "bash blog/build.sh --serve",
+    "build": "vite build && bash blog/build.sh",
     "lint": "eslint .",
     "preview": "vite preview",
-    "update-books": "node scripts/update-books.mjs"
+    "update-books": "node scripts/update-books.mjs",
+    "build:blog": "bash blog/build.sh"
   },
   "dependencies": {
     "@mdx-js/rollup": "^3.1.1",

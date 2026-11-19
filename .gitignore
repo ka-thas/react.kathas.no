@@ -29,3 +29,13 @@ dist-ssr
 
 # Goodreads export (contains private notes)
 goodreads_library_export*.csv
+
+# Quartz checkout used by blog/build.sh
+blog/.quartz
+
+# Obsidian vault (blog/content): share settings, not per-device state
+blog/content/.obsidian/*
+!blog/content/.obsidian/app.json
+!blog/content/.obsidian/templates.json
+!blog/content/.obsidian/core-plugins.json
+blog/content/.trash

@@ -1,0 +1,35 @@
+@use "./variables.scss" as *;
+
+// kathas.no touches on top of Quartz's theme (colours/fonts are in quartz.config.yaml).
+// Unlayered, so these win over Quartz and plugin styles regardless of specificity.
+
+// Same soft "aurora" wash as the React site's body (src/styles/global.css).
+:root body {
+  background:
+    radial-gradient(50% 40% at 15% 0%, rgba(0, 170, 128, 0.12), transparent 90%),
+    radial-gradient(45% 45% at 90% 20%, rgba(239, 170, 120, 0.08), transparent 90%),
+    var(--light);
+  background-attachment: fixed;
+}
+
+@media (max-width: 640px) {
+  :root body {
+    background: var(--light);
+  }
+}
+
+h1.article-title,
+.page-title {
+  font-weight: 800;
+}
+
+// The kathas.no navbar (components/SiteNav.tsx) already adds 3.5rem above the
+// page, so trim Quartz's 6rem top spacing to match.
+@media all and (min-width: 800px) {
+  #quartz-body .sidebar {
+    padding-top: 2.5rem;
+  }
+  #quartz-body .page-header {
+    margin-top: 2.5rem;
+  }
+}
