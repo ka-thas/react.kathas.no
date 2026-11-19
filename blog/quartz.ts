@@ -1,7 +1,7 @@
 // Quartz v5 entry, copied over the default by build.sh. Most settings live in
 // quartz.config.yaml. This file adds what YAML can't express:
 //  - the kathas.no navbar (blog/components/SiteNav.tsx, a local component) in the header
-//  - the left pane, laid out like jzhao.xyz: title, search, then "Selected Writing"
+//  - the left pane, laid out like jzhao.xyz: title with a search icon, then "Selected Writing"
 //    (posts with `featured: true`) and "Recent Notes" (newest posts). Both need
 //    filter functions, which is why the slot is built here. On phones the two
 //    lists move below the post.
@@ -46,10 +46,10 @@ export const layout = await loadQuartzLayout({
   defaults: {
     header: [SiteNav()],
     left: [
-      PageTitle(),
-      Component.MobileOnly(Component.Spacer()),
+      // Title with just the search icon to its right (styled icon-only in custom.scss).
       Component.Flex({
-        components: [{ Component: Search(), grow: true }],
+        components: [{ Component: PageTitle() }, { Component: Search() }],
+        gap: "0.5rem",
       }),
       ...lists().map((c) => Component.DesktopOnly(c)),
     ],

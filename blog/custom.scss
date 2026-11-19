@@ -146,3 +146,37 @@ body[data-slug="404"] {
 .backlinks:has(> ul > li > a[href$="all-posts.base"]):not(:has(> ul > li:nth-child(2):not(.overflow-end))) {
   display: none;
 }
+
+// Left pane header row (quartz.ts): page title, then search as a bare icon.
+.sidebar.left > .flex-component:first-child {
+  width: 100%;
+  align-items: center;
+
+  & .page-title {
+    margin: 0;
+  }
+}
+
+.search > .search-button {
+  width: auto;
+  height: auto;
+  padding: 0.25rem;
+  border: none;
+  background: none;
+  border-radius: 6px;
+
+  & > p {
+    display: none;
+  }
+
+  & svg {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    margin: 0;
+  }
+
+  &:hover {
+    background: color-mix(in srgb, var(--dark) 6%, transparent);
+  }
+}
