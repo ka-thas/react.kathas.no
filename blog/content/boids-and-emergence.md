@@ -2,6 +2,7 @@
 title: Boids and emergent behavior
 date: 2026-05-31
 description: Emergent behavior from three simple rules.
+featured: true
 ---
 
 Each boid (bird-oid) is a simple reactive agent that follows three basic rules: separation, alignment, and cohesion. When you put a bunch of them together, they create lifelike flocking behavior. This demonstrates emergent behavior: complex patterns arising from simple interactions.

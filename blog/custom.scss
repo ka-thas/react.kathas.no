@@ -135,3 +135,14 @@ body[data-slug="404"] {
     }
   }
 }
+
+// The All posts base (content/All posts.base) links to every post, so it would
+// show up as a backlink everywhere. Hide that entry, and the whole section when
+// it's the only one (like backlinks' hideWhenEmpty).
+.backlinks li:has(> a[href$="all-posts.base"]) {
+  display: none;
+}
+// (No nested :has(): "the base is listed and there's no second real item".)
+.backlinks:has(> ul > li > a[href$="all-posts.base"]):not(:has(> ul > li:nth-child(2):not(.overflow-end))) {
+  display: none;
+}
