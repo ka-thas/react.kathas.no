@@ -33,3 +33,29 @@ h1.article-title,
     margin-top: 2.5rem;
   }
 }
+
+// Same reading width as thesis.kathas.no: the centre pane's text is capped at
+// 48rem and centred. Extra width becomes space around the text, and the side
+// panels sit at the screen edges (Quartz caps .page at 1500px by default).
+.page {
+  max-width: 100%;
+}
+
+#quartz-body {
+  // minmax(0, …) so wide code blocks/tables scroll instead of widening the grid.
+  @media all and ($desktop) {
+    grid-template-columns: $sidePanelWidth minmax(0, 1fr) $sidePanelWidth;
+  }
+  @media all and ($tablet) {
+    grid-template-columns: $sidePanelWidth minmax(0, 1fr);
+  }
+  @media all and not ($mobile) {
+    & > .center {
+      box-sizing: border-box;
+      width: 100%;
+      min-width: 0;
+      max-width: 48rem; // .center has no horizontal padding in this theme
+      justify-self: center;
+    }
+  }
+}
