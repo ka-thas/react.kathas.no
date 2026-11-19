@@ -41,7 +41,8 @@ h1.article-title,
   max-width: 100%;
 }
 
-#quartz-body {
+// Only the normal three-column frame; the 404's minimal frame centres itself below.
+.page[data-frame="default"] > #quartz-body {
   // minmax(0, …) so wide code blocks/tables scroll instead of widening the grid.
   @media all and ($desktop) {
     grid-template-columns: $sidePanelWidth minmax(0, 1fr) $sidePanelWidth;
@@ -56,6 +57,81 @@ h1.article-title,
       min-width: 0;
       max-width: 48rem; // .center has no horizontal padding in this theme
       justify-self: center;
+    }
+  }
+}
+
+// 404 page, styled like thesis.kathas.no's: a large faint "404", a muted
+// message and an outlined "Return to Homepage" button, centred on the page.
+// Quartz renders it in the "minimal" frame, without the kathas.no navbar.
+body[data-slug="404"] {
+  padding-top: 0; // no navbar here, so drop the space SiteNav reserves
+
+  & #quartz-root.page[data-frame="minimal"] {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  & #quartz-root.page[data-frame="minimal"] > #quartz-body {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    // One cell: Quartz's grid rows/areas would otherwise pin the content to the top row.
+    grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+    grid-template-areas: none;
+    place-items: center;
+    padding: 0;
+
+    & > div.center {
+      grid-area: 1 / 1;
+      min-width: 0;
+      max-width: none;
+      width: auto;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  & article {
+    text-align: center;
+    max-width: 28rem;
+    padding: 2rem 1.5rem;
+    font-family: var(--bodyFont);
+
+    & h1 {
+      font-size: 7rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin: 0 0 1.5rem;
+      color: var(--lightgray);
+    }
+
+    & p {
+      color: var(--gray);
+      margin: 0 0 2rem;
+    }
+
+    & a {
+      display: inline-block;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.55rem 1.2rem;
+      border: 1px solid var(--secondary);
+      border-radius: 6px;
+      color: var(--secondary);
+      background: transparent;
+      text-decoration: none;
+      transition:
+        background-color 0.15s,
+        color 0.15s;
+
+      &:hover {
+        background-color: var(--secondary);
+        color: var(--light);
+      }
     }
   }
 }
