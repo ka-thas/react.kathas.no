@@ -7,7 +7,8 @@ import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 
 export default defineConfig({
   plugins: [
-    { enforce: 'pre', ...mdx({ remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter] }) },
+    // Only .mdx: blog/content/*.md are Quartz notes, imported as ?raw text by src/lib/posts.js.
+    { enforce: 'pre', ...mdx({ include: /\.mdx$/, remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter] }) },
     react(),
     tailwindcss(),
   ],

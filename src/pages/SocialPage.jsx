@@ -35,7 +35,7 @@ function SocialPage() {
       <main className="flex flex-col justify-flex-start items-center p-8 gap-2 z-10">
         <Portrait
           className="w-32 h-32 rounded-full border-2 border-white shadow-[rgba(6,10,17,0.2)_0px_8px_24px] z-[1]"
-          to="/blog/photos"
+          to="/photos"
         />
         <KaThasTitle className="mb-5" />
         <p className="text-center max-w-[500px] mb-6 ">

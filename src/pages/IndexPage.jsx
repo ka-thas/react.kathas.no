@@ -40,7 +40,7 @@ function IndexPage() {
 
         <p>
           Here's a quick read about{" "}
-          <Link to="/blog/my-masters-thesis" className="text-accent-green">
+          <Link to="/my-masters-thesis" className="text-accent-green">
             my master's thesis
           </Link>
           . The essence is a VLM guided Evolutionary Algorithm. Also, I'm writing from Japan 🇯🇵
@@ -51,7 +51,7 @@ function IndexPage() {
             <h2>Recent Posts</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
               {recentPosts.map((post) => (
-                <PostCard key={post.slug} {...post} />
+                <PostCard key={post.href} {...post} />
               ))}
             </div>
           </div>

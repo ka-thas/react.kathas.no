@@ -10,7 +10,8 @@ Personal portfolio site for Ka Thas, served at kathas.no. React 19 + Vite SPA, s
 
 ```bash
 npm run dev      # Vite dev server (note: /api/* routes do NOT run here — see below)
-npm run build    # production build to dist/
+npm run build    # vite build to dist/, then the Quartz blog into dist/blog
+npm run dev:blog # build + serve the Quartz blog alone (Quartz's dev server)
 npm run preview  # serve the built dist/
 npm run lint     # eslint over the repo
 ```
@@ -21,11 +22,15 @@ To exercise the `/api/visit` serverless function locally you need the Vercel dev
 
 ## Architecture
 
-- **Routing** lives entirely in `src/App.jsx` via `react-router-dom`. Routes: `/`, `/projects`, `/social`, `/cv`, `/blog`, `/blog/:slug`, and `*` (NotFound). `ScrollToTop` and `HomeSticker` render outside `<Routes>` so they apply to every page. Vercel rewrites all non-`/api` paths to `index.html` (`vercel.json`) for client-side routing.
+- **Routing** lives entirely in `src/App.jsx` via `react-router-dom`. Routes: `/`, `/projects`, `/social`, `/cv`, `/thesis`, one `/<slug>` per MDX page in `src/posts/`, and `*` (NotFound). `/blog` is **not** a React route (see below), so links to it must be plain `<a>` (full page load), not `<Link>`. `ScrollToTop` and `HomeSticker` render outside `<Routes>` so they apply to every page. Vercel rewrites all non-`/api` paths to `index.html` (`vercel.json`) for client-side routing.
 
 - **Pages** (`src/pages/`) compose **components** (`src/components/`). Each page typically imports `../styles/global.css` and renders its own `<Footer />`.
 
-- **Blog is MDX-driven.** Posts are `.mdx` files in `src/posts/` with frontmatter (`slug`, `title`, `date`, `description`). MDX is compiled at build time by the `@mdx-js/rollup` plugin (configured in `vite.config.js` with `remark-frontmatter` + `remark-mdx-frontmatter`). `BlogPage.jsx` and `BlogPostPage.jsx` discover posts with `import.meta.glob("../posts/**/*.{md,mdx}", { eager: true })` — **adding a post = dropping a new `.mdx` file in `src/posts/`**, no registration needed. `BlogPostPage` maps markdown elements to Tailwind-styled components via the `md` object passed as `components={md}`; edit there to restyle post bodies.
+- **The blog is a Quartz v5 site** in `blog/`, served at `kathas.no/blog/`. Notes are plain markdown in `blog/content/` (frontmatter `title`, `date`, `description`; Obsidian-style `[[wikilinks]]` work). **Adding a post = dropping a `.md` file there.** `blog/build.sh` shallow-clones the pinned Quartz tag into the gitignored `blog/.quartz/`, runs `npm ci` there (v5's plugins are `@quartz-community/*` npm packages), copies in `quartz.config.yaml` (theme: DM Sans + site colours; plugins and their layout positions), `quartz.ts` (only adds the navbar to the header slot), `custom.scss`, `icon.png` and our components from `blog/components/`, and builds into `dist/blog`. The blog is light-only and has no breadcrumbs, dark mode, reader mode or footer (those plugins are `enabled: false` in the YAML); its top bar is `blog/components/SiteNav.tsx`, which shares its links with the React `Navbar.jsx` via `src/data/navLinks.json` (edit links there). Non-blog links carry `data-router-ignore` so Quartz's SPA router does a full load into the React app. `blog/content/` is also an **Obsidian vault**: open that folder in Obsidian. Shared settings (`.obsidian/app.json`, `templates.json`) are committed and per-device files are gitignored. Pasted images go to `attachments/`; new posts start from `templates/post.md` (starts as `draft: true`). Quartz skips `templates/`, `.obsidian/` and `.trash/`. The evolutionary-algorithm slides live in `attachments/ea-images/` and the React thesis page imports them via `src/assets/eaImages.js`.
+
+- **MDX pages** (`src/posts/*.mdx`) are the posts that embed React components (books, photos, big-day, my-masters-thesis). They render via `PostPage.jsx` at `/<slug>`; restyle their bodies in its `md` object. `src/lib/posts.js` lists both kinds (Quartz notes read as `?raw` text) for the home page's recent posts. The Vite MDX plugin is limited to `.mdx` so it doesn't compile the Quartz `.md` files.
+
+- **`vercel.json`**: `cleanUrls` so `/blog/<slug>` serves `<slug>.html`; `/blog` redirects to `/blog/` (Quartz uses relative links); old `/blog/<mdx-slug>` URLs redirect to `/<slug>`; unknown `/blog/*` paths get Quartz's 404; everything else non-`/api` rewrites to the SPA. Static files take precedence over rewrites.
 
 - **Projects are a hardcoded array** in `src/pages/ProjectsPage.jsx` (`projectsData`), each rendered as a `ProjectCard` that opens a `ProjectModal`. Preview images are statically imported through `src/assets/projectImages.js` (key the image there, reference as `projectImages.<key>`). To add a project, append to `projectsData` and add its image import.
 

@@ -1,5 +1,14 @@
 {
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/blog", "destination": "/blog/", "permanent": true },
+    { "source": "/blog/books", "destination": "/books", "permanent": true },
+    { "source": "/blog/photos", "destination": "/photos", "permanent": true },
+    { "source": "/blog/big-day", "destination": "/big-day", "permanent": true },
+    { "source": "/blog/my-masters-thesis", "destination": "/my-masters-thesis", "permanent": true }
+  ],
   "rewrites": [
+    { "source": "/blog/:path*", "destination": "/blog/404.html" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }

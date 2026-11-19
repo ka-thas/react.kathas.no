@@ -52,6 +52,21 @@ function Sticker({
         );
     }
 
+    // /blog/* is the separate Quartz site: needs a full page load, not client routing.
+    if (to.startsWith("/blog/")) {
+        return (
+            <a
+                href={to}
+                title={title || label}
+                aria-label={title || label}
+                className={`sticker-btn ${className}`}
+                style={style}
+            >
+                {inner}
+            </a>
+        );
+    }
+
     return (
         <Link
             to={to}
