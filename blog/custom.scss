@@ -181,8 +181,9 @@ body[data-slug="404"] {
   }
 }
 
-// Projects page: the cards grid (content/projects/Projects.base, embedded in
-// projects/index.md) replaces the folder page's automatic list of notes.
-body[data-slug="projects/index"] .page-listing {
+// Projects and Books pages: the cards grids (content/<folder>/<Folder>.base,
+// embedded in <folder>/index.md) replace the folder page's automatic list.
+body[data-slug="projects/index"] .page-listing,
+body[data-slug="books/index"] .page-listing {
   display: none;
 }

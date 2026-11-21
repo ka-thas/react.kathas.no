@@ -9,8 +9,9 @@
     "build": "vite build && bash blog/build.sh",
     "lint": "eslint .",
     "preview": "vite preview",
-    "update-books": "node scripts/update-books.mjs",
-    "build:blog": "bash blog/build.sh"
+    "update-books": "node scripts/update-books.mjs && node scripts/books-to-vault.mjs",
+    "build:blog": "bash blog/build.sh",
+    "books-to-vault": "node scripts/books-to-vault.mjs"
   },
   "dependencies": {
     "@mdx-js/rollup": "^3.1.1",

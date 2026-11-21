@@ -1,7 +1,8 @@
 // Converts a Goodreads library export CSV (My Books > Import and export >
 // Export Library) into src/data/books.json, newest first.
 // Run with `npm run update-books -- path/to/goodreads_library_export.csv`
-// (defaults to ./goodreads_library_export.csv, which is gitignored).
+// (defaults to ./goodreads_library_export.csv, which is gitignored). That npm
+// script then also refreshes the blog's book notes (scripts/books-to-vault.mjs).
 //
 // The export has no cover images, so covers already in books.json are kept
 // and new books get an Open Library cover looked up by ISBN.

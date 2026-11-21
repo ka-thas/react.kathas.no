@@ -1,0 +1,22 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.inFolder("books")
+    - file.name != "index"
+formulas:
+  stars: '"★".repeat(rating) + "☆".repeat(5 - rating)'
+properties:
+  formula.stars:
+    displayName: Rating
+views:
+  - type: cards
+    name: Books
+    order:
+      - formula.stars
+    image: note.cover
+    imageFit: cover
+    imageAspectRatio: 1.5
+    cardSize: 140
+    sort:
+      - property: read
+        direction: DESC
