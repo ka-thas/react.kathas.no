@@ -34,7 +34,7 @@ To exercise the `/api/visit` serverless function locally you need the Vercel dev
 
 - **`vercel.json`**: `cleanUrls` so `/blog/<slug>` serves `<slug>.html`; `/blog` redirects to `/blog/` (Quartz uses relative links); old `/blog/<mdx-slug>` URLs redirect to `/<slug>`; unknown `/blog/*` paths get Quartz's 404; everything else non-`/api` rewrites to the SPA. Static files take precedence over rewrites.
 
-- **Projects are a hardcoded array** in `src/pages/ProjectsPage.jsx` (`projectsData`), each rendered as a `ProjectCard` that opens a `ProjectModal`. Preview images are statically imported through `src/assets/projectImages.js` (key the image there, reference as `projectImages.<key>`). To add a project, append to `projectsData` and add its image import.
+- **Projects are a hardcoded array** in `src/pages/ProjectsPage.jsx` (`projectsData`), each rendered as a `ProjectCard` that opens a `ProjectModal`. Preview images live in the blog vault (`blog/content/attachments/projects/`) and are statically imported through `src/assets/projectImages.js` (key the image there, reference as `projectImages.<key>`). The blog also has one note per project in `blog/content/projects/` (plus `CV.md` for the CV page), so to add a project, append to `projectsData`, add its image import, and add its note.
 
 - **The actual project demos are separate apps**, not part of this build. They live under `public/projects/` as **git submodules** (see `.gitmodules`) and are served at the `projects.kathas.no` subdomain — `projectsData` links point there. Run `git submodule update --init --recursive` if those directories are empty.
 
