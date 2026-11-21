@@ -4,8 +4,8 @@
 # green #047857 links, amber #b45309 hover). Light only: the darkmode plugin is
 # off, so darkMode just repeats the light palette.
 configuration:
-  pageTitle: Ka's blog
-  pageTitleSuffix: " · Ka Thas"
+  pageTitle: "root by Ka Thas"
+  pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
   prefetch: viewport
