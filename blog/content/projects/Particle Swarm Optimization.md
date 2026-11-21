@@ -1,4 +1,6 @@
 ---
+image: "[[preview-PSO.webp]]"
+order: 6
 tags:
   - project
 description: "An implementation of the Particle Swarm Optimization (PSO) algorithm."

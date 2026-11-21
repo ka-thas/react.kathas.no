@@ -1,4 +1,6 @@
 ---
+image: "[[preview-scooter.webp]]"
+order: 12
 tags:
   - project
 description: "It shows nearby electric scooters on a map and their battery level."

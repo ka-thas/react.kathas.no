@@ -1,4 +1,6 @@
 ---
+image: "[[preview-flashcards2.webp]]"
+order: 7
 tags:
   - project
 description: "This one is a bit more extensive in some ways."

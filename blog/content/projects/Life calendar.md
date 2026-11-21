@@ -1,4 +1,6 @@
 ---
+image: "[[preview-lifeCalendar.webp]]"
+order: 11
 tags:
   - project
 description: "Based on Kurzgesagt's Calendar of Life."

@@ -1,4 +1,6 @@
 ---
+image: "[[preview-chameleon.webp]]"
+order: 3
 tags:
   - project
 description: "The popular board game Chameleon, playable from one phone."

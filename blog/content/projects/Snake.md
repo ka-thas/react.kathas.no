@@ -1,4 +1,6 @@
 ---
+image: "[[preview-snake.webp]]"
+order: 13
 tags:
   - project
 description: "A classic snake game made with JS, HTML and CSS."

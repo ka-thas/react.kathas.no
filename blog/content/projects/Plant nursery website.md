@@ -1,4 +1,6 @@
 ---
+image: "[[preview-nursery.webp]]"
+order: 10
 tags:
   - project
 description: "Here's an entire website I made for a plant nursery; complete with a contact page, a gallery, a blog, and the Virtual Plant."

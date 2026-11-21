@@ -1,4 +1,6 @@
 ---
+image: "[[preview-flashcards.webp]]"
+order: 14
 tags:
   - project
 description: "A super simple flashcards app that I made to help me study."

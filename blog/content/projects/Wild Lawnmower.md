@@ -1,4 +1,6 @@
 ---
+image: "[[preview-wildLawnmower.webp]]"
+order: 2
 tags:
   - project
 description: "IFI Game Jam 2026."

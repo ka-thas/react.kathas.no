@@ -180,3 +180,9 @@ body[data-slug="404"] {
     background: color-mix(in srgb, var(--dark) 6%, transparent);
   }
 }
+
+// Projects page: the cards grid (content/projects/Projects.base, embedded in
+// projects/index.md) replaces the folder page's automatic list of notes.
+body[data-slug="projects/index"] .page-listing {
+  display: none;
+}

@@ -1,0 +1,17 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.inFolder("projects")
+    - file.name != "index"
+views:
+  - type: cards
+    name: Projects
+    order:
+      - file.name
+    image: note.image
+    imageFit: cover
+    imageAspectRatio: 0.67
+    cardSize: 200
+    sort:
+      - property: order
+        direction: ASC

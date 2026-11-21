@@ -1,4 +1,6 @@
 ---
+image: "[[preview-boids.webp]]"
+order: 5
 tags:
   - project
 description: "An implementation of the boids algorithm."

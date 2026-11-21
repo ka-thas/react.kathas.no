@@ -1,4 +1,6 @@
 ---
+image: "[[preview-plant.webp]]"
+order: 9
 tags:
   - project
 description: "This is a virtual plant that I made using JS, HTML and CSS."

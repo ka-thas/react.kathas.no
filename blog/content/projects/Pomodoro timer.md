@@ -1,4 +1,6 @@
 ---
+image: "[[preview-pomodoro.webp]]"
+order: 8
 tags:
   - project
 description: "A minimal Pomodoro timer to help you focus: work sessions, short breaks and long breaks, with a session tracker."

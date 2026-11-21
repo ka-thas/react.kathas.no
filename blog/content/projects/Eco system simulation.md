@@ -1,4 +1,6 @@
 ---
+image: "[[preview-ecoSim.webp]]"
+order: 4
 tags:
   - project
 description: "Emulates a foodchain with rock-paper-scissors rules."

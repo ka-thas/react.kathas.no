@@ -1,4 +1,6 @@
 ---
+image: "[[preview-ondspera.webp]]"
+order: 1
 tags:
   - project
 description: "Ondspera is the evil version of inspera, the exam platform."
