@@ -25,7 +25,7 @@ function MasterThesisPage() {
           {/* {milestones.map((m) => (
             <Countdown key={m.date} date={m.date} label={m.label} />
           ))}*/}
-          <PostCard href="/my-masters-thesis" title="My Master's Thesis" date="2026-10-17" description="Writing my thesis in Japan, evolving soft robots with VLMs" />
+          <PostCard href="/blog/my-masters-thesis" title="My Master's Thesis" date="2026-10-17" description="Writing my thesis in Japan, evolving soft robots with VLMs" />
           <LinktreeLink text="AROB 2027" href="https://isarob.org/symposium/" icon={externalLinkIcon} className="w-full! max-w-none! mb-0!" />
         </div>
       </main>

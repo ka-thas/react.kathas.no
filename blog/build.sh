@@ -3,7 +3,7 @@
 # after `vite build` as part of `npm run build`. The root.kathas.no project
 # (blog/vercel.json) builds the same vault as a standalone site via env vars:
 #   QUARTZ_BASE_URL  site address without https://   (default kathas.no/blog)
-#   QUARTZ_OUT       output folder, relative to blog/ (default ../dist/blog)
+#   QUARTZ_OUT       output folder, absolute or relative to blog/ (default ../dist/blog)
 #   KATHAS_NAV=off   leave out the kathas.no navbar
 # Extra args go to `quartz build`, e.g. `bash blog/build.sh --serve` for a local preview.
 set -euo pipefail
@@ -11,7 +11,8 @@ set -euo pipefail
 QUARTZ_VERSION=v5.1.0
 cd "$(dirname "$0")"
 BASE_URL="${QUARTZ_BASE_URL:-kathas.no/blog}"
-OUT="$(pwd)/${QUARTZ_OUT:-../dist/blog}"
+OUT="${QUARTZ_OUT:-../dist/blog}"
+[[ "$OUT" = /* ]] || OUT="$(pwd)/$OUT"
 
 # Shallow checkout of Quartz, kept in the gitignored .quartz/ and reused between builds.
 if [ "$(cat .quartz/.kathas-version 2>/dev/null)" != "$QUARTZ_VERSION" ]; then

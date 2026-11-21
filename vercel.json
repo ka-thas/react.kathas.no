@@ -5,7 +5,7 @@
     { "source": "/blog/books", "destination": "/books", "permanent": true },
     { "source": "/blog/photos", "destination": "/photos", "permanent": true },
     { "source": "/blog/big-day", "destination": "/big-day", "permanent": true },
-    { "source": "/blog/my-masters-thesis", "destination": "/my-masters-thesis", "permanent": true }
+    { "source": "/my-masters-thesis", "destination": "/blog/my-masters-thesis", "permanent": true }
   ],
   "rewrites": [
     { "source": "/blog/:path*", "destination": "/blog/404" },

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../styles/global.css";
 import Footer from "../components/Footer";
 import KaCaptcha from "../components/KaCaptcha";
@@ -40,9 +39,10 @@ function IndexPage() {
 
         <p>
           Here's a quick read about{" "}
-          <Link to="/my-masters-thesis" className="text-accent-green">
+          {/* The thesis post is a blog (Quartz) note: full page load, not <Link>. */}
+          <a href="/blog/my-masters-thesis" className="text-accent-green">
             my master's thesis
-          </Link>
+          </a>
           . The essence is a VLM guided Evolutionary Algorithm. Also, I'm writing from Japan 🇯🇵
         </p>
 

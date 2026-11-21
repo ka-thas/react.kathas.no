@@ -4,10 +4,6 @@ date: 2026-10-17
 description: Writing my thesis in Japan, evolving soft robots with VLMs
 ---
 
-import Timeline from "../components/Timeline.jsx";
-import ea from "../assets/eaImages.js";
-import { start, end, milestones } from "../data/thesisTimeline.js";
-
 This article covers what I’m doing for my thesis, why I’m going to Japan, and how it relates to Robotics and AI. I’ll try not to get too technical, but it’s unavoidable to some degree.
 
 My master’s program is called *Informatics: Robotics and Intelligent Systems* at the University of Oslo. For the final year of my master’s program I will focus solely on writing my thesis. No courses, no student associations, and no part-time job. I’ll be writing at Nagoya University with the supervision of Reiji Suzuki on-site, as well as Kyrre Glette remotely from Oslo.
@@ -24,29 +20,29 @@ Kept at it for my master's and took courses in deep learning, multi-agent system
 
 Here’s my introduction to evolutionary algorithms that I believe anyone could understand. The text on the slides is in Norwegian, but the captions explain the terms in English.
 
-<img src={ea[1]} alt="" className="max-w-full rounded-lg my-3" />
+![](attachments/ea-images/1.webp)
 
 Let’s define *algorithm* so it sounds a bit less scary: It’s just a set of rules/steps to follow to get to the goal. Even the specific way you shuffle a deck of cards to make it random could be called an algorithm.
 
 Now, let’s focus on the “evolution” part: We try a bunch of random solutions until we find one that’s good enough. Just like humans evolved to be good enough, not perfect. The algorithm is inspired by actual biological evolution. 
 
-<img src={ea[2]} alt="" className="max-w-full rounded-lg my-3" />
+![](attachments/ea-images/2.webp)
 
 I do like to refer to EA as systematic fuck around and find out, because there’s a lot of trial and error involved.
 
-<img src={ea[3]} alt="" className="max-w-full rounded-lg my-3" />
+![](attachments/ea-images/3.webp)
 
 This is the toy example I will be using for this presentation. We have some LEGOs and we want to build the best-defended castle against attackers.
 
 There are too many possible castles, so we can’t simply calculate what castle is the best.
 
-<img src={ea[4]} alt="" className="max-w-full rounded-lg my-3" />
+![](attachments/ea-images/4.webp)
 
 You might ask: how is this related to robotics? Well, it allows us to try out a lot of bodies and find the best-suited one for the specific problem.
 
 Now for the more detailed nitty-gritty part.
 
-<img src={ea[5]} alt="" className="max-w-full rounded-lg my-3" />
+![](attachments/ea-images/5.webp)
 
 We start off with a random *population*. That’s the first four castles to the left.
 
@@ -54,7 +50,7 @@ Then, we have a small chance to apply random *mutations* to our individuals.
 
 We select some pairs of parents and mix features to create offspring. This process is called *recombination*.
 
-<img src={ea[6]} alt="" className="max-w-full rounded-lg my-3" />
+![](attachments/ea-images/6.webp)
 
 After mutation and recombination we have 8 individuals that will have to compete for survival through a process we call *selection*. 
 
@@ -62,23 +58,23 @@ There’s only room for 4 castles in this town.
 
 The top-left castle will be evaluated in the next slide →
 
-<img src={ea[7]} alt="" className="max-w-full rounded-lg my-3" />
+![](attachments/ea-images/7.webp)
 
 Here we evaluate their performance under attack and see how well they hold up.
 
 This castle gets points for sturdiness, and a cool flag, but they couldn’t spot the attackers earlier because it’s short and has no windows.
 
-<img src={ea[8]} alt="" className="max-w-full rounded-lg my-3" />
+![](attachments/ea-images/8.webp)
 
 Here we eliminate the worst four castles. Superior features survive and get passed on to later generations.
 
-<img src={ea[9]} alt="" className="max-w-full rounded-lg my-3" />
+![](attachments/ea-images/9.webp)
 
 …and end up with a new population.
 
 After hundreds or thousands of these cycles, we might end up with a castle that looks like this →
 
-<img src={ea[10]} alt="" className="max-w-full rounded-lg my-3" />
+![](attachments/ea-images/10.webp)
 
 It’s worth noting, as I’ve illustrated here, that the evolutionary algorithm doesn’t guarantee that you find the perfect or best castle. You just get a castle that is good enough for its environment. Just like normal biological evolution that we know and love.
 
@@ -110,4 +106,4 @@ I'll be at **Nagoya University from September 2026 through May 2027** as a speci
 
 The thesis will be evaluated by the University of Oslo, which means my thesis defense is still in Norway sometime in June.
 
-<Timeline start={start} end={end} milestones={milestones} />
+<iframe src="https://kathas.no/embed/thesis-timeline" title="Thesis timeline" loading="lazy" style="width: 100%; height: 700px; border: 0;"></iframe>
