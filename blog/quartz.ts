@@ -44,7 +44,9 @@ const config = await loadQuartzConfig()
 export default config
 export const layout = await loadQuartzLayout({
   defaults: {
-    header: [SiteNav()],
+    // KATHAS_NAV=off (set by build.sh's caller, e.g. blog/vercel.json for root.kathas.no)
+    // builds the blog as a standalone site without the kathas.no navbar.
+    header: process.env.KATHAS_NAV === "off" ? [] : [SiteNav()],
     left: [
       // Title with just the search icon to its right (styled icon-only in custom.scss).
       Component.Flex({

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "true",
+  "buildCommand": "QUARTZ_BASE_URL=root.kathas.no QUARTZ_OUT=public KATHAS_NAV=off bash build.sh",
+  "outputDirectory": "public",
+  "cleanUrls": true
+}

@@ -39,3 +39,5 @@ blog/content/.obsidian/*
 !blog/content/.obsidian/templates.json
 !blog/content/.obsidian/core-plugins.json
 blog/content/.trash
+# Output of the root.kathas.no build (blog/vercel.json)
+blog/public
