@@ -12,5 +12,4 @@ I find it kind of funny that notes and nodes sound similar, but that might just 
 - [[CV]]
 - [Projects](projects/index)
 - [[Socials]]
-- [Books]
-- 
+- [Books](books/index)
