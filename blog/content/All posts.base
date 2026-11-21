@@ -2,6 +2,7 @@ filters:
   and:
     - file.ext == "md"
     - file.name != "index"
+    - file.hasProperty("date")
     - not:
         - file.inFolder("templates")
 properties:

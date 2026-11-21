@@ -37,7 +37,8 @@ const notes = Object.entries(noteSources)
     const slug = slugFromPath(path);
     return { slug, href: `/blog/${slug}`, ...parseFrontmatter(src) };
   })
-  .filter((n) => n.slug !== "index" && n.draft !== "true");
+  // Only dated notes are posts (same rule as the blog's Recent Notes in blog/quartz.ts).
+  .filter((n) => n.slug !== "index" && n.draft !== "true" && n.date);
 
 export const posts = [...notes, ...pages]
   .map(({ slug, href, title, date, description }) => ({

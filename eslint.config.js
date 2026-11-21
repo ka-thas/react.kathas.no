@@ -4,7 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
-  { ignores: ['dist', 'blog/.quartz'] },
+  { ignores: ['dist', 'blog/.quartz', 'blog/public', 'blog/content/.obsidian'] },
   {
     files: ["tailwind.config.js"],
     languageOptions: {

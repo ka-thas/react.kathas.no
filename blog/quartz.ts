@@ -6,6 +6,7 @@
 //    filter functions, which is why the slot is built here. On phones the two
 //    lists move below the post.
 import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
+import { registerCondition } from "./quartz/plugins/loader/conditions"
 import * as Component from "./quartz/components"
 import type { QuartzComponentProps } from "./quartz/components/types"
 import { PageTitle } from "@quartz-community/page-title"
@@ -15,8 +16,14 @@ import SiteNav from "./quartz/components/SiteNav"
 
 type FileData = QuartzComponentProps["fileData"]
 
-// Real posts only: not the landing page or the All posts base.
-const isPost = (f: FileData) => !["index", "all-posts.base"].includes(f.slug ?? "")
+// A note is a post only if it has a `date:` in its frontmatter. Undated notes
+// (Index, Socials, CV-style pages) would otherwise get the build date, which
+// changes on every deploy and floats them to the top of Recent Notes.
+const hasDate = (f: FileData) => f.frontmatter?.date != null && f.frontmatter.date !== ""
+const isPost = (f: FileData) => hasDate(f) && !["index", "all-posts.base"].includes(f.slug ?? "")
+
+// Used by content-meta in quartz.config.yaml: no date line on undated notes.
+registerCondition("has-date", (props) => hasDate(props.fileData))
 const allPosts = "all-posts.base" // blog/content/All posts.base (Bases keep .base in the slug)
 
 const lists = () => [

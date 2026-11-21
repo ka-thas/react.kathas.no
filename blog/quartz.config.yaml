@@ -142,8 +142,9 @@ plugins:
     layout:
       position: beforeBody
       priority: 20
-      # The landing page has no `date:`, so its meta would just show the build date.
-      condition: not-index
+      # Only notes with a `date:` (condition registered in quartz.ts); undated
+      # notes would otherwise show the build date.
+      condition: has-date
   - source: "@quartz-community/tag-list"
     enabled: true
     layout:
