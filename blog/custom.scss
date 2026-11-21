@@ -187,3 +187,12 @@ body[data-slug="projects/index"] .page-listing,
 body[data-slug="books/index"] .page-listing {
   display: none;
 }
+
+// Quartz draws an <hr> between the note and the afterBody slot. Above phone
+// width that slot is empty (its lists are mobile-only, see quartz.ts), so the
+// line just trails the note: hide it there, keep it on phones as a separator.
+@media all and not ($mobile) {
+  #quartz-body > .center > hr {
+    display: none;
+  }
+}
