@@ -11,7 +11,7 @@ properties:
   date:
     displayName: Date
 views:
-  - type: list
+  - type: table
     name: All posts
     order:
       - title

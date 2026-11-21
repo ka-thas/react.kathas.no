@@ -1,3 +1,8 @@
+![[Pasted image 20261122032711.png]]
+Hi, I'm Ka from Oslo 🇳🇴  
+I like Sketching ✏️ Plants 🪴 and Coffee ☕  
+Always happy to chat ~
+
 - [Instagram](https://www.instagram.com/ka.thas)
 - [Snapchat](https://www.snapchat.com/add/ka.thas)
 - [LINE](https://line.me/ti/p/FdS7gcPgSS)

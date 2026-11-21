@@ -3,7 +3,7 @@ title: CV
 description: Studying AI and robotics at UiO.
 ---
 
-Studying AI and robotics at UiO. [Download PDF](https://kathas.no/cv_Ka_Thas_english.pdf)
+Studying AI and robotics at UiO.  [Download PDF](cv_Ka_Thas_english.pdf)
 
 I am a curious and structured student with a strong interest in research at the intersection of technology, creativity, and human-robot interaction. I thrive in collaborative academic environments and have developed strong skills in teamwork, leadership, and project coordination through volunteer and organizational experience.
 

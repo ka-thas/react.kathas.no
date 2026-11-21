@@ -15,5 +15,3 @@ views:
     imageFit: cover
     imageAspectRatio: 0.67
     cardSize: 200
-  - type: table
-    name: View
