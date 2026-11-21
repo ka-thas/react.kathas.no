@@ -1,5 +1,11 @@
-- Instagram
-- Snapchat
-- Line
-- Facebook
-- Steam
+- [Instagram](https://www.instagram.com/ka.thas)
+- [Snapchat](https://www.snapchat.com/add/ka.thas)
+- [LINE](https://line.me/ti/p/FdS7gcPgSS)
+- [WhatsApp](https://wa.me/4746663530)
+- [Discord](https://discordapp.com/users/286421509059248128)
+- [Facebook](https://www.facebook.com/kaaathas)
+- [LinkedIn](https://www.linkedin.com/in/ka-thas)
+- [GitHub](https://github.com/ka-thas)
+- [Steam](https://steamcommunity.com/id/pinesprout)
+- [Spotify](https://open.spotify.com/user/kavinthas)
+- [Goodreads](https://www.goodreads.com/user/show/195763733)
