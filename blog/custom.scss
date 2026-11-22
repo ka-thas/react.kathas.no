@@ -300,3 +300,13 @@ body[data-slug="index"] {
     padding: 2.5rem 0 0;
   }
 }
+
+// Table of contents: no fold arrow, and the heading no longer collapses the list.
+.toc > .toc-header {
+  pointer-events: none;
+  cursor: default;
+
+  & > svg.fold {
+    display: none;
+  }
+}
