@@ -11,9 +11,9 @@ function BlogPage() {
   return (
     <>
       <main className="max-w-[780px] mx-auto px-4 w-full gap-4">
-        <h1 className="font-bold text-5xl mt-5 mb-4">Root ☕️</h1>
+        <h1 className="font-bold text-5xl mt-5 mb-4">Blog ☕️</h1>
         <p className="opacity-70">
-          Welcome to Root! It’s a graph of ideas, thoughts, projects and other
+          Welcome to my blog! It’s a graph of ideas, thoughts, projects and other
           writings I’d want to share with the world. This site might mean to me
           than it is to you, but I do hope you will find something that
           interests you or sparks inspiration.
