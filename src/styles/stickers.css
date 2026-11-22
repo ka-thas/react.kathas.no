@@ -73,9 +73,3 @@
 .photobox-open .sticker-home {
     display: none;
 }
-        transform: translateY(0) rotate(var(--rot, 0deg));
-    }
-    50% {
-        transform: translateY(-9px) rotate(calc(var(--rot, 0deg) + 1.5deg));
-    }
-}

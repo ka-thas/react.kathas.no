@@ -11,10 +11,14 @@
             "id": "141be9ac45e342af",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "projects/Boids algorithm.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Boids algorithm"
             }
           }
         ]
@@ -95,6 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "projects/Boids algorithm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,6 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "projects/Boids algorithm.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -155,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linked note.md",
+                "file": "projects/Boids algorithm.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -182,9 +188,46 @@
       "bases:Create new base": false
     }
   },
-  "active": "d2c28bfa7d73bab2",
+  "active": "141be9ac45e342af",
   "lastOpenFiles": [
+    "photos.md",
+    "personal-website-101.md",
+    "my-exchange-to-korea.md",
+    "hvorfor-vil-vi-at-roboter-skal-ligne-oss.md",
+    "how-to-slenge-opp-en-nettside.md",
+    "boids-and-emergence.md",
+    "courses.md",
+    "evolutionary-algorithm.md",
+    "git-kronikk.md",
+    "git-kronikk.mdx",
     "linked note.md",
+    "attachments/projects/preview-wildLawnmower.webp",
+    "attachments/projects/preview-snake.webp",
+    "attachments/projects/preview-scooter.webp",
+    "attachments/projects/preview-pomodoro.webp",
+    "attachments/projects/preview-plant.webp",
+    "attachments/projects/preview-ondspera.webp",
+    "attachments/projects/preview-nursery.webp",
+    "attachments/projects/preview-moths.webp",
+    "attachments/projects/preview-lifeCalendar.webp",
+    "attachments/projects/preview-flashcards2.webp",
+    "attachments/projects",
+    "attachments",
+    "projects/Wild Lawnmower.md",
+    "projects/Virtual Plant.md",
+    "projects/Snake.md",
+    "projects/Pomodoro timer.md",
+    "projects/Plant nursery website.md",
+    "projects/Particle Swarm Optimization.md",
+    "projects/Ondspera.md",
+    "projects/Life calendar.md",
+    "projects/Flashcards v2.md",
+    "projects/Flashcards v1.md",
+    "projects/Electric scooter map.md",
+    "projects/Eco system simulation.md",
+    "projects/Chameleon.md",
+    "projects/Boids algorithm.md",
+    "projects",
     "test.md"
   ]
 }

@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar.jsx";
 import IndexPage from "./pages/IndexPage.jsx";
 import SocialPage from "./pages/SocialPage.jsx";
 import ProjectsPage from "./pages/ProjectsPage.jsx";
+import ProjectPage from "./pages/ProjectPage.jsx";
 import CVPage from "./pages/CVPage.jsx";
 import BlogPage from "./pages/BlogPage.jsx";
 import BlogPostPage from "./pages/BlogPostPage.jsx";
@@ -32,6 +33,7 @@ function App() {
         <Route element={<SiteLayout />}>
           <Route path="/" element={<IndexPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/projects/:slug" element={<ProjectPage />} />
           <Route path="/social" element={<SocialPage />} />
           <Route path="/cv" element={<CVPage />} />
           <Route path="/blog" element={<BlogPage />} />

@@ -1,5 +1,6 @@
 // eager: true bundles all posts synchronously — no async loading needed at render time
-const postModules = import.meta.glob("../posts/**/*.{md,mdx}", { eager: true });
+// Project notes (posts/projects/) are pages of their own, at /projects/<slug>.
+const postModules = import.meta.glob(["../posts/**/*.{md,mdx}", "!../posts/projects/**"], { eager: true });
 
 function slugFromPath(path) {
   return path.split("/").pop().replace(/\.(md|mdx)$/, "");
