@@ -31,12 +31,12 @@ export default function SearchDialog({ open, setOpen }) {
     if (!open) { setQ(""); setActive(0); }
   }, [open]);
 
-  const go = (slug) => { setOpen(false); navigate(`/blog/${slug}`); };
+  const go = (url) => { setOpen(false); navigate(url); };
 
   const onKeyDown = (e) => {
     if (e.key === "ArrowDown") { e.preventDefault(); setActive((i) => Math.min(i + 1, results.length - 1)); }
     if (e.key === "ArrowUp") { e.preventDefault(); setActive((i) => Math.max(i - 1, 0)); }
-    if (e.key === "Enter" && results[active]) go(results[active].slug);
+    if (e.key === "Enter" && results[active]) go(results[active].url);
   };
 
   return (
@@ -51,18 +51,18 @@ export default function SearchDialog({ open, setOpen }) {
         value={q}
         onChange={(e) => { setQ(e.target.value); setActive(0); }}
         onKeyDown={onKeyDown}
-        placeholder="Search posts…"
+        placeholder="Search…"
         className="w-full px-4 py-3 text-base outline-none border-b border-black/8"
       />
       <ul className="max-h-[50vh] overflow-y-auto">
         {results.map((r, i) => (
           <li key={r.id}>
             <button
-              onClick={() => go(r.slug)}
+              onClick={() => go(r.url)}
               onMouseEnter={() => setActive(i)}
               className={`w-full text-left px-4 py-2.5 ${i === active ? "bg-accent-green/10" : ""}`}
             >
-              {r.title}
+              {r.title} <span className="text-xs text-black/40 ml-2">{r.type}</span>
             </button>
           </li>
         ))}
