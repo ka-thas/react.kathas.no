@@ -1,0 +1,17 @@
+views:
+  - type: table
+    name: View
+    filters:
+      and:
+        - file.path.startsWith("projects")
+    order:
+      - file.name
+      - title
+      - order
+      - date
+      - slug
+    sort:
+      - property: order
+        direction: ASC
+    columnSize:
+      note.title: 328

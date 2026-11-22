@@ -5,8 +5,7 @@ import SearchDialog from "./SearchDialog.jsx";
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/projects", label: "Projects" },
-  { to: "/cv", label: "CV" },
-  { to: "/thesis", label: "Thesis", isNew: true },
+  { to: "/thesis", label: "Thesis" },
   { to: "/blog", label: "Blog" },
   { to: "/social", label: "Socials" },
 ];

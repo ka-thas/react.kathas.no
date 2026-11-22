@@ -11,14 +11,13 @@
             "id": "141be9ac45e342af",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "projects/Boids algorithm.md",
-                "mode": "source",
-                "source": false
+                "file": "projects/index.base",
+                "viewName": "View"
               },
-              "icon": "lucide-file",
-              "title": "Boids algorithm"
+              "icon": "lucide-table",
+              "title": "index"
             }
           }
         ]
@@ -99,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "projects/Boids algorithm.md",
+                "file": "projects/index.base",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "projects/Boids algorithm.md",
+                "file": "projects/index.base",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +160,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "projects/Boids algorithm.md",
+                "file": "projects/index.base",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,6 +189,9 @@
   },
   "active": "141be9ac45e342af",
   "lastOpenFiles": [
+    "Untitled.md",
+    "projects/index.base",
+    "projects/Boids algorithm.md",
     "photos.md",
     "personal-website-101.md",
     "my-exchange-to-korea.md",
@@ -226,8 +228,6 @@
     "projects/Electric scooter map.md",
     "projects/Eco system simulation.md",
     "projects/Chameleon.md",
-    "projects/Boids algorithm.md",
-    "projects",
-    "test.md"
+    "projects"
   ]
 }
