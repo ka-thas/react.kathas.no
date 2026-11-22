@@ -13,4 +13,4 @@ I find it kind of funny that notes and nodes sound similar, but that might just 
 
 - [Projects](projects/index)
 - [Books](books/index)
-- [[All posts.base]]
+- [[All posts.base|All posts]]

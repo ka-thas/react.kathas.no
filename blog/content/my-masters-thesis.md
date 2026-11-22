@@ -27,11 +27,11 @@ I'm using a Python library called EvoGym that lets me simulate 2D robots built f
 
 EvoGym is *usually* used for simpler tasks, like making the robot move as far or as fast as possible, but that’s not quite my tempo.
 
-### VLMs: where things get spicy
+### Subjective Judges
 
 My thesis will look into evolving robots that fit a *semantic description*, meaning a word that describes how they move or look. Like making the robot move as *adorably* as possible.
 
-There’s no formula that measures adorableness, which is exactly where Vision-Language Models (VLMs) come in. A VLM is a model that can look at images or video and talk about them, like the models behind ChatGPT or Claude when you send them a picture.
+There’s no formula that measures adorableness, which is exactly where Vision-Language Models (VLMs) come in. A VLM is a model that can look at images or video and describe them, like the models Claude uses when you send a picture.
 
 So instead of measuring distance, we record a video of the robot moving and ask a VLM: *"How well does this robot move adorably?"* The VLM's answer becomes the robot's score, and evolution takes it from there.
 
@@ -42,3 +42,15 @@ So instead of measuring distance, we record a video of the robot moving and ask 
 I'll be at **Nagoya University from September 2026 through May 2027** as a special research student, working in Prof. Suzuki's lab.
 
 The thesis will be evaluated by the University of Oslo, which means my thesis defense is still in Norway sometime in June.
+
+|              |                                      |     |
+| ------------ | ------------------------------------ | --- |
+| 10 Aug 2026  | Started writing                      |     |
+| 9 Sept 2026  | Arriving in Nagoya                   |     |
+| 24 Sept 2026 | ALife Symposium, Shizuoka University |     |
+| 1 Oct 2026   | Extended project description         |     |
+| 28 Oct 2026  | AROB abstract                        |     |
+| 23 Dec 2026  | AROB final paper                     |     |
+| 19 Jan 2027  | AROB conference                      |     |
+| 15 May 2027  | Thesis delivery                      |     |
+| 10 Jun 2027  | Thesis defense                       |     |

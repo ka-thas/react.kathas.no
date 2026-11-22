@@ -2,7 +2,7 @@
   { "to": "/", "label": "Home" },
   { "to": "/projects", "label": "Projects" },
   { "to": "/cv", "label": "CV" },
-  { "to": "/thesis", "label": "Thesis", "isNew": true },
+  { "to": "/thesis", "label": "Thesis" },
   { "to": "/blog/", "label": "Blog", "fullReload": true },
   { "to": "/social", "label": "Socials" }
 ]
