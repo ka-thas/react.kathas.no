@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import InlineCode from "./InlineCode.jsx";
 
 // How markdown elements look in notes from the vault (blog posts and project pages).
 export const md = {
@@ -37,7 +38,7 @@ export const md = {
     className ? (
       <code className={`font-mono text-sm text-white/90 ${className}`} {...p} />
     ) : (
-      <code className="font-mono bg-black/8 px-1.5 py-0.5 rounded text-[0.875em]" {...p} />
+      <InlineCode {...p} />
     ),
   pre: (p) => (
     <pre

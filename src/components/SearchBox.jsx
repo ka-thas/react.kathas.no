@@ -10,7 +10,7 @@ export default function SearchBox() {
       <input
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder="Search posts…"
+        placeholder="Search…"
         className="w-full px-3 py-2 rounded-lg border border-accent-green/30 bg-transparent"
       />
       {results.length > 0 && (
