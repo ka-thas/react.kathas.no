@@ -5,9 +5,9 @@ description: Listing completed courses.
 ---
 
 Got a bachelor’s degree in
-*Informatics: Robotics and Intelligent Systems* at UiO
+*Informatics: Robotics and Intelligent Systems* at UiO.
 Followed by my ongoing master’s in 
-*Informatics: Robotics and Intelligent Systems*, also at UiO.
+*Informatics: Robotics and Intelligent Systems*, still at UiO.
 
 The bachelor’s courses came pre-bundled and I didn’t have much say in the matter. Still satisfied with the learning outcome. My master’s courses are quite AI/ML focused. Quite happy with all the courses I chose here. Great lecturers as well!
 
@@ -21,8 +21,8 @@ The bachelor’s courses came pre-bundled and I didn’t have much say in the ma
 - MAT1110
 - IN2010
 - IN2060
-- **MAT1020**
-- **IN2140**
+- **MAT1020\***
+- **IN2140\***
 - IN1030
 - IN3140
 - **Exchange semester at Korea University**
@@ -34,6 +34,8 @@ The bachelor’s courses came pre-bundled and I didn’t have much say in the ma
 - IN3160
 - EXPHIL
 - AST1010 (yuh)
+
+\* These were the only one where I had a few options, the rest followed the study program
 
 ### Master
 

@@ -1,0 +1,70 @@
+---
+title: Evolutionary algorithm
+date: 2026-05-23
+description: EA concepts explained and illustrated with castles
+featured: true
+---
+Here’s my introduction to evolutionary algorithms, written for a general audience.
+
+![](attachments/ea-images/1.webp)
+
+
+Let’s make the word *algorithm* a bit less scary: If you follow a set of rules/steps, we could call that an algorithm. Say you're doing the dishes and you wash the plates first, then the cups, and then the cutlery. That’s an algorithm. 
+
+Now, let’s focus on the “evolution” part: We try a bunch of random solutions until we find one that’s good enough. Just like humans evolved to be good enough, not perfect. The algorithm is inspired by actual biological evolution. 
+
+![](attachments/ea-images/2.webp)
+
+I do like to refer to EA as systematic fuck around and find out, because there’s a lot of trial and error involved.
+
+![](attachments/ea-images/3.webp)
+
+This is the toy example I will be using for this presentation. We have some LEGOs and we want to build the best-defended castle against attackers.
+
+There are too many possible castles, so we can’t simply calculate what castle is the best.
+
+![](attachments/ea-images/4.webp)
+
+You might ask: how is this related to robotics? Well, it allows us to try out a lot of bodies and find the best-suited one for the specific problem.
+
+Now for the more detailed nitty-gritty part.
+
+![](attachments/ea-images/5.webp)
+
+We start off with a random *population*. That’s the first four castles to the left.
+
+Then, we have a small chance to apply random *mutations* to our individuals.
+
+We select some pairs of parents and mix features to create offspring. This process is called *recombination*.
+
+![](attachments/ea-images/6.webp)
+
+After mutation and recombination we have 8 individuals that will have to compete for survival through a process we call *selection*. 
+
+There’s only room for 4 castles in this town. 
+
+The top-left castle will be evaluated in the next slide →
+
+![](attachments/ea-images/7.webp)
+
+Here we evaluate their performance under attack and see how well they hold up.
+
+This castle gets points for sturdiness, and a cool flag, but they couldn’t spot the attackers earlier because it’s short and has no windows.
+
+![](attachments/ea-images/8.webp)
+
+Here we eliminate the worst four castles. Superior features survive and get passed on to later generations.
+
+![](attachments/ea-images/9.webp)
+
+…and end up with a new population.
+
+After hundreds or thousands of these cycles, we might end up with a castle that looks like this →
+
+![](attachments/ea-images/10.webp)
+
+It’s worth noting, as I’ve illustrated here, that the evolutionary algorithm doesn’t guarantee that you find the perfect or best castle. You just get a castle that is good enough for its environment. Just like regular evolution.
+
+However, this can also be a strength. The sideways tower is not something a human would come up with, but it might prove insanely useful for its environment. Evolutionary algorithms do exceed human intuition. 
+
+(sideways tower could have appeared through some random mutation)

@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Root
 ---
 ![[Pasted image 20261122032711.png]]
 
@@ -11,7 +11,6 @@ This is more of a "hub" node to find other pages. Browse with the search `⌘k`,
 
 I find it kind of funny that notes and nodes sound similar, but that might just be me.
 
-- [[CV]]
 - [Projects](projects/index)
-- [[Socials]]
 - [Books](books/index)
+- [[All posts.base]]
