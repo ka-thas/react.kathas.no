@@ -30,13 +30,10 @@
     -webkit-user-drag: none;
     filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35));
     transform: rotate(var(--rot, 0deg));
-    animation: sticker-float var(--float-dur, 4s) ease-in-out infinite;
-    will-change: transform;
 }
 
 .sticker-btn:hover .sticker-img,
 .sticker-btn:focus-visible .sticker-img {
-    animation-play-state: paused;
     filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.45));
 }
 
@@ -76,18 +73,3 @@
     display: none;
 }
 
-@keyframes sticker-float {
-    0%,
-    100% {
-        transform: translateY(0) rotate(var(--rot, 0deg));
-    }
-    50% {
-        transform: translateY(-9px) rotate(calc(var(--rot, 0deg) + 1.5deg));
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .sticker-img {
-        animation: none;
-    }
-}

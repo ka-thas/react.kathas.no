@@ -17,7 +17,6 @@ function HomeSticker() {
             img={stickerImages.home}
             label="home"
             rotate={-6}
-            floatDur={5}
             className="sticker-home sticker-sm"
         />
     );

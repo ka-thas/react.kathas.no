@@ -7,10 +7,10 @@ import { stickerImages } from "../assets/stickerImages";
  * Each sticker shows a caption naming the page it links to.
  */
 const destinations = [
-    { to: "/projects", img: stickerImages.projects, label: "projects", rotate: -7, floatDur: 4.2, nudge: 0 },
-    { to: "/cv", img: stickerImages.cv, label: "cv", rotate: 5, floatDur: 5.1, nudge: 36 },
-    { to: "/blog/", img: stickerImages.blog, label: "blog", rotate: -4, floatDur: 3.8, nudge: 12 },
-    { to: "/social", img: stickerImages.social, label: "socials", rotate: 8, floatDur: 4.6, nudge: 44 },
+    { to: "/projects", img: stickerImages.projects, label: "projects", rotate: -7, nudge: 0 },
+    { to: "/cv", img: stickerImages.cv, label: "cv", rotate: 5, nudge: 36 },
+    { to: "/blog/", img: stickerImages.blog, label: "blog", rotate: -4, nudge: 12 },
+    { to: "/social", img: stickerImages.social, label: "socials", rotate: 8, nudge: 44 },
 ];
 
 function StickerCluster() {
@@ -23,7 +23,6 @@ function StickerCluster() {
                         img={d.img}
                         label={d.label}
                         rotate={d.rotate}
-                        floatDur={d.floatDur}
                         showLabel
                     />
                 </div>

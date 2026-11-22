@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 /**
  * A playful die-cut sticker that doubles as a navigation button.
  * Renders the image bare (no card) so the sticker's own outline shows; it
- * tilts at rest, gently floats, and grows on hover. `label` is used for the
+ * tilts at rest and grows on hover. `label` is used for the
  * accessible name, and shown as a visible caption when `showLabel` is set.
  */
 function Sticker({
@@ -12,7 +12,6 @@ function Sticker({
     img,
     label,
     rotate = 0,
-    floatDur = 4,
     className = "",
     title,
     external = false,
@@ -31,10 +30,7 @@ function Sticker({
         </>
     );
 
-    const style = {
-        "--rot": `${rotate}deg`,
-        "--float-dur": `${floatDur}s`,
-    };
+    const style = { "--rot": `${rotate}deg` };
 
     if (external) {
         return (
