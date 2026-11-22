@@ -33,12 +33,13 @@ const md = {
   h3: (p) => <h3 className="text-xl font-semibold mt-7 mb-2" {...p} />,
   h4: (p) => <h4 className="text-base font-semibold mt-5 mb-1.5" {...p} />,
   p: (p) => <p className="mb-4 leading-[1.78]" {...p} />,
-  a: (p) => (
-    <a
-      className="text-accent-green underline underline-offset-[3px] hover:text-accent-yellow transition-colors"
-      {...p}
-    />
-  ),
+  a: ({ href = "", ...p }) => {
+    const cls = "text-accent-green underline underline-offset-[3px] hover:text-accent-yellow transition-colors";
+    // Site paths (wikilinks, /cv, …) go through the router: no reload, no flash.
+    return href.startsWith("/")
+      ? <Link to={href} className={cls} {...p} />
+      : <a href={href} className={cls} {...p} />;
+  },
   ul: (p) => <ul className="list-disc pl-6 mb-4" {...p} />,
   ol: (p) => <ol className="list-decimal pl-6 mb-4" {...p} />,
   li: (p) => <li className="my-1 leading-[1.65]" {...p} />,
