@@ -283,6 +283,8 @@ body[data-slug="index"] {
       "grid-footer";
   }
 
+  // No "Home" heading: the page opens with the note itself (the tab still says Home).
+  & h1.article-title,
   & #quartz-body .sidebar.right,
   & #quartz-body .sidebar.left > :not(.flex-component:first-child),
   & #quartz-body > .center > :not(article):not(.page-header) {
