@@ -5,29 +5,40 @@ import Footer from "../components/Footer";
 import KaCaptcha from "../components/KaCaptcha";
 import KaThasTitle from "../components/KaThasTitle";
 import StickerCluster from "../components/StickerCluster";
-import Portrait from "../components/Portrait";
+// import Portrait from "../components/Portrait";
 import CommitInfo from "../components/CommitInfo";
 import VisitorButton from "../components/VisitorButton";
 import PostCard from "../components/PostCard";
 import Countdown from "../components/Countdown";
 import { posts } from "../lib/posts";
+import kaSketch from "../assets/images/ka-sketch.webp";
 
 function IndexPage() {
   const recentPosts = posts.slice(0, 3);
   return (
     <>
       <main className="max-w-2xl w-full mx-auto flex flex-col items-center justify-center p-8 pt-15 mb-6 gap-15">
-          <KaThasTitle />
+
+
+
 
           <div className="flex flex-col sm:flex-row items-center gap-5 w-full">
-            <Portrait/>
             <div className="flex flex-col gap-4">
+        <KaThasTitle />
               <p className="text-left">
               Hi there! Welcome to my own little nook of the internet.
               Here you'll find some projects, interests, and other tidbits.
               I'm doing my master's at UiO, studying robotics and AI.
               </p>
             </div>
+            {/* <Portrait/>*/}
+          <img
+            src={kaSketch}
+            alt="Ink sketch of Ka holding a coffee and a pastry"
+            width={480}
+            height={971}
+            className="w-48 sm:w-60 h-auto mix-blend-multiply"
+          />
         </div>
 
         <Countdown date="2026-09-09" label="arriving in Nagoya" />
