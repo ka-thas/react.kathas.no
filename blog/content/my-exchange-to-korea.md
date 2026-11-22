@@ -3,7 +3,6 @@ title: Exchange semester in Seoul
 date: 2026-05-23
 description: Five months at Korea University in Seoul.
 ---
-
 I lived and studied at Korea University in Seoul for 5 months of my bachelor’s. The entire experience was surreal and it feels like I left a different life there that I may never have again. My lifestyle was completely different there; the biggest difference was that I ate out every single day for every single meal.
 
 Went on a weekend trip to Japan during the semester, and passed through japan for two weeks after the semester. The two countries were quite different in food and other cultural preservation strategies. Japan seemed to be holding on to old customs, while Korea tried to advance as fast as possible.

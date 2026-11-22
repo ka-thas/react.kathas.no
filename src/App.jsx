@@ -15,7 +15,7 @@ import "./styles/stickers.css";
 function SiteLayout() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar />*/}
       <Outlet />
     </>
   );
