@@ -196,3 +196,105 @@ body[data-slug="books/index"] .page-listing {
     display: none;
   }
 }
+
+// ---- Airier reading -------------------------------------------------------
+// Bigger text with more line spacing, and more room around headings, closer to
+// the React site's spacious feel.
+article {
+  font-size: 1.1rem;
+  line-height: 1.75;
+
+  & p,
+  & ul,
+  & ol,
+  & blockquote,
+  & figure,
+  & table {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  & li {
+    margin: 0.35rem 0;
+  }
+
+  & h2 {
+    margin-top: 3rem;
+  }
+
+  & h3 {
+    margin-top: 2.25rem;
+  }
+}
+
+// The date line under a post's title: small and light.
+p.content-meta {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin: 0.25rem 0 1.5rem;
+}
+
+// ---- Quieter side panes ---------------------------------------------------
+// Smaller, greyer text so the note in the middle stands out.
+#quartz-body .sidebar {
+  gap: 2.25rem;
+  font-size: 0.9rem;
+  color: var(--gray);
+
+  // Section headings only (Selected Writing, On this page, …), not the note
+  // titles inside the lists, which are h3s too.
+  & h3:not(.desc > h3) {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray);
+    margin: 0 0 0.5rem;
+  }
+
+  & .desc > h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  & a:not(.page-title a) {
+    color: var(--darkgray);
+    background: none;
+
+    &:hover {
+      color: var(--secondary);
+    }
+  }
+}
+
+// ---- Home page: one centred column ----------------------------------------
+// No side panes on the home note: the title and search icon sit above the text,
+// like a landing page. The Selected Writing / Recent Notes lists are hidden here
+// (desktop and phone), and the right pane (table of contents, backlinks) too.
+body[data-slug="index"] {
+  & .page[data-frame="default"] > #quartz-body {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "grid-sidebar-left"
+      "grid-header"
+      "grid-center"
+      "grid-footer";
+  }
+
+  & #quartz-body .sidebar.right,
+  & #quartz-body .sidebar.left > :not(.flex-component:first-child),
+  & #quartz-body > .center > :not(article):not(.page-header) {
+    display: none;
+  }
+
+  & #quartz-body .sidebar.left {
+    position: static;
+    height: auto;
+    width: 100%;
+    max-width: 48rem;
+    justify-self: center;
+    padding: 2.5rem 0 0;
+  }
+}

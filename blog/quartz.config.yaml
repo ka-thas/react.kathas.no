@@ -145,8 +145,9 @@ plugins:
       # Only notes with a `date:` (condition registered in quartz.ts); undated
       # notes would otherwise show the build date.
       condition: has-date
+  # Off for a calmer page: no tag pills under the title (tag pages still exist).
   - source: "@quartz-community/tag-list"
-    enabled: true
+    enabled: false
     layout:
       position: beforeBody
       priority: 30
