@@ -1,13 +1,13 @@
 // Every sticker on the site, for use anywhere:
 //   import { stickers, stickerByName, randomSticker } from "../lib/stickers";
 //   <img src={stickerByName.deer.src} alt={stickerByName.deer.label} />
-// Sources: src/posts/attachments/stickers/ (added with `npm run sticker`) and the
-// nav stickers in src/assets/images/stickers/. Each image is only a URL here, so
-// importing this file doesn't load any sticker until it's shown.
-const files = import.meta.glob(
-  ["../posts/attachments/stickers/*.{webp,png}", "../assets/images/stickers/*.{webp,png}"],
-  { eager: true, import: "default" }
-);
+// The one source: src/posts/attachments/stickers/ (add with `npm run sticker`).
+// Each image is only a URL here, so importing this file doesn't load any
+// sticker until it's shown.
+const files = import.meta.glob("../posts/attachments/stickers/*.{webp,png}", {
+  eager: true,
+  import: "default",
+});
 
 // Same file name, same tilt and offset, so layouts don't reshuffle on reload.
 function hash(text) {
