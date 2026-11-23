@@ -11,15 +11,14 @@ function ProjectsPage() {
 
   return (
     <>
-      <main className="flex flex-col items-start w-full max-w-[1000px] mx-auto px-4 text-left gap-5 z-10">
-        <section className="py-[0.6em] w-full max-w-[600px]">
-          <h1 className="font-bold text-5xl mt-5 mb-4">Projects</h1>
-          <p>
-            Here is a curated collection of my projects. Check out the source
-            code on my <a href="https://github.com/ka-thas">GitHub</a>.
-          </p>
-        </section>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4 w-full">
+      {/* Same width and intro spacing as BlogPage. */}
+      <main className="max-w-[780px] mx-auto px-4 w-full gap-4">
+        <h1 className="font-bold text-5xl mt-5 mb-4">Projects</h1>
+        <p>
+          Here is a curated collection of my projects. Check out the source
+          code on my <a href="https://github.com/ka-thas">GitHub</a>.
+        </p>
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4 w-full mt-10 mb-8">
           {projectsData.map((project) => (
             <ProjectCard
               key={project.id}

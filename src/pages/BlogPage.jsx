@@ -9,7 +9,7 @@ function BlogPage() {
   return (
     <>
       <main className="max-w-[780px] mx-auto px-4 w-full gap-4">
-        <h1 className="font-bold text-5xl mt-5 mb-4">Blog ☕️</h1>
+        <h1 className="font-bold text-5xl mt-5 mb-4">Root ☕️</h1>
         <p>
           Welcome to my blog! It’s a space of ideas, thoughts, projects and
           other writings I’d want to share with the world. This site might mean
@@ -17,9 +17,8 @@ function BlogPage() {
           that interests you or sparks inspiration.
         </p>
         <p>
-          This is more of a “hub” node to find other pages. Browse with the
-          search <InlineCode>⌘k</InlineCode>, or follow links through the
-          network of notes.
+          Browse with the search <InlineCode>⌘k</InlineCode>, or click your way through the
+          growing heap of notes.
         </p>
         <p>
           I find it kind of funny that notes and nodes sound similar, but that

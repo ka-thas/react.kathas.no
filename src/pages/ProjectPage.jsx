@@ -29,18 +29,11 @@ function ProjectPage() {
 
   return (
     <>
-      <main className="max-w-[680px] mx-auto px-4 pb-16">
-        <Link
-          to="/projects"
-          className="text-sm text-black/55 no-underline mt-5 mb-8 hover:text-accent-green transition-colors duration-150"
-        >
-          ← Projects
-        </Link>
-
-        <header className="mb-8 pb-5 border-b border-black/10">
-          <h1 className="text-[clamp(1.8rem,5vw,2.5rem)] font-extrabold m-0 mb-4 leading-[1.15]">
-            {title}
-          </h1>
+      <main className="max-w-[780px] mx-auto px-4 w-full gap-4 pb-16">
+        {/* main is a flex column (global.css), so gap-4 adds to margins like on BlogPage. */}
+        <header className="mb-4 flex flex-col gap-4">
+          {/* Same title size and spacing as BlogPage's intro. */}
+          <h1 className="font-bold text-5xl mt-5 mb-4">{title}</h1>
           <ProjectLinks links={links} />
         </header>
 
