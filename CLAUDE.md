@@ -35,6 +35,8 @@ To exercise the `/api/visit` serverless function locally you need the Vercel dev
 
 - **Image assets**: source images live in `src/assets/images/` (mostly `.webp`; convert with `cwebp -q 50 input.png -o output.webp`); project previews live in the vault instead. Several image manifest files (`portraitImages.js`, `stickerImages.js`, `captchaImages.js`) collect static imports into exported objects.
 
+- **Sticker wall** (`src/posts/stickers.mdx` → `StickerWall.jsx`) shows every image in `src/posts/attachments/stickers/`. Add one with `npm run sticker -- <name> [file]`: it reads the clipboard (copy a sticker on the iPhone) or a file, trims the transparent padding, fits it in 480px and saves a `.webp` there (`scripts/add-sticker.mjs`, uses `sharp`).
+
 ## Conventions
 
 - Components are `.jsx` and authored as React 19 function components.
