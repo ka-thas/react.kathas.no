@@ -1,13 +1,15 @@
-import projects from "./images/stickers/barn-leker.webp";
-import blog from "./images/stickers/latte.webp";
-import social from "./images/stickers/traffic-cone.webp";
-import cv from "./images/stickers/pastry.webp";
-import home from "./images/stickers/club-penguin.webp";
+// Which sticker each nav button uses (StickerCluster, HomeSticker). Any sticker
+// from the wall works here: use its file name, see lib/stickers.js.
+import { stickerByName } from "../lib/stickers";
 
-export const stickerImages = {
-  projects,
-  blog,
-  social,
-  cv,
-  home,
+const nav = {
+  projects: "barn-leker",
+  blog: "latte",
+  social: "traffic-cone",
+  cv: "pastry",
+  home: "club-penguin",
 };
+
+export const stickerImages = Object.fromEntries(
+  Object.entries(nav).map(([page, name]) => [page, stickerByName[name].src])
+);
