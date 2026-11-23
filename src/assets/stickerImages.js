@@ -5,8 +5,8 @@ import { stickerByName } from "../lib/stickers";
 const nav = {
   projects: "barn-leker",
   blog: "latte",
-  social: "traffic-cone",
-  cv: "pastry",
+  social: "eskil-cone-head",
+  cv: "tiger-painting",
   home: "club-penguin",
 };
 

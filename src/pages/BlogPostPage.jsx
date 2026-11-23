@@ -49,13 +49,6 @@ function BlogPostPage() {
   return (
     <>
       <main className="max-w-[680px] mx-auto px-4 pb-16">
-        <Link
-          to="/blog"
-          className="text-sm text-black/55 no-underline mt-5 mb-8 hover:text-accent-green transition-colors duration-150"
-        >
-          ← Blog
-        </Link>
-
         <header className="mb-8 pb-5 border-b border-black/10">
           <h1 className="text-[clamp(1.8rem,5vw,2.5rem)] font-extrabold m-0 mb-2 leading-[1.15]">
             {title}
