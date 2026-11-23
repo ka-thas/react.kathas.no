@@ -29,3 +29,7 @@ dist-ssr
 
 # Goodreads export (contains private notes)
 goodreads_library_export*.csv
+
+# Obsidian: per-device UI state
+src/posts/.obsidian/workspace*.json
+src/posts/.obsidian/cache
