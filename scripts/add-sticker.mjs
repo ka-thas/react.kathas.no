@@ -12,19 +12,29 @@
 //     animated .HEICS), it's converted with `sips` first.
 //   - Re-running is safe: an image that's already on the wall is skipped, and a
 //     name that's taken gets -2, -3, ...
-//   - Names: Claude looks at each sticker and names it (e.g. pizza-boxes). That needs
-//     ANTHROPIC_API_KEY in .env.local; without it, names come from the file names.
+//   - Names: Claude looks at the new stickers and names them (e.g. pizza-boxes).
+//     1. Claude Code (`claude -p`, on your subscription), one call for the batch.
+//     2. If that's not available: the Claude API, with ANTHROPIC_API_KEY in .env.local.
+//     3. Otherwise names come from the file names.
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
+import {
+  existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { basename, extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import Anthropic from "@anthropic-ai/sdk";
 
-const OUT_DIR = fileURLToPath(new URL("../src/posts/attachments/stickers/", import.meta.url));
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
+const OUT_DIR = join(ROOT, "src/posts/attachments/stickers");
 const IMAGE_EXT = /\.(heic|heics|heif|heifs|png|jpe?g|webp|gif|tiff?|avif)$/i;
+
+const NAMING_RULES =
+  "Each is a sticker cut out of a photo. Give each a short file name of 1 to 4 words in " +
+  "kebab-case that says what it shows, like pizza-boxes or tokyo-tower. For a person, " +
+  "describe the pose, action or clothing (thumbs-up, hi-vis-jacket), never who they are.";
 
 // ---- Arguments: paths are inputs, anything else is the name -----------------------
 const args = process.argv.slice(2);
@@ -102,65 +112,92 @@ async function convert(file, i) {
   }
 }
 
-// Claude names the sticker from what it shows. Returns null if naming isn't available.
-let client = null;
-let aiOff = !useAi;
-if (useAi) {
-  try {
-    process.loadEnvFile(fileURLToPath(new URL("../.env.local", import.meta.url)));
-  } catch {
-    // no .env.local; the SDK may still find a key in the environment
-  }
-}
-async function aiName(webp) {
-  if (aiOff) return null;
-  try {
-    client ??= new Anthropic();
-    const response = await client.beta.messages.create({
-      model: "claude-opus-5-5",
-      max_tokens: 2000,
-      output_config: { effort: "low" },
-      betas: ["server-side-fallback-2026-07-01"],
-      fallbacks: "default",
-      messages: [
-        {
-          role: "user",
-          content: [
-            { type: "image", source: { type: "base64", media_type: "image/webp", data: webp.toString("base64") } },
-            {
-              type: "text",
-              text:
-                "This is a sticker cut out of a photo. Give it a short file name of 1 to 4 words in " +
-                "kebab-case that says what it shows, like pizza-boxes or tokyo-tower. For a person, " +
-                "describe the pose, action or clothing (thumbs-up, hi-vis-jacket), never who they are. " +
-                "Reply with the name only.",
-            },
-          ],
-        },
-      ],
-    });
-    if (response.stop_reason === "refusal") return null;
-    const text = response.content.find((b) => b.type === "text")?.text ?? "";
-    return kebab(text) || null;
-  } catch (error) {
-    aiOff = true; // don't retry for every sticker
-    const why =
-      error instanceof Anthropic.AuthenticationError
-        ? "the API key was rejected"
-        : error instanceof Anthropic.RateLimitError
-          ? "rate limited"
-          : error instanceof Anthropic.APIError
-            ? `API error ${error.status}`
-            : "no ANTHROPIC_API_KEY found (add it to .env.local)";
-    console.warn(`  AI naming off (${why}); using file names instead.`);
-    return null;
-  }
-}
-
 function freeName(base) {
   let name = base;
   for (let n = 2; existsSync(join(OUT_DIR, `${name}.webp`)); n++) name = `${base}-${n}`;
   return name;
+}
+
+// ---- Naming ------------------------------------------------------------------------
+// Both return { "<current file>.webp": "new-name" }, or null if they can't run.
+
+// 1. Claude Code in headless mode: one call names the whole batch. Read is its only tool.
+function nameWithClaudeCode(files) {
+  try {
+    execFileSync("claude", ["--version"], { stdio: "pipe" });
+  } catch {
+    return null; // Claude Code isn't installed
+  }
+  const prompt =
+    `Name these sticker images. Open each one with the Read tool. ${NAMING_RULES}\n` +
+    "Reply with one line per image, exactly `<file name> -> <new-name>`, and nothing else.\n\n" +
+    files.map((f) => join(OUT_DIR, f)).join("\n");
+  try {
+    const out = execFileSync(
+      "claude",
+      ["-p", prompt, "--allowedTools", "Read", "--output-format", "text"],
+      { cwd: ROOT, encoding: "utf8", timeout: 5 * 60_000, stdio: ["ignore", "pipe", "pipe"] }
+    );
+    const names = {};
+    for (const line of out.split("\n")) {
+      const m = line.match(/([\w.-]+\.webp)\s*(?:->|→)\s*`?([^`]+)`?\s*$/);
+      if (m && files.includes(m[1])) names[m[1]] = kebab(m[2]);
+    }
+    return Object.keys(names).length ? names : null;
+  } catch (error) {
+    console.warn(`  Claude Code naming failed (${error.code === "ETIMEDOUT" ? "timed out" : "error"}).`);
+    return null;
+  }
+}
+
+// 2. The Claude API, one request per sticker. Needs ANTHROPIC_API_KEY (e.g. in .env.local).
+async function nameWithApi(files) {
+  try {
+    process.loadEnvFile(join(ROOT, ".env.local"));
+  } catch {
+    // no .env.local; the SDK may still find a key in the environment
+  }
+  if (!process.env.ANTHROPIC_API_KEY && !process.env.ANTHROPIC_AUTH_TOKEN) return null;
+  const client = new Anthropic();
+  const names = {};
+  for (const file of files) {
+    try {
+      const response = await client.beta.messages.create({
+        model: "claude-opus-5-5",
+        max_tokens: 2000,
+        output_config: { effort: "low" },
+        betas: ["server-side-fallback-2026-07-01"],
+        fallbacks: "default",
+        messages: [
+          {
+            role: "user",
+            content: [
+              {
+                type: "image",
+                source: { type: "base64", media_type: "image/webp", data: readFileSync(join(OUT_DIR, file)).toString("base64") },
+              },
+              { type: "text", text: `${NAMING_RULES} Reply with the name only.` },
+            ],
+          },
+        ],
+      });
+      if (response.stop_reason === "refusal") continue;
+      const text = response.content.find((b) => b.type === "text")?.text ?? "";
+      if (kebab(text)) names[file] = kebab(text);
+    } catch (error) {
+      const why =
+        error instanceof Anthropic.AuthenticationError
+          ? "the API key was rejected"
+          : error instanceof Anthropic.RateLimitError
+            ? "rate limited"
+            : error instanceof Anthropic.APIError
+              ? `API error ${error.status}`
+              : "request failed";
+      console.warn(`  Claude API naming stopped (${why}).`);
+      break;
+    }
+  }
+  return Object.keys(names).length ? names : null;
 }
 
 // ---- Run ---------------------------------------------------------------------------
@@ -171,7 +208,8 @@ const existing = new Map(
     .map((f) => [sha(readFileSync(join(OUT_DIR, f))), f])
 );
 
-let added = 0;
+// Save each new sticker, named after its file for now.
+const added = []; // { label, file }
 for (const [i, file] of inputs.entries()) {
   const label = paths.length ? basename(file) : "clipboard";
   let result;
@@ -190,11 +228,28 @@ for (const [i, file] of inputs.entries()) {
   }
 
   const fallback = paths.length ? kebab(basename(file, extname(file))) : "sticker";
-  const base = (chosenName && kebab(chosenName)) || (await aiName(data)) || fallback || "sticker";
-  const name = freeName(base);
+  const name = freeName((chosenName && kebab(chosenName)) || fallback || "sticker");
   writeFileSync(join(OUT_DIR, `${name}.webp`), data);
   existing.set(hash, `${name}.webp`);
-  added++;
-  console.log(`✓ ${label} → ${name}.webp  (${info.width}×${info.height}, ${Math.round(info.size / 1024)} KB)`);
+  added.push({ label, file: `${name}.webp` });
+  console.log(`✓ ${label}  (${info.width}×${info.height}, ${Math.round(info.size / 1024)} KB)`);
 }
-console.log(`\n${added} added to src/posts/attachments/stickers/`);
+
+// Then let Claude rename them by what they show.
+if (added.length && useAi && !chosenName) {
+  const files = added.map((a) => a.file);
+  console.log(`\nNaming ${files.length} sticker${files.length > 1 ? "s" : ""}...`);
+  const names = nameWithClaudeCode(files) ?? (await nameWithApi(files));
+  if (!names) console.warn("  No Claude naming available; keeping the file names.");
+  for (const a of added) {
+    const wanted = names?.[a.file];
+    if (!wanted || `${wanted}.webp` === a.file) continue;
+    const target = `${freeName(wanted)}.webp`;
+    renameSync(join(OUT_DIR, a.file), join(OUT_DIR, target));
+    a.file = target;
+  }
+}
+
+if (added.length) console.log("");
+for (const a of added) console.log(`  ${a.label} → ${a.file}`);
+console.log(`${added.length} added to src/posts/attachments/stickers/`);
