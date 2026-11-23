@@ -25,6 +25,7 @@
     "remark-wiki-link": "^2.0.1"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^1.12.0",
     "@eslint/js": "^9.22.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
