@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import "../styles/global.css";
 import Footer from "../components/Footer.jsx";
 import { md } from "../components/mdComponents.jsx";
+import { isPublished } from "../lib/posts";
 
 // eager: true bundles all posts synchronously — no async loading needed at render time
 // Project notes (posts/projects/) are pages of their own, at /projects/<slug>.
@@ -12,10 +13,9 @@ function slugFromPath(path) {
 }
 
 const posts = Object.fromEntries(
-  Object.entries(postModules).map(([path, mod]) => [
-    mod.frontmatter?.slug ?? slugFromPath(path),
-    mod,
-  ])
+  Object.entries(postModules)
+    .filter(([, mod]) => isPublished(mod))
+    .map(([path, mod]) => [mod.frontmatter?.slug ?? slugFromPath(path), mod])
 );
 
 function formatDate(d) {

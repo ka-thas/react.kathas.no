@@ -16,6 +16,8 @@
 //     1. Claude Code (`claude -p`, on your subscription), one call for the batch.
 //     2. If that's not available: the Claude API, with ANTHROPIC_API_KEY in .env.local.
 //     3. Otherwise names come from the file names.
+//   - Each new sticker gets an empty row in src/posts/sticker-comments.md, for the
+//     bubble it shows when tapped on the wall.
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import {
@@ -26,6 +28,7 @@ import { basename, extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import Anthropic from "@anthropic-ai/sdk";
+import { syncCommentsTable } from "./sticker-comments.mjs";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const OUT_DIR = join(ROOT, "src/posts/attachments/stickers");
@@ -253,3 +256,4 @@ if (added.length && useAi && !chosenName) {
 if (added.length) console.log("");
 for (const a of added) console.log(`  ${a.label} → ${a.file}`);
 console.log(`${added.length} added to src/posts/attachments/stickers/`);
+if (syncCommentsTable().length) console.log("Add their comments in src/posts/sticker-comments.md");

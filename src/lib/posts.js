@@ -6,7 +6,11 @@ function slugFromPath(path) {
   return path.split("/").pop().replace(/\.(md|mdx)$/, "");
 }
 
+// `publish: false` in a note's frontmatter keeps it off the blog (list, page and search).
+export const isPublished = (mod) => mod.frontmatter?.publish !== false;
+
 export const posts = Object.entries(postModules)
+  .filter(([, mod]) => isPublished(mod))
   .map(([path, mod]) => ({
     slug: mod.frontmatter?.slug ?? slugFromPath(path),
     title: mod.frontmatter?.title ?? slugFromPath(path),
