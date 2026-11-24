@@ -36,7 +36,9 @@ export default function SearchDialog({ open, setOpen }) {
   const onKeyDown = (e) => {
     if (e.key === "ArrowDown") { e.preventDefault(); setActive((i) => Math.min(i + 1, results.length - 1)); }
     if (e.key === "ArrowUp") { e.preventDefault(); setActive((i) => Math.max(i - 1, 0)); }
-    if (e.key === "Enter" && results[active]) go(results[active].url);
+    // preventDefault: closing the dialog puts focus back on the element that had it
+    // (e.g. the navbar link just clicked), and this Enter would then activate it too.
+    if (e.key === "Enter" && results[active]) { e.preventDefault(); go(results[active].url); }
   };
 
   return (
