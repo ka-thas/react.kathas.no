@@ -7,9 +7,10 @@ function StickerWall() {
   const [open, setOpen] = useState(null); // name of the sticker whose bubble is showing
   const wall = useRef(null);
 
-  // Close on a tap outside the open sticker, or on Esc.
+  // Close after 3 seconds, on a tap outside the open sticker, or on Esc.
   useEffect(() => {
     if (!open) return;
+    const timer = setTimeout(() => setOpen(null), 3000);
     const onDown = (e) => {
       if (!e.target.closest(`[data-sticker="${open}"]`)) setOpen(null);
     };
@@ -17,6 +18,7 @@ function StickerWall() {
     document.addEventListener("pointerdown", onDown);
     document.addEventListener("keydown", onKey);
     return () => {
+      clearTimeout(timer);
       document.removeEventListener("pointerdown", onDown);
       document.removeEventListener("keydown", onKey);
     };
