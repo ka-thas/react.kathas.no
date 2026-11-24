@@ -1,7 +1,7 @@
 ---
 title: "Eco system simulation"
 slug: "ecoSim"
-order: 4
+order: 11
 demo: https://projects.kathas.no/steinsakspapir
 repo: https://github.com/ka-thas/steinsakspapir
 tags:

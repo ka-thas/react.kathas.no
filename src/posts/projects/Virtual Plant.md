@@ -1,7 +1,7 @@
 ---
 title: "Virtual Plant"
 slug: "plant"
-order: 9
+order: 6
 demo: https://projects.kathas.no/plant
 repo: https://github.com/ka-thas/plant
 tags:

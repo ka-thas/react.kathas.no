@@ -1,7 +1,7 @@
 ---
 title: "Particle Swarm Optimization"
 slug: "PSO"
-order: 6
+order: 9
 demo: https://projects.kathas.no/PSO
 tags:
   - project

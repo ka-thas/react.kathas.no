@@ -12,6 +12,6 @@ views:
       - slug
     sort:
       - property: order
-        direction: ASC
+        direction: DESC
     columnSize:
       note.title: 328

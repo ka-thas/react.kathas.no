@@ -1,7 +1,7 @@
 ---
 title: "Plant nursery website"
 slug: "nursery"
-order: 10
+order: 5
 demo: https://projects.kathas.no/nursery-website
 tags:
   - project

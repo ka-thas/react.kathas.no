@@ -1,7 +1,7 @@
 ---
 title: "Electric scooter map"
 slug: "scooter"
-order: 12
+order: 3
 demo: https://projects.kathas.no/electric-scooter-map
 tags:
   - project

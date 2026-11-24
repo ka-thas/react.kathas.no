@@ -1,7 +1,7 @@
 ---
 title: "Snake"
 slug: "snake"
-order: 13
+order: 2
 demo: https://projects.kathas.no/snake-js
 tags:
   - project

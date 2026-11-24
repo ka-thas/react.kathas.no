@@ -1,7 +1,7 @@
 ---
 title: "Life calendar"
 slug: "calendar"
-order: 11
+order: 4
 demo: https://projects.kathas.no/calendar-of-life
 tags:
   - project

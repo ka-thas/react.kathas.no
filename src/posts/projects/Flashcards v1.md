@@ -1,7 +1,7 @@
 ---
 title: "Flashcards v1"
 slug: "flashcards"
-order: 14
+order: 1
 demo: https://projects.kathas.no/flashcards/flashcards.html
 tags:
   - project

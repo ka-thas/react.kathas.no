@@ -1,7 +1,7 @@
 ---
 title: "Pomodoro timer"
 slug: "pomodoro"
-order: 8
+order: 7
 demo: https://projects.kathas.no/pomodoro
 repo: https://github.com/ka-thas/pomodoro
 tags:

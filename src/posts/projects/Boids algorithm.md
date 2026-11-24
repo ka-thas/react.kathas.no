@@ -1,7 +1,7 @@
 ---
 title: "Boids algorithm"
 slug: "boids"
-order: 5
+order: 10
 demo: https://projects.kathas.no/boids
 tags:
   - project

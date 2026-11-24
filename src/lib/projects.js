@@ -1,5 +1,7 @@
 // Projects are notes in the Obsidian vault: src/posts/projects/<Title>.md.
-//   frontmatter  title, slug (page at /projects/<slug>), order (position on /projects),
+//   frontmatter  title, slug (page at /projects/<slug>), order (highest first on /projects:
+//                a new project takes the highest number under 100, + 1; big
+//                projects that should stay on top use 100 and up),
 //                demo and repo (URLs for the "Try it" and "GitHub" buttons; both optional)
 //   body         the write-up. Its first image is also the card's preview on /projects.
 // Images live in src/posts/attachments/projects/.
@@ -26,7 +28,7 @@ export const projects = Object.entries(modules)
     return {
       id: fm.slug ?? name,
       title: fm.title ?? name,
-      order: fm.order ?? Infinity,
+      order: fm.order ?? -Infinity, // no order: at the bottom
       imgSrc: imageByName[decodeURI(imgPath).split("/").pop()],
       imgAlt,
       links: [
@@ -38,6 +40,6 @@ export const projects = Object.entries(modules)
       Content: mod.default,
     };
   })
-  .sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
+  .sort((a, b) => b.order - a.order || a.title.localeCompare(b.title));
 
 export const projectsBySlug = Object.fromEntries(projects.map((p) => [p.id, p]));

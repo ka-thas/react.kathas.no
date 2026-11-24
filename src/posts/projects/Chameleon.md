@@ -1,7 +1,7 @@
 ---
 title: "Chameleon"
 slug: "chameleon"
-order: 3
+order: 12
 demo: https://projects.kathas.no/chameleon
 tags:
   - project
