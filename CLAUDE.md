@@ -42,7 +42,7 @@ To exercise the `/api/visit` serverless function locally you need the Vercel dev
 ## Conventions
 
 - Components are `.jsx` and authored as React 19 function components.
-- **Styling is Tailwind utility classes inline in JSX**, frequently with arbitrary values for the site's dark/neon theme (accent green `#00ff80`, yellow `#efff78`). Page-scoped CSS lives in `src/styles/` (`global.css`, `stickers.css`). Match the existing inline-utility style rather than adding new CSS files.
+- **Styling is Tailwind utility classes inline in JSX**, on the site's light mint theme: `#f1fff8` background, with the `accent-green` (`#047857`) and `accent-yellow` (`#b45309`) tokens defined in `@theme` in `src/styles/global.css`. Page-scoped CSS lives in `src/styles/` (`global.css`, `stickers.css`). Match the existing inline-utility style rather than adding new CSS files.
 - ESLint flag config in `eslint.config.js`: `no-unused-vars` ignores PascalCase/CONSTANT identifiers (`varsIgnorePattern: '^[A-Z_]'`), so unused capitalized imports won't error. React Hooks rules are enforced.
 
 ## Git
