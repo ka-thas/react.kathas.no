@@ -21,7 +21,7 @@ To exercise the `/api/visit` serverless function locally you need the Vercel dev
 
 ## Architecture
 
-- **Routing** lives entirely in `src/App.jsx` via `react-router-dom`. Routes: `/`, `/projects`, `/social`, `/cv`, `/blog`, `/blog/:slug`, and `*` (NotFound). `ScrollToTop` and `HomeSticker` render outside `<Routes>` so they apply to every page. Vercel rewrites all non-`/api` paths to `index.html` (`vercel.json`) for client-side routing.
+- **Routing** lives entirely in `src/App.jsx` via `react-router-dom`. Routes: `/`, `/projects`, `/social`, `/cv`, `/blog`, `/blog/:slug`, `/photos` (lazy-loaded), and `*` (NotFound). `ScrollToTop` and `HomeSticker` render outside `<Routes>` so they apply to every page. Vercel rewrites all non-`/api` paths to `index.html` (`vercel.json`) for client-side routing.
 
 - **Pages** (`src/pages/`) compose **components** (`src/components/`). Each page typically imports `../styles/global.css` and renders its own `<Footer />`.
 
@@ -30,6 +30,8 @@ To exercise the `/api/visit` serverless function locally you need the Vercel dev
 - **Projects are notes in the Obsidian vault**: one `src/posts/projects/<Title>.md` per project. Frontmatter: `title`, `slug` (page at `/projects/<slug>`), `order` (sorted highest first on `/projects`: a new project takes the highest number under 100, + 1, so no other note changes; big priority projects use 100+ to stay above), and optional `demo` / `repo` URLs (the "Try it" / "GitHub" buttons). The body is the write-up; its first image (in `src/posts/attachments/projects/`) doubles as the card preview. `src/lib/projects.js` loads them for `ProjectsPage` (cards + `ProjectModal`), `ProjectPage` and search. **Adding a project = adding a note** there with its preview image.
 
 - **The actual project demos are separate apps**, not part of this build. They live under `public/projects/` as **git submodules** (see `.gitmodules`) and are served at the `projects.kathas.no` subdomain — `projectsData` links point there. Run `git submodule update --init --recursive` if those directories are empty.
+
+- **Photo gallery** (`/photos`) is fed at runtime by a `manifest.json` that Pothos publishes to a Cloudflare R2 bucket (`VITE_PHOTOS_BASE_URL`; dev falls back to `public/sample-photos/`). Contract and infra setup: `docs/photos-manifest.md`. Data logic (`src/lib/photos.js`, `usePhotoManifest.js`) is kept apart from the layout: swap the `layouts` map in `PhotosPage.jsx` (each layout gets `{ groups, base, onOpen }`).
 
 - **Visitor counter** is the only backend: `api/visit.ts` is a Vercel serverless function backed by Upstash Redis (`@upstash/redis`), incrementing the `visitor-count` key. It reads `KV_REST_API_*` env vars (Vercel KV integration) and falls back to `UPSTASH_REDIS_REST_*`. `src/components/VisitorButton.jsx` GETs the count on mount and POSTs (optimistically) on click.
 
