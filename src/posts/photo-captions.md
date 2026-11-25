@@ -3,12 +3,11 @@ title: Photo captions
 publish: false
 ---
 
-Captions for the [/photos](https://kathas.no/photos) gallery, shown like a movie subtitle inside the photo: Japanese first, English on hover or tap. Fill in either or both; leave both empty for no caption. Captions here win over any in the manifest, and go live on the next deploy. `npm run photo-captions` adds a row for each newly published photo, newest first.
+Captions for the [/photos](https://kathas.no/photos) gallery, shown like a movie subtitle inside the photo: Japanese first, English on hover or tap. Fill in either or both; leave both empty for no caption. Captions here win over any in the manifest, and go live on the next deploy. `npm run photo-captions` keeps one row per published photo, newest first (filled-in captions are always kept).
 
 | ID | Photo | 日本語 | English |
 | --- | --- | --- | --- |
 | 20261126-014510-pict0208 | ![photo\|120](https://pub-ee0ce57fad8e47559d0a980b23f3d6b0.r2.dev/thumbs/20261126-014510-pict0208-62fb199471c3.jpg) |  |  |
-| 20261126-014457-pict0192 | ![photo\|120](https://pub-ee0ce57fad8e47559d0a980b23f3d6b0.r2.dev/thumbs/20261126-014457-pict0192-e55000607bdd.jpg) |  |  |
 | 20261126-014456-pict0191 | ![photo\|120](https://pub-ee0ce57fad8e47559d0a980b23f3d6b0.r2.dev/thumbs/20261126-014456-pict0191-6e4c0e3f270a.jpg) |  |  |
 | 20261126-014449-pict0182 | ![photo\|120](https://pub-ee0ce57fad8e47559d0a980b23f3d6b0.r2.dev/thumbs/20261126-014449-pict0182-809383f53488.jpg) |  |  |
 | 20261126-014445-pict0173 | ![photo\|120](https://pub-ee0ce57fad8e47559d0a980b23f3d6b0.r2.dev/thumbs/20261126-014445-pict0173-a471b396fff8.jpg) |  |  |

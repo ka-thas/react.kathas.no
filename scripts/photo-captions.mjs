@@ -3,7 +3,8 @@
 // it), and Ka fills in the captions. lib/photoCaptions.js reads the table when the
 // site builds.
 //
-//   npm run photo-captions     add rows for photos the table doesn't have yet
+//   npm run photo-captions     one row per published photo: adds new ones, drops
+//                              unpublished ones (unless captioned), refreshes thumbnails
 //
 // The bucket URL comes from VITE_PHOTOS_BASE_URL (environment, .env.local or .env).
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
@@ -36,8 +37,8 @@ function baseUrl() {
   return value.replace(/\/+$/, "");
 }
 
-// The photo id in a row's first cell (backticks allowed).
-const rowId = (line) => line.split(/(?<!\\)\|/)[1]?.trim().replace(/`/g, "") ?? "";
+const cellsOf = (line) => line.split(/(?<!\\)\|/).slice(1, -1).map((c) => c.trim());
+const isSeparator = (line) => /^\|\s*:?-+/.test(line);
 
 const base = baseUrl();
 const res = await fetch(`${base}/manifest.json`);
@@ -48,17 +49,33 @@ const photos = ((await res.json()).photos ?? [])
 
 const text = existsSync(NOTE) ? readFileSync(NOTE, "utf8") : TEMPLATE;
 const lines = text.replace(/\n+$/, "").split("\n");
-const known = new Set(lines.filter((l) => l.startsWith("|")).map(rowId));
-const missing = photos.filter((p) => !known.has(p.id));
+const sep = lines.findIndex(isSeparator);
+if (sep === -1) throw new Error("No table found in src/posts/photo-captions.md");
+let end = sep + 1;
+while (end < lines.length && lines[end].startsWith("|")) end++;
 
-if (missing.length === 0) {
-  console.log("Every published photo has a row.");
-} else {
-  // New photos go at the top of the table, right under the | --- | row.
-  let at = lines.findIndex((l) => /^\|\s*:?-+/.test(l));
-  if (at === -1) throw new Error("No table found in src/posts/photo-captions.md");
-  const rows = missing.map((p) => `| ${p.id} | ![photo\\|120](${new URL(p.thumb, `${base}/`).href}) |  |  |`);
-  lines.splice(at + 1, 0, ...rows);
-  writeFileSync(NOTE, lines.join("\n") + "\n");
-  console.log(`Added ${missing.length} rows to src/posts/photo-captions.md`);
+// Captions already written, by photo id (cells as written, escapes kept).
+const written = new Map();
+for (const line of lines.slice(sep + 1, end)) {
+  const [id = "", , ja = "", en = ""] = cellsOf(line);
+  written.set(id.replace(/`/g, ""), { ja, en });
 }
+
+// One row per published photo, newest first, with a fresh thumbnail. Rows for
+// photos no longer published are dropped, unless they hold a caption.
+const ids = new Set(photos.map((p) => p.id));
+const rows = photos.map((p) => {
+  const { ja = "", en = "" } = written.get(p.id) ?? {};
+  return `| ${p.id} | ![photo\\|120](${new URL(p.thumb, `${base}/`).href}) | ${ja} | ${en} |`;
+});
+const orphans = [...written].filter(([id, c]) => !ids.has(id) && (c.ja || c.en));
+for (const [id, c] of orphans) rows.push(`| ${id} | (not published) | ${c.ja} | ${c.en} |`);
+
+const added = photos.filter((p) => !written.has(p.id)).length;
+const dropped = [...written.keys()].filter((id) => !ids.has(id)).length - orphans.length;
+lines.splice(sep + 1, end - sep - 1, ...rows);
+writeFileSync(NOTE, lines.join("\n") + "\n");
+console.log(
+  `photo-captions.md: ${photos.length} photos, ${added} new, ${dropped} unpublished rows removed` +
+    (orphans.length ? `, ${orphans.length} captions kept for photos no longer published (at the bottom)` : ""),
+);
