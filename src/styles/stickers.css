@@ -1,7 +1,10 @@
 /* Playful sticker-buttons used for site navigation. */
 
 .sticker-btn {
-    display: inline-block;
+    /* A column, so the label stays centred under narrow stickers too. */
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
     cursor: pointer;
     transition:
@@ -24,8 +27,9 @@
 
 .sticker-img {
     display: block;
-    width: 7.5rem;
-    height: auto;
+    /* Same height for every sticker, like the wall, so tall or wide ones fit in. */
+    width: auto;
+    height: 7.5rem;
     user-select: none;
     -webkit-user-drag: none;
     filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
@@ -58,7 +62,7 @@
 
 /* Small variant — used for the persistent corner home sticker. */
 .sticker-sm .sticker-img {
-    width: 6.7rem;
+    height: 6.7rem;
 }
 
 /* Persistent home sticker, fixed to a corner on every inner page. */

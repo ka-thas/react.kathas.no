@@ -6,7 +6,7 @@ const nav = {
   projects: "barn-leker",
   blog: "latte",
   social: "eskil-cone-head",
-  photos: "phone-selfie",
+  photos: "charmera",
   cv: "tiger-painting",
   home: "club-penguin",
 };
