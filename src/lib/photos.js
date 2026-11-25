@@ -122,27 +122,28 @@ export function photoUrl(base, path) {
   }
 }
 
-/** "20 Nov 2026", in the photo's own calendar day. */
+/** Alt text: the English caption if there is one, else the day it was taken. */
+export function photoAlt(photo) {
+  return photo.caption?.en ?? photo.caption?.ja ?? `Photo taken ${formatDay(photo.takenAt)}`;
+}
+
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+// Read straight from the ISO text, so it's the local day the photo was taken,
+// whatever the viewer's time zone.
+const ymd = (iso) => iso.slice(0, 10).split("-").map(Number);
+
+/** "20 Nov 2026" */
 export function formatDay(iso) {
-  // The date part of the ISO string is the local day the photo was taken.
-  const [y, m, d] = iso.slice(0, 10).split("-").map(Number);
-  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
-  });
+  const [y, m, d] = ymd(iso);
+  return `${d} ${MONTHS[m - 1]} ${y}`;
 }
 
 /** "Sep 2026 to May 2027", or "Mar 2027" when the trip fits in one month. */
 export function formatTripDates({ start, end }) {
   const month = (iso) => {
-    const [y, m] = iso.slice(0, 7).split("-").map(Number);
-    return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString("en-GB", {
-      month: "short",
-      year: "numeric",
-      timeZone: "UTC",
-    });
+    const [y, m] = ymd(iso);
+    return `${MONTHS[m - 1]} ${y}`;
   };
   const a = month(start);
   const b = month(end);

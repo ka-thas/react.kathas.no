@@ -7,6 +7,8 @@
        against the light body background below. */
     --color-accent-green: #047857;
     --color-accent-yellow: #b45309;
+    /* Japanese photo captions; PhotosPage loads the font itself. */
+    --font-jp: "Noto Sans JP", "DM Sans", sans-serif;
 }
 
 :root {
@@ -75,7 +77,7 @@ main {
     to { transform: translateX(var(--marquee-offset)); }
 }
 
-/* Used by Masonry.jsx — the lightbox backdrop fades in on open. */
+/* Used by PhotoLightbox.jsx: the backdrop fades in on open. */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }

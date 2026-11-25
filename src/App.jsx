@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import IndexPage from "./pages/IndexPage.jsx";
@@ -12,6 +13,9 @@ import ThesisTimelineEmbedPage from "./pages/ThesisTimelineEmbedPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import "./styles/stickers.css";
+
+// Loaded only when visited, so the gallery doesn't slow down the other pages.
+const PhotosPage = lazy(() => import("./pages/PhotosPage.jsx"));
 
 function SiteLayout() {
   return (
@@ -39,6 +43,14 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/thesis" element={<MasterThesisPage />} />
+          <Route
+            path="/photos"
+            element={
+              <Suspense fallback={null}>
+                <PhotosPage />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
