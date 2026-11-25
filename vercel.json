@@ -1,4 +1,13 @@
 {
+  "redirects": [
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "qr.kathas.no" }], "destination": "https://kathas.no/social?src=qr", "permanent": false },
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "scan.kathas.no" }], "destination": "https://kathas.no/social?src=scan", "permanent": false },
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "github.kathas.no" }], "destination": "https://github.com/ka-thas", "permanent": false },
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "notion.kathas.no" }], "destination": "https://kathas.notion.site/notion-kathas-no-1b4dac60133b8025a967cf3a9ef22bd0?pvs=4", "permanent": false },
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "gamejam.kathas.no" }], "destination": "https://kathas.notion.site/IFI-GAME-JAM-2026-1dedac60133b806d9e3de72c35506dc0", "permanent": false },
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "1160.kathas.no" }], "destination": "https://kathas.notion.site/Gruppe-2-2fcdac60133b804dbae8e145cd9bd0e4", "permanent": false },
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "vipps.kathas.no" }], "destination": "https://qr.vipps.no/28/2/01/031/4746663530?v=1", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
