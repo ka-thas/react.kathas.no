@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import MasonryLayout from "../components/photos/MasonryLayout";
 import PhotoLightbox from "../components/photos/PhotoLightbox";
 import { usePhotoManifest } from "../lib/usePhotoManifest";
-import { formatDay } from "../lib/photos";
+import { formatLocalDay } from "../lib/photos";
 
 // Swap the gallery layout here. Each one takes { groups, base, onOpen(photoId) }.
 const layouts = { masonry: MasonryLayout };
@@ -78,7 +78,7 @@ function PhotosPage() {
           <>
             <Layout groups={groups} base={base} onOpen={setOpenId} />
             {updated && (
-              <p className="mt-12 text-sm text-black/45">Last updated {formatDay(updated)}</p>
+              <p className="mt-12 text-sm text-black/45">Last updated {formatLocalDay(updated)}</p>
             )}
           </>
         )}

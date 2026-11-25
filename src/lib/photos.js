@@ -152,6 +152,12 @@ export function formatDay(iso) {
   return `${d} ${MONTHS[m - 1]} ${y}`;
 }
 
+/** "20 Nov 2026" for a moment in time (like `updated`, often UTC), in the viewer's time zone. */
+export function formatLocalDay(iso) {
+  const d = new Date(iso);
+  return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+}
+
 /** "Sep 2026 to May 2027", or "Mar 2027" when the trip fits in one month. */
 export function formatTripDates({ start, end }) {
   const month = (iso) => {
