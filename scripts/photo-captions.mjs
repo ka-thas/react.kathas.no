@@ -19,7 +19,7 @@ title: Photo captions
 publish: false
 ---
 
-Captions for the [/photos](https://kathas.no/photos) gallery, shown like a movie subtitle inside the photo: Japanese first, English on hover or tap. Fill in either or both; leave both empty for no caption. Captions here win over any in the manifest, and go live on the next deploy. \`npm run photo-captions\` adds a row for each newly published photo, newest first.
+Captions for the [/photos](https://kathas.no/photos) gallery, shown like a movie subtitle inside the photo: Japanese first, English on hover or tap. Fill in either or both; leave both empty for no caption. Captions here win over any in the manifest, and go live on the next deploy. \`npm run photo-captions\` keeps one row per published photo, newest first (filled-in captions are always kept).
 
 | ID | Photo | 日本語 | English |
 | --- | --- | --- | --- |

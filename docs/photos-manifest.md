@@ -76,7 +76,7 @@ Upload images first and `manifest.json` last, so the site never points at files 
 
 ## Captions
 
-Captions are written in Obsidian, in `src/posts/photo-captions.md` (`publish: false`): a table of ID, thumbnail, 日本語 and English. `npm run photo-captions` adds a row for every photo in the bucket's manifest that the table lacks (newest first, with its thumbnail). The site reads the table at build time (`src/lib/photoCaptions.js`), so caption changes go live on the next deploy. A caption in the note wins over one in the manifest.
+Captions are written in Obsidian, in `src/posts/photo-captions.md` (`publish: false`): a table of ID, thumbnail, 日本語 and English. `npm run photo-captions` keeps one row per photo in the bucket's manifest (newest first, with its thumbnail), drops rows for unpublished photos and always keeps written captions. The site reads the table at build time (`src/lib/photoCaptions.js`), so caption changes go live on the next deploy. A caption in the note wins over one in the manifest.
 
 
 ## Infra setup (not done yet)
