@@ -7,7 +7,7 @@ import ProjectLinks from "./ProjectLinks.jsx";
 const modalMd = {
     ...md,
     p: (p) => <p className="mb-3 leading-[1.65] opacity-[0.92]" {...p} />,
-    img: (p) => <img className="w-full h-auto max-h-[280px] object-contain rounded-lg mb-4 bg-black/5" {...p} />,
+    img: (p) => <img className="w-full h-auto max-h-[280px] object-contain rounded-lg mb-4 bg-ink/5" {...p} />,
 };
 
 function ProjectModal({ project, onClose }) {
@@ -35,17 +35,17 @@ function ProjectModal({ project, onClose }) {
             aria-label={project.title}
         >
             <div
-                className="bg-[#f8fffb] border border-black/10 rounded-[14px] max-w-[620px] w-full max-h-[90vh] overflow-y-auto p-8 relative shadow-[0_24px_64px_rgba(0,0,0,0.35)]"
+                className="bg-paper border border-ink/10 rounded-[14px] max-w-[620px] w-full max-h-[90vh] overflow-y-auto p-8 relative shadow-[0_24px_64px_rgba(0,0,0,0.35)]"
                 onClick={(e) => e.stopPropagation()}
             >
                 <button
-                    className="absolute top-[0.9rem] right-[0.9rem] bg-black/6 border-none text-black text-[1.4rem] cursor-pointer leading-none py-[0.2rem] px-[0.55rem] rounded-md transition-[background] duration-150 hover:bg-black/12"
+                    className="absolute top-[0.9rem] right-[0.9rem] bg-ink/6 border-none text-ink text-[1.4rem] cursor-pointer leading-none py-[0.2rem] px-[0.55rem] rounded-md transition-[background] duration-150 hover:bg-ink/12"
                     onClick={onClose}
                     aria-label="Close"
                 >
                     ×
                 </button>
-                <h2 className="text-[1.6rem] font-bold mt-0 mb-4 p-0 border-b border-black/10 pb-[0.6rem]">
+                <h2 className="text-[1.6rem] font-bold mt-0 mb-4 p-0 border-b border-ink/10 pb-[0.6rem]">
                     {project.title}
                 </h2>
                 <div className="mb-6">
@@ -55,7 +55,7 @@ function ProjectModal({ project, onClose }) {
                     <ProjectLinks links={project.links} />
                     <Link
                         to={`/projects/${project.id}`}
-                        className="text-sm text-black/55 no-underline hover:text-accent-green transition-colors duration-150"
+                        className="text-sm text-ink/55 no-underline hover:text-accent-green transition-colors duration-150"
                     >
                         Open page →
                     </Link>

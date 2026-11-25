@@ -32,12 +32,12 @@ function ProjectPage() {
       <main className="max-w-[680px] mx-auto px-4 pb-16">
         <Link
           to="/projects"
-          className="text-sm text-black/55 no-underline mt-5 mb-8 hover:text-accent-green transition-colors duration-150"
+          className="text-sm text-ink/55 no-underline mt-5 mb-8 hover:text-accent-green transition-colors duration-150"
         >
           ← Projects
         </Link>
 
-        <header className="mb-8 pb-5 border-b border-black/10">
+        <header className="mb-8 pb-5 border-b border-ink/10">
           <h1 className="text-[clamp(1.8rem,5vw,2.5rem)] font-extrabold m-0 mb-4 leading-[1.15]">
             {title}
           </h1>

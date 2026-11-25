@@ -14,7 +14,7 @@ export default function SearchBox() {
         className="w-full px-3 py-2 rounded-lg border border-accent-green/30 bg-transparent"
       />
       {results.length > 0 && (
-        <ul className="absolute z-10 mt-1 w-full rounded-lg bg-white shadow-lg">
+        <ul className="absolute z-10 mt-1 w-full rounded-lg bg-paper shadow-lg">
           {results.map((r) => (
             <li key={r.id}>
               <Link to={`/blog/${r.slug}`} onClick={() => setQ("")} className="block px-3 py-2 hover:bg-accent-green/10">

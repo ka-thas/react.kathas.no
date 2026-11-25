@@ -14,7 +14,7 @@ const externalLinkIcon = (
 
 const linkVariants = {
     demo: "bg-accent-green/15 text-accent-green border border-accent-green/35",
-    repo: "bg-black/6 text-black border border-black/20",
+    repo: "bg-ink/6 text-ink border border-ink/20",
 };
 
 // "Try it" / "GitHub" buttons for a project (from its note's demo/repo properties).

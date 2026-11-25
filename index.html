@@ -7,6 +7,14 @@
     <title>Ka Thas</title>
     <meta name="description" content="Ka's projects, blog, and more." />
     <meta name="theme-color" content="#003500" />
+    <!-- Before first paint, so dark mode doesn't flash light: saved choice, else the system's. -->
+    <script>
+      try {
+        const t = localStorage.getItem("theme");
+        if (t === "dark" || (!t && matchMedia("(prefers-color-scheme: dark)").matches))
+          document.documentElement.classList.add("dark");
+      } catch {}
+    </script>
 
     <!-- Link previews (Discord, Slack, iMessage, etc.) -->
     <meta property="og:type" content="website" />

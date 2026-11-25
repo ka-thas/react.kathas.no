@@ -50,7 +50,7 @@ function SectionTitle({ children }) {
 
 function SidebarCard({ heading, children }) {
   return (
-    <div className="bg-[rgba(150,200,150,0.15)] border border-black/10 rounded-xl p-[1rem_1.1rem]">
+    <div className="bg-[rgba(150,200,150,0.15)] border border-ink/10 rounded-xl p-[1rem_1.1rem]">
       <div className="text-[0.68rem] font-bold tracking-[0.08em] uppercase text-accent-green mb-3">
         {heading}
       </div>
@@ -61,7 +61,7 @@ function SidebarCard({ heading, children }) {
 
 function SidebarItem({ icon, children }) {
   return (
-    <div className="flex items-start gap-[0.55rem] mb-2 last:mb-0 text-[0.9rem] text-black/80 leading-[1.4]">
+    <div className="flex items-start gap-[0.55rem] mb-2 last:mb-0 text-[0.9rem] text-ink/80 leading-[1.4]">
       <svg className="shrink-0 mt-[2px] fill-accent-green/70 w-[14px] h-[14px]" viewBox="0 0 24 24">
         {icon}
       </svg>
@@ -72,16 +72,16 @@ function SidebarItem({ icon, children }) {
 
 function Entry({ title, org, sub, meta, desc }) {
   return (
-    <div className="bg-[rgba(150,200,150,0.12)] border border-black/8 rounded-xl py-[1.1rem] px-5 mb-3 last:mb-0 hover:border-accent-green/30 transition-colors duration-200">
+    <div className="bg-[rgba(150,200,150,0.12)] border border-ink/8 rounded-xl py-[1.1rem] px-5 mb-3 last:mb-0 hover:border-accent-green/30 transition-colors duration-200">
       <div className="flex justify-between items-start gap-4 flex-wrap mb-[0.3rem]">
         <div>
-          <div className="text-base font-semibold leading-[1.3] text-black">{title}</div>
+          <div className="text-base font-semibold leading-[1.3] text-ink">{title}</div>
           {org && <div className="text-[0.88rem] text-accent-green font-medium mt-[1px]">{org}</div>}
-          {sub && <div className="text-[0.82rem] text-black/45 mt-[0.2rem]">{sub}</div>}
+          {sub && <div className="text-[0.82rem] text-ink/45 mt-[0.2rem]">{sub}</div>}
         </div>
-        {meta && <div className="text-[0.78rem] text-black/45 whitespace-nowrap shrink-0 mt-[2px]">{meta}</div>}
+        {meta && <div className="text-[0.78rem] text-ink/45 whitespace-nowrap shrink-0 mt-[2px]">{meta}</div>}
       </div>
-      {desc && <div className="text-[0.9rem] leading-[1.6] text-black/75 mt-2">{desc}</div>}
+      {desc && <div className="text-[0.9rem] leading-[1.6] text-ink/75 mt-2">{desc}</div>}
     </div>
   );
 }
@@ -108,12 +108,12 @@ function CVPage() {
     <main className="max-w-[1000px] mx-auto px-4 pb-16 flex flex-col">
 
       {/* Hero */}
-      <div className="py-10 pb-6 flex items-end justify-between gap-6 flex-wrap border-b border-black/10 mb-8">
+      <div className="py-10 pb-6 flex items-end justify-between gap-6 flex-wrap border-b border-ink/10 mb-8">
         <div>
           <h1 className="gradient-text font-bold leading-none" style={{ fontSize: "clamp(60px, 8vw, 80px)" }}>
             Ka Thas
           </h1>
-          <p className="text-[1.1rem] font-normal text-black/65 mt-[0.4rem]">Studying AI and robotics at UiO</p>
+          <p className="text-[1.1rem] font-normal text-ink/65 mt-[0.4rem]">Studying AI and robotics at UiO</p>
         </div>
         <a
           className="inline-flex items-center gap-2 py-2 px-5 rounded-lg font-semibold text-[0.95rem] no-underline bg-accent-green/15 text-accent-green border border-accent-green/35 hover:opacity-80 transition-opacity"
@@ -131,7 +131,7 @@ function CVPage() {
       </div>
 
       {/* About blurb */}
-      <p className="text-[0.95rem] leading-[1.7] text-black/80 bg-[rgba(150,200,150,0.1)] border border-black/8 rounded-xl py-4 px-5 mb-8">
+      <p className="text-[0.95rem] leading-[1.7] text-ink/80 bg-[rgba(150,200,150,0.1)] border border-ink/8 rounded-xl py-4 px-5 mb-8">
         I am a curious and structured student with a strong interest in research at the intersection of technology, creativity, and human-robot interaction. I thrive in collaborative academic environments and have developed strong skills in teamwork, leadership, and project coordination through volunteer and organizational experience.
       </p>
 
@@ -169,7 +169,7 @@ function CVPage() {
           <SidebarCard heading="Technologies">
             <div className="flex flex-wrap gap-[0.4rem]">
               {techs.map(t => (
-                <span key={t} className="text-[0.78rem] font-medium bg-accent-green/8 border border-accent-green/25 text-black/80 rounded-[5px] py-[2px] px-2">
+                <span key={t} className="text-[0.78rem] font-medium bg-accent-green/8 border border-accent-green/25 text-ink/80 rounded-[5px] py-[2px] px-2">
                   {t}
                 </span>
               ))}
@@ -179,24 +179,24 @@ function CVPage() {
           <SidebarCard heading="Languages">
             {languages.map(l => (
               <div key={l.name} className="mb-[0.6rem] last:mb-0">
-                <div className="text-[0.9rem] text-black/90 font-medium">{l.name}</div>
-                <div className="text-[0.78rem] text-black/50 mt-[1px]">{l.level}</div>
+                <div className="text-[0.9rem] text-ink/90 font-medium">{l.name}</div>
+                <div className="text-[0.78rem] text-ink/50 mt-[1px]">{l.level}</div>
               </div>
             ))}
           </SidebarCard>
 
           <SidebarCard heading="References">
             <div className="mb-[0.85rem]">
-              <div className="text-[0.9rem] text-black/90 font-medium">Lars Tveito</div>
-              <div className="text-[0.78rem] text-black/50 mt-[1px]">University Lector, UiO</div>
+              <div className="text-[0.9rem] text-ink/90 font-medium">Lars Tveito</div>
+              <div className="text-[0.78rem] text-ink/50 mt-[1px]">University Lector, UiO</div>
               <div className="text-[0.78rem] text-accent-green/75 mt-[2px]">For Teaching Assistant role</div>
             </div>
             <div className="mb-3">
-              <div className="text-[0.9rem] text-black/90 font-medium">Adrian Bergflødt</div>
-              <div className="text-[0.78rem] text-black/50 mt-[1px]">Head Engineer, Sonen</div>
+              <div className="text-[0.9rem] text-ink/90 font-medium">Adrian Bergflødt</div>
+              <div className="text-[0.78rem] text-ink/50 mt-[1px]">Head Engineer, Sonen</div>
               <div className="text-[0.78rem] text-accent-green/75 mt-[2px]">For Lab Assistant role</div>
             </div>
-            <div className="text-[0.75rem] text-black/40 mt-1">Contact details on request.</div>
+            <div className="text-[0.75rem] text-ink/40 mt-1">Contact details on request.</div>
           </SidebarCard>
 
         </aside>

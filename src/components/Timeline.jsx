@@ -32,32 +32,32 @@ function Timeline({ start, end, milestones, className }) {
         "bg-[rgba(150,200,150,0.12)] border border-white/7 rounded-xl py-5 px-5"
       }
     >
-      <div className="flex justify-between text-[0.85rem] text-black/70 mb-2">
+      <div className="flex justify-between text-[0.85rem] text-ink/70 mb-2">
         <span>{formatDate(start.date)}</span>
         <span>{Math.round(progress)}%</span>
         <span>{formatDate(end.date)}</span>
       </div>
-      <div className="h-2 rounded-full bg-black/10 overflow-hidden mb-6">
+      <div className="h-2 rounded-full bg-ink/10 overflow-hidden mb-6">
         <div
           className="h-full bg-accent-green"
           style={{ width: `${progress}%` }}
         />
       </div>
 
-      <ol className="border-l-2 border-black/15 ml-1.5">
+      <ol className="border-l-2 border-ink/15 ml-1.5">
         {items.map(({ date, label }) => {
           const done = toDay(date) <= today;
           return (
             <li key={`${date}-${label}`} className="relative pl-5 pb-4 last:pb-0">
               <span
                 className={`absolute -left-[7px] top-1 w-3 h-3 rounded-full border-2 border-accent-green ${
-                  done ? "bg-accent-green" : "bg-white"
+                  done ? "bg-accent-green" : "bg-paper"
                 }`}
               />
-              <div className="text-[0.8rem] text-black/60 leading-none mb-1">
+              <div className="text-[0.8rem] text-ink/60 leading-none mb-1">
                 {formatDate(date)}
               </div>
-              <div className={done ? "text-black/70" : "font-bold text-black"}>
+              <div className={done ? "text-ink/70" : "font-bold text-ink"}>
                 {label}
               </div>
             </li>

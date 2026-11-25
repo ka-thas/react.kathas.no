@@ -132,12 +132,12 @@ function StickerWall() {
               >
                 <span
                   data-bubble
-                  className="absolute bottom-3 left-1/2 -translate-x-1/2 w-max max-w-[min(15rem,80vw)] px-3.5 py-2 rounded-2xl bg-white text-sm leading-snug text-black/80 text-center shadow-[0_4px_16px_rgba(0,0,0,0.15)]"
+                  className="absolute bottom-3 left-1/2 -translate-x-1/2 w-max max-w-[min(15rem,80vw)] px-3.5 py-2 rounded-2xl bg-paper text-sm leading-snug text-ink/80 text-center shadow-[0_4px_16px_rgba(0,0,0,0.15)]"
                 >
                   {s.comment}
                 </span>
                 {/* the bubble's tail, pointing at the sticker */}
-                <span className="absolute bottom-1.5 -translate-x-1/2 border-8 border-transparent border-t-white border-b-0" />
+                <span className="absolute bottom-1.5 -translate-x-1/2 border-8 border-transparent border-t-paper border-b-0" />
               </span>
             )}
           </span>

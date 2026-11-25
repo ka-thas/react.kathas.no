@@ -19,13 +19,13 @@ function Countdown({ date, label, className }) {
       }
     >
       {diff === 0 ? (
-        <div className="text-[1.3rem] font-bold text-black leading-none">
+        <div className="text-[1.3rem] font-bold text-ink leading-none">
           Today — {label}
         </div>
       ) : (
         <>
           <div className="text-[1.8rem] font-bold text-accent-green leading-none">{days}</div>
-          <div className="text-[0.85rem] text-black/70 mt-1">
+          <div className="text-[0.85rem] text-ink/70 mt-1">
             {unit} {diff > 0 ? "until" : "since"} {label}
           </div>
         </>

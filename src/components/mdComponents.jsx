@@ -6,7 +6,7 @@ export const md = {
   h1: (p) => <h1 className="text-3xl font-extrabold mb-2 mt-8 leading-tight" {...p} />,
   h2: (p) => (
     <h2
-      className="text-2xl font-bold mt-10 mb-3 pb-1.5 border-b border-black/10"
+      className="text-2xl font-bold mt-10 mb-3 pb-1.5 border-b border-ink/10"
       {...p}
     />
   ),
@@ -23,9 +23,9 @@ export const md = {
   ul: (p) => <ul className="list-disc pl-6 mb-4" {...p} />,
   ol: (p) => <ol className="list-decimal pl-6 mb-4" {...p} />,
   li: (p) => <li className="my-1 leading-[1.65]" {...p} />,
-  strong: (p) => <strong className="font-bold text-black" {...p} />,
+  strong: (p) => <strong className="font-bold text-ink" {...p} />,
   em: (p) => <em className="italic" {...p} />,
-  hr: () => <hr className="border-0 border-t border-black/15 my-10" />,
+  hr: () => <hr className="border-0 border-t border-ink/15 my-10" />,
   img: (p) => <img className="max-w-full rounded-lg my-3" {...p} />,
   blockquote: (p) => (
     <blockquote
@@ -42,13 +42,13 @@ export const md = {
     ),
   pre: (p) => (
     <pre
-      className="bg-[#16271e] border border-black/10 rounded-lg p-4 overflow-x-auto mb-4 text-sm leading-relaxed"
+      className="bg-[#16271e] border border-ink/10 rounded-lg p-4 overflow-x-auto mb-4 text-sm leading-relaxed"
       {...p}
     />
   ),
   table: (p) => <table className="border-collapse w-full mb-4 text-[0.93rem]" {...p} />,
   th: (p) => (
-    <th className="border border-black/15 px-3 py-2 text-left bg-black/5 font-semibold" {...p} />
+    <th className="border border-ink/15 px-3 py-2 text-left bg-ink/5 font-semibold" {...p} />
   ),
-  td: (p) => <td className="border border-black/15 px-3 py-2" {...p} />,
+  td: (p) => <td className="border border-ink/15 px-3 py-2" {...p} />,
 };

@@ -2,7 +2,15 @@
 
 @import "tailwindcss";
 
+/* Dark theme: `dark:` follows the .dark class on <html>, set by the script in
+   index.html (saved choice, else the system setting) and the navbar toggle. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
+    /* Text and lines: use text-ink/60, border-ink/10 etc. instead of black, so they flip in dark mode. */
+    --color-ink: #000;
+    /* Raised surfaces (bubbles, dropdowns, modals) instead of white. */
+    --color-paper: #fff;
     /* Darker than the raw brand hues so text/links clear WCAG AA (4.5:1)
        against the light body background below. */
     --color-accent-green: #047857;
@@ -12,10 +20,26 @@
 }
 
 :root {
+    --page-bg: #f1fff8;
+    --page-glow-green: rgba(0, 170, 128, 0.12);
+    --page-glow-peach: rgba(239, 170, 120, 0.08);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* The dark palette: the tokens above, redefined. Accents are lighter so they
+   keep their contrast on the dark background. */
+:root.dark {
+    color-scheme: dark;
+    --page-bg: #0d1a14;
+    --page-glow-green: rgba(0, 170, 128, 0.14);
+    --page-glow-peach: rgba(239, 170, 120, 0.06);
+    --color-ink: #e4f3ea;
+    --color-paper: #1a2c23;
+    --color-accent-green: #4fd1a1;
+    --color-accent-yellow: #f2b35e;
 }
 
 #root {
@@ -32,11 +56,11 @@ body {
     font-family: "DM Sans", sans-serif;
     font-size: larger;
     background:
-        radial-gradient(50% 40% at 15% 0%, rgba(0, 170, 128, 0.12), transparent 90%),
-        radial-gradient(45% 45% at 90% 20%, rgba(239, 170, 120, 0.08), transparent 90%),
-        #f1fff8;
+        radial-gradient(50% 40% at 15% 0%, var(--page-glow-green), transparent 90%),
+        radial-gradient(45% 45% at 90% 20%, var(--page-glow-peach), transparent 90%),
+        var(--page-bg);
     background-attachment: fixed;
-    color: #000;
+    color: var(--color-ink);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -46,7 +70,7 @@ body {
 /* Drop the aurora radial-gradients on phones — keep the solid base color. */
 @media (max-width: 640px) {
     body {
-        background: #f1fff8;
+        background: var(--page-bg);
     }
 }
 

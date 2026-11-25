@@ -78,7 +78,7 @@ function PhotosPage() {
           <>
             <Layout groups={groups} base={base} onOpen={setOpenId} />
             {updated && (
-              <p className="mt-12 text-sm text-black/45">Last updated {formatLocalDay(updated)}</p>
+              <p className="mt-12 text-sm text-ink/45">Last updated {formatLocalDay(updated)}</p>
             )}
           </>
         )}

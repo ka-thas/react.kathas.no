@@ -46,7 +46,7 @@ export default function SearchDialog({ open, setOpen }) {
       ref={ref}
       onClose={() => setOpen(false)}
       onClick={(e) => e.target === ref.current && setOpen(false)} // click outside closes
-      className="w-[min(36rem,calc(100%-2rem))] mx-auto mt-[15vh]  p-2 rounded-xl border border-black/10 shadow-2xl backdrop:bg-accent-black/30 backdrop:backdrop-blur-sm"
+      className="w-[min(36rem,calc(100%-2rem))] mx-auto mt-[15vh] p-2 bg-paper text-ink rounded-xl border border-ink/10 shadow-2xl backdrop:bg-accent-black/30 backdrop:backdrop-blur-sm"
     >
       <input
         ref={inputRef}
@@ -54,7 +54,7 @@ export default function SearchDialog({ open, setOpen }) {
         onChange={(e) => { setQ(e.target.value); setActive(0); }}
         onKeyDown={onKeyDown}
         placeholder="Search…"
-        className="w-full px-4 py-2 mb-2 text-base outline-none border-b border-black/8"
+        className="w-full px-4 py-2 mb-2 text-base outline-none border-b border-ink/8"
       />
       <ul className="max-h-[50vh] overflow-y-auto">
         {results.map((r, i) => (
@@ -64,11 +64,11 @@ export default function SearchDialog({ open, setOpen }) {
               onMouseEnter={() => setActive(i)}
               className={`w-full text-left px-4 py-2 ${i === active ? "bg-accent-green/10 rounded-md" : ""}`}
             >
-              {r.title} <span className="text-xs text-black/40 ml-2">{r.type}</span>
+              {r.title} <span className="text-xs text-ink/40 ml-2">{r.type}</span>
             </button>
           </li>
         ))}
-        {q.trim() && results.length === 0 && <li className="px-4 py-3 text-black/50">No results</li>}
+        {q.trim() && results.length === 0 && <li className="px-4 py-3 text-ink/50">No results</li>}
       </ul>
     </dialog>
   );

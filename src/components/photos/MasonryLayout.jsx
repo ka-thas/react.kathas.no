@@ -42,7 +42,7 @@ function MasonryLayout({ groups, base, onOpen }) {
               <h2 id={`trip-${key}`} className="text-2xl font-bold">
                 {group.trip?.name ?? "Other"}
               </h2>
-              <p className="text-sm text-black/55">
+              <p className="text-sm text-ink/55">
                 {group.trip && `${formatTripDates(group.trip)} · `}
                 {n} {n === 1 ? "photo" : "photos"}
               </p>

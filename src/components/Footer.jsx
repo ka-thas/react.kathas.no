@@ -24,7 +24,7 @@ function Footer() {
                             onMouseLeave={() => setCopyState("idle")}
                         >
                             <svg
-                                className="w-[30px] h-[30px] fill-black transition-transform duration-100 hover:scale-[1.2]"
+                                className="w-[30px] h-[30px] fill-ink transition-transform duration-100 hover:scale-[1.2]"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                             >
@@ -48,7 +48,7 @@ function Footer() {
                         href="https://github.com/ka-thas"
                         icon={
                             <svg
-                                className="w-[30px] h-[30px] fill-black transition-transform duration-100 hover:scale-[1.2]"
+                                className="w-[30px] h-[30px] fill-ink transition-transform duration-100 hover:scale-[1.2]"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                             >
@@ -60,7 +60,7 @@ function Footer() {
                         href="https://www.linkedin.com/in/ka-thas-6823a9293/"
                         icon={
                             <svg
-                                className="w-[30px] h-[30px] fill-black transition-transform duration-100 hover:scale-[1.2]"
+                                className="w-[30px] h-[30px] fill-ink transition-transform duration-100 hover:scale-[1.2]"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                             >

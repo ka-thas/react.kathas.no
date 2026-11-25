@@ -51,7 +51,7 @@
     font-size: 0.95rem;
     letter-spacing: 0.02em;
     text-transform: capitalize;
-    color: rgba(0, 0, 0, 0.65);
+    color: color-mix(in oklab, var(--color-ink) 65%, transparent);
     transition: color 0.2s ease;
 }
 

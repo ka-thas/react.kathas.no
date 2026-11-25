@@ -1,11 +1,11 @@
 function ProjectCard({ project, onClick }) {
     return (
         <button
-            className="cursor-pointer rounded-[10px] overflow-hidden bg-[rgba(150,200,150,0.2)] border border-black/10 text-inherit text-left flex flex-col w-full p-0 transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.25)] hover:border-accent-green/40"
+            className="cursor-pointer rounded-[10px] overflow-hidden bg-[rgba(150,200,150,0.2)] border border-ink/10 text-inherit text-left flex flex-col w-full p-0 transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.25)] hover:border-accent-green/40"
             onClick={onClick}
             aria-label={`View details for ${project.title}`}
         >
-            <div className="w-full aspect-video overflow-hidden bg-black/25 shrink-0">
+            <div className="w-full aspect-video overflow-hidden bg-ink/25 shrink-0">
                 {project.imgSrc ? (
                     <img
                         src={project.imgSrc}
