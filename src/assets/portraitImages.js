@@ -5,8 +5,8 @@
 // then import and add them to the array below.
 //
 // Each entry is { src, caption }. `caption` is optional — omit it (or leave
-// it undefined) for photos that don't need one. Captions show up in the
-// Masonry photo wall's lightbox, not in the small home-page portrait slot.
+// it undefined) for photos that do not need one. The portrait slot itself
+// does not show captions.
 //
 // 0 images  -> a labeled placeholder slot is shown.
 // 1 image   -> static photo.

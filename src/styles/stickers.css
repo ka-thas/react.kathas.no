@@ -69,7 +69,7 @@
     z-index: 50;
 }
 
-/* Hidden while a photobox/lightbox is open (set on <body> by Masonry). */
+/* Hidden while a photobox/lightbox is open (set on <body> by PhotoLightbox). */
 .photobox-open .sticker-home {
     display: none;
 }
