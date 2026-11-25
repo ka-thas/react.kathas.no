@@ -1,4 +1,5 @@
-import { defineConfig } from "vite";
+import process from "node:process";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@mdx-js/rollup";
@@ -23,7 +24,24 @@ const mdxPlugin = mdx({
   ],
 });
 
+// In dev, /photos-bucket/* is passed through to the R2 photo bucket, so the
+// gallery works on any localhost port without listing each one in R2's CORS.
+const photosBucket = (
+  process.env.VITE_PHOTOS_BASE_URL ?? loadEnv("development", process.cwd(), "VITE_").VITE_PHOTOS_BASE_URL ?? ""
+).trim().replace(/\/+$/, "");
+
 export default defineConfig({
+  server: photosBucket
+    ? {
+        proxy: {
+          "/photos-bucket": {
+            target: photosBucket,
+            changeOrigin: true,
+            rewrite: (path) => path.replace(/^\/photos-bucket/, ""),
+          },
+        },
+      }
+    : {},
   plugins: [
     {
       ...mdxPlugin,

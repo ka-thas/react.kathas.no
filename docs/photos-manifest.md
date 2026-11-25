@@ -121,6 +121,6 @@ Set it as object metadata when Pothos uploads (`CacheControl` on the S3 `PutObje
 Set `VITE_PHOTOS_BASE_URL` to the bucket's public URL, without a trailing slash (for example `https://photos.kathas.no`):
 
 - In Vercel: Project > Settings > Environment Variables, then redeploy (Vite bakes it in at build time).
-- Locally, in `.env.local` (gitignored), if you want dev to use the real bucket.
+- Locally, in `.env.local` (gitignored), if you want dev to use the real bucket. The dev server proxies it at `/photos-bucket`, so any localhost port works without changing CORS.
 
 Without it, `npm run dev` uses the sample bucket in `public/sample-photos/`, and a production build shows "No photos here yet".

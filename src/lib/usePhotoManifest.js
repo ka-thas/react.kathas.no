@@ -3,9 +3,12 @@ import { applyCaptions, groupByTrip, parseManifest } from "./photos";
 import { noteCaptions } from "./photoCaptions";
 
 // Where Pothos publishes: the R2 bucket's public URL (set in Vercel and .env.local).
-// Without it, dev uses the sample bucket in public/sample-photos/.
+// In dev the bucket goes through the dev server's /photos-bucket proxy (vite.config.js),
+// so any localhost port works; without the variable, dev uses public/sample-photos/.
 const envBase = (import.meta.env.VITE_PHOTOS_BASE_URL ?? "").trim().replace(/\/+$/, "");
-export const PHOTOS_BASE = envBase || (import.meta.env.DEV ? "/sample-photos" : "");
+export const PHOTOS_BASE = import.meta.env.DEV
+  ? envBase ? "/photos-bucket" : "/sample-photos"
+  : envBase;
 
 /**
  * Fetches and groups the photo manifest at runtime, so new photos show up
