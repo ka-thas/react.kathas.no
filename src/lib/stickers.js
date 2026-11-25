@@ -4,6 +4,8 @@
 // The one source: src/posts/attachments/stickers/ (add with `npm run sticker`).
 // Each image is only a URL here, so importing this file doesn't load any
 // sticker until it's shown.
+import { tableRows } from "./mdTable";
+
 const files = import.meta.glob("../posts/attachments/stickers/*.{webp,png}", {
   eager: true,
   import: "default",
@@ -19,12 +21,7 @@ const commentsTable = import.meta.glob("../posts/sticker-comments.md", {
 });
 const comments = {};
 const order = {}; // file name -> row number
-let pastHeader = false;
-for (const line of Object.values(commentsTable)[0]?.split("\n") ?? []) {
-  const cells = line.split(/(?<!\\)\|/).slice(1, -1).map((c) => c.trim().replace(/\\\|/g, "|"));
-  if (cells.length < 2) continue; // not a table row
-  if (/^:?-+:?$/.test(cells[0])) { pastHeader = true; continue; } // the | --- | row
-  if (!pastHeader) continue;
+for (const cells of tableRows(Object.values(commentsTable)[0])) {
   const name = (cells[0].match(/\[\[([^\]|\\]+)/)?.[1] ?? cells[0]).replace(/\.\w+$/, "");
   order[name] ??= Object.keys(order).length;
   if (cells[1]) comments[name] = cells[1];

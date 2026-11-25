@@ -90,6 +90,20 @@ export function parseManifest(raw) {
   };
 }
 
+/**
+ * Captions from the Obsidian note (lib/photoCaptions.js) win over the manifest's.
+ * @param {Manifest} manifest
+ * @param {Map<string, Caption>} captions
+ * @returns {Manifest}
+ */
+export function applyCaptions(manifest, captions) {
+  if (captions.size === 0) return manifest;
+  const photos = manifest.photos.map((p) =>
+    captions.has(p.id) ? { ...p, caption: captions.get(p.id) } : p,
+  );
+  return { ...manifest, photos };
+}
+
 const time = (d) => Date.parse(d);
 
 /**

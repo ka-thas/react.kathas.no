@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { groupByTrip, parseManifest } from "./photos";
+import { applyCaptions, groupByTrip, parseManifest } from "./photos";
+import { noteCaptions } from "./photoCaptions";
 
 // Where Pothos publishes: the R2 bucket's public URL (set in Vercel and .env.local).
 // Without it, dev uses the sample bucket in public/sample-photos/.
@@ -31,7 +32,7 @@ export function usePhotoManifest() {
         return res.json();
       })
       .then((raw) => {
-        const manifest = parseManifest(raw);
+        const manifest = applyCaptions(parseManifest(raw), noteCaptions);
         setState({ status: "ready", groups: groupByTrip(manifest), updated: manifest.updated });
       })
       .catch((error) => {

@@ -31,7 +31,7 @@ To exercise the `/api/visit` serverless function locally you need the Vercel dev
 
 - **The actual project demos are separate apps**, not part of this build. They live under `public/projects/` as **git submodules** (see `.gitmodules`) and are served at the `projects.kathas.no` subdomain — `projectsData` links point there. Run `git submodule update --init --recursive` if those directories are empty.
 
-- **Photo gallery** (`/photos`) is fed at runtime by a `manifest.json` that Pothos publishes to a Cloudflare R2 bucket (`VITE_PHOTOS_BASE_URL`; dev falls back to `public/sample-photos/`). Contract and infra setup: `docs/photos-manifest.md`. Data logic (`src/lib/photos.js`, `usePhotoManifest.js`) is kept apart from the layout: swap the `layouts` map in `PhotosPage.jsx` (each layout gets `{ groups, base, onOpen }`).
+- **Photo gallery** (`/photos`) is fed at runtime by a `manifest.json` that Pothos publishes to a Cloudflare R2 bucket (`VITE_PHOTOS_BASE_URL`; dev falls back to `public/sample-photos/`). Captions: the table in `src/posts/photo-captions.md` (fill rows with `npm run photo-captions`). Contract and infra setup: `docs/photos-manifest.md`. Data logic (`src/lib/photos.js`, `usePhotoManifest.js`) is kept apart from the layout: swap the `layouts` map in `PhotosPage.jsx` (each layout gets `{ groups, base, onOpen }`).
 
 - **Visitor counter** is the only backend: `api/visit.ts` is a Vercel serverless function backed by Upstash Redis (`@upstash/redis`), incrementing the `visitor-count` key. It reads `KV_REST_API_*` env vars (Vercel KV integration) and falls back to `UPSTASH_REDIS_REST_*`. `src/components/VisitorButton.jsx` GETs the count on mount and POSTs (optimistically) on click.
 
