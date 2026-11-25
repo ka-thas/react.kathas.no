@@ -10,6 +10,7 @@ const destinations = [
     { to: "/projects", img: stickerImages.projects, label: "projects", rotate: -7, floatDur: 4.2, nudge: 0 },
     { to: "/cv", img: stickerImages.cv, label: "cv", rotate: 5, floatDur: 5.1, nudge: 36 },
     { to: "/blog", img: stickerImages.blog, label: "blog", rotate: -4, floatDur: 3.8, nudge: 12 },
+    { to: "/photos", img: stickerImages.photos, label: "photos", rotate: 6, floatDur: 4.4, nudge: 24 },
     { to: "/social", img: stickerImages.social, label: "socials", rotate: 8, floatDur: 4.6, nudge: 44 },
 ];
 
