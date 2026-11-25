@@ -83,6 +83,8 @@ Give the bucket a public URL in the Cloudflare dashboard (R2 > bucket > Settings
 - **Custom domain** (recommended), for example `photos.kathas.no`. Needs the kathas.no zone on Cloudflare DNS. Gets Cloudflare's CDN cache.
 - **r2.dev subdomain**: quick for testing, but rate limited and not meant for production.
 
+Current choice: **r2.dev**. kathas.no DNS lives at Domeneshop (hyp.net), not Cloudflare, so a custom domain would mean moving DNS (MX for email, Vercel, the `projects` GitHub Pages record) first. Switching later only means changing `VITE_PHOTOS_BASE_URL`, since manifest paths are relative.
+
 ### 2. CORS
 
 The page fetches `manifest.json` with `fetch()`, so the bucket must allow it. Images load through `<img>` and don't need CORS. R2 > bucket > Settings > CORS policy:
