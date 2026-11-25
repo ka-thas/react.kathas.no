@@ -93,7 +93,7 @@ export function parseManifest(raw) {
 const time = (d) => Date.parse(d);
 
 /**
- * Newest trip first (by start date), newest photo first within each trip.
+ * Newest photo first within each trip, and the trip with the newest photo first.
  * Photos whose trip isn't in the manifest end up in a last group with trip null.
  * @param {Manifest} manifest
  * @returns {PhotoGroup[]}
@@ -103,13 +103,12 @@ export function groupByTrip({ trips, photos }) {
   const other = { trip: null, photos: [] };
   for (const photo of photos) (byId.get(photo.trip) ?? other).photos.push(photo);
 
-  const groups = [...byId.values()]
-    .filter((g) => g.photos.length > 0)
-    .sort((a, b) => time(b.trip.start) - time(a.trip.start));
-  if (other.photos.length > 0) groups.push(other);
-
+  const newest = (g) => time(g.photos[0].takenAt);
+  const groups = [...byId.values(), other].filter((g) => g.photos.length > 0);
   for (const g of groups) g.photos.sort((a, b) => time(b.takenAt) - time(a.takenAt));
-  return groups;
+
+  const sorted = groups.filter((g) => g.trip).sort((a, b) => newest(b) - newest(a));
+  return other.photos.length > 0 ? [...sorted, other] : sorted;
 }
 
 /** A manifest path ("photos/x.jpg") as a full URL under the bucket's base URL. */

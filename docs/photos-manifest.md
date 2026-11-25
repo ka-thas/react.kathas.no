@@ -70,7 +70,7 @@ Upload images first and `manifest.json` last, so the site never points at files 
 ## How the site uses it
 
 - Code: `src/lib/photos.js` (types, validation, grouping), `src/lib/usePhotoManifest.js` (fetch), `src/pages/PhotosPage.jsx`.
-- Trips are shown newest first (by `start`), photos newest first (by `takenAt`) within each trip.
+- Photos are shown newest first (by `takenAt`) within each trip, and the trip with the newest photo comes first.
 - Bad trips or photos (missing fields, bad dates, duplicate ids) are skipped with a console warning. The page only shows an error if the manifest can't be fetched or isn't an object with a `photos` array.
 - Captions show inside the photo like a subtitle. Japanese first; English on hover or tap.
 
