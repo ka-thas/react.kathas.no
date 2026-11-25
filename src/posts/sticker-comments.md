@@ -3,7 +3,7 @@ title: Sticker comments
 publish: false
 ---
 
-One line of context or an inside joke per sticker, shown in a bubble when someone taps it on the [[stickers]] wall. Leave a comment empty for no bubble. `npm run sticker` adds a row for each new sticker.
+One line of context or an inside joke per sticker, shown in a bubble when someone taps it on the [[stickers]] wall. Leave a comment empty for no bubble. The wall shows the stickers in this table's order, so move a row to move its sticker. `npm run sticker` adds a row for each new sticker.
 
 | Sticker                            | Comment                              |
 | ---------------------------------- | ------------------------------------ |

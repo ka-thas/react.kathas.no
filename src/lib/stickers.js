@@ -11,12 +11,14 @@ const files = import.meta.glob("../posts/attachments/stickers/*.{webp,png}", {
 
 // Comments: one line per sticker, shown in a bubble on the wall. They live in a
 // table in src/posts/sticker-comments.md (edit in Obsidian), matched here by file name.
+// The table's row order is also the wall's order: move a row to move its sticker.
 const commentsTable = import.meta.glob("../posts/sticker-comments.md", {
   query: "?raw",
   import: "default",
   eager: true,
 });
 const comments = {};
+const order = {}; // file name -> row number
 let pastHeader = false;
 for (const line of Object.values(commentsTable)[0]?.split("\n") ?? []) {
   const cells = line.split(/(?<!\\)\|/).slice(1, -1).map((c) => c.trim().replace(/\\\|/g, "|"));
@@ -24,6 +26,7 @@ for (const line of Object.values(commentsTable)[0]?.split("\n") ?? []) {
   if (/^:?-+:?$/.test(cells[0])) { pastHeader = true; continue; } // the | --- | row
   if (!pastHeader) continue;
   const name = (cells[0].match(/\[\[([^\]|\\]+)/)?.[1] ?? cells[0]).replace(/\.\w+$/, "");
+  order[name] ??= Object.keys(order).length;
   if (cells[1]) comments[name] = cells[1];
 }
 
@@ -47,7 +50,8 @@ export const stickers = Object.entries(files)
       shift: (Math.floor(h / 21) % 25) - 12, // a stable offset, -12px to 12px
     };
   })
-  .sort((a, b) => a.name.localeCompare(b.name));
+  // In table order; stickers without a row go last, A to Z.
+  .sort((a, b) => (order[a.name] ?? Infinity) - (order[b.name] ?? Infinity) || a.name.localeCompare(b.name));
 
 export const stickerByName = Object.fromEntries(stickers.map((s) => [s.name, s]));
 
