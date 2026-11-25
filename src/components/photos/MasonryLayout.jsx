@@ -14,7 +14,6 @@ function useColumnCount() {
 }
 
 const between = (lo, hi) => lo + Math.random() * (hi - lo);
-const ALIGN = ["self-start", "self-center", "self-end"];
 
 // Charmera photos are nearly all 4:3, so plain columns line up like a grid.
 // A sticker every few photos staggers them. Picked once per visit, and no
@@ -29,13 +28,11 @@ function sprinkleStickers(groups) {
       items.push({ key: photo.id, photo });
       if (--gap > 0 || i === group.photos.length - 1 || pool.length === 0) return;
       const sticker = pool[next++ % pool.length];
-      const size = between(0.42, 0.7); // share of the column width
       items.push({
         key: `sticker-${i}-${sticker.name}`,
         sticker,
-        size,
+        size: between(0.4, 0.55), // height, as a share of the column width
         tilt: between(-14, 14),
-        align: ALIGN[Math.floor(Math.random() * ALIGN.length)],
       });
       gap = Math.round(between(3, 6));
     });
@@ -44,7 +41,7 @@ function sprinkleStickers(groups) {
 }
 
 // Each item goes to the shortest column so far, so the newest photos stay at
-// the top and the columns end about level. Stickers count as roughly square.
+// the top and the columns end about level.
 function intoColumns(items, count) {
   const cols = Array.from({ length: count }, () => ({ height: 0, items: [] }));
   for (const item of items) {
@@ -55,7 +52,11 @@ function intoColumns(items, count) {
   return cols;
 }
 
-function GallerySticker({ sticker, size, tilt, align }) {
+// Like the sticker wall: every sticker gets a set height and keeps its own
+// shape, so tall ones (Tokyo Tower) don't tower and wide ones don't sprawl.
+// The height is a share of the column's width (cqw), so it scales with the column,
+// but never below 5.5rem so they stay visible in narrow phone columns.
+function GallerySticker({ sticker, size, tilt }) {
   return (
     <img
       src={sticker.src}
@@ -64,8 +65,8 @@ function GallerySticker({ sticker, size, tilt, align }) {
       title={sticker.label}
       loading="lazy"
       draggable="false"
-      className={`${align} block h-auto py-1 select-none drop-shadow-[0_2px_3px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-110`}
-      style={{ width: `${size * 100}%`, rotate: `${tilt}deg` }}
+      className="self-center block w-auto max-w-full select-none drop-shadow-[0_2px_3px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-110"
+      style={{ height: `max(${size * 100}cqw, 5.5rem)`, rotate: `${tilt}deg` }}
     />
   );
 }
@@ -96,7 +97,7 @@ function MasonryLayout({ groups, base, onOpen }) {
             </header>
             <div className="flex items-start gap-3">
               {intoColumns(itemsByGroup[g], count).map((col, i) => (
-                <div key={i} className="flex flex-1 min-w-0 flex-col gap-3">
+                <div key={i} className="@container flex flex-1 min-w-0 flex-col gap-3">
                   {col.items.map((item) =>
                     item.photo ? (
                       <PhotoFrame key={item.key} photo={item.photo} base={base} onOpen={() => onOpen(item.photo.id)} />
