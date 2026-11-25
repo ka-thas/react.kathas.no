@@ -1,0 +1,105 @@
+{
+  "updated": "2026-11-25T14:00:00+09:00",
+  "trips": [
+    {
+      "id": "nagoya",
+      "name": "Nagoya",
+      "start": "2026-09-01",
+      "end": "2027-05-31"
+    },
+    {
+      "id": "kyoto",
+      "name": "Kyoto and Nara",
+      "start": "2026-10-03",
+      "end": "2026-10-05"
+    }
+  ],
+  "photos": [
+    {
+      "id": "nagoya-001",
+      "file": "photos/nagoya-001.jpg",
+      "thumb": "thumbs/nagoya-001.jpg",
+      "takenAt": "2026-11-20T15:32:00+09:00",
+      "trip": "nagoya",
+      "width": 1440,
+      "height": 1080,
+      "caption": {
+        "ja": "寒いね",
+        "en": "It's cold, huh"
+      }
+    },
+    {
+      "id": "nagoya-002",
+      "file": "photos/nagoya-002.jpg",
+      "thumb": "thumbs/nagoya-002.jpg",
+      "takenAt": "2026-11-02T10:05:00+09:00",
+      "trip": "nagoya",
+      "width": 1080,
+      "height": 1440
+    },
+    {
+      "id": "nagoya-003",
+      "file": "photos/nagoya-003.jpg",
+      "thumb": "thumbs/nagoya-003.jpg",
+      "takenAt": "2026-10-14T18:40:00+09:00",
+      "trip": "nagoya",
+      "width": 1440,
+      "height": 1080,
+      "caption": {
+        "ja": "夕焼けがきれい",
+        "en": "What a pretty sunset"
+      }
+    },
+    {
+      "id": "nagoya-004",
+      "file": "photos/nagoya-004.jpg",
+      "thumb": "thumbs/nagoya-004.jpg",
+      "takenAt": "2026-09-21T12:00:00+09:00",
+      "trip": "nagoya",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "id": "nagoya-005",
+      "file": "photos/nagoya-005.jpg",
+      "thumb": "thumbs/nagoya-005.jpg",
+      "takenAt": "2026-09-10T08:15:00+09:00",
+      "trip": "nagoya",
+      "width": 1080,
+      "height": 1440,
+      "caption": {
+        "en": "First morning in the dorm"
+      }
+    },
+    {
+      "id": "kyoto-001",
+      "file": "photos/kyoto-001.jpg",
+      "thumb": "thumbs/kyoto-001.jpg",
+      "takenAt": "2026-10-03T13:20:00+09:00",
+      "trip": "kyoto",
+      "width": 1440,
+      "height": 1080,
+      "caption": {
+        "ja": "鹿がいっぱい",
+        "en": "So many deer"
+      }
+    },
+    {
+      "id": "kyoto-002",
+      "file": "photos/kyoto-002.jpg",
+      "thumb": "thumbs/kyoto-002.jpg",
+      "takenAt": "2026-10-04T09:45:00+09:00",
+      "trip": "kyoto",
+      "width": 1080,
+      "height": 1440
+    },
+    {
+      "id": "misc-001",
+      "file": "photos/misc-001.jpg",
+      "thumb": "thumbs/misc-001.jpg",
+      "takenAt": "2026-08-30T21:10:00+02:00",
+      "width": 1440,
+      "height": 1080
+    }
+  ]
+}
