@@ -73,3 +73,22 @@
 .photobox-open .sticker-home {
     display: none;
 }
+
+/* A sticker on the wall that says its comment by itself (StickerWall): a little hop. */
+@keyframes sticker-speak {
+    0% { scale: 1; }
+    30% { scale: 1.16; }
+    55% { scale: 0.95; }
+    75% { scale: 1.04; }
+    100% { scale: 1; }
+}
+
+.sticker-speak {
+    animation: sticker-speak 0.55s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sticker-speak {
+        animation: none;
+    }
+}
