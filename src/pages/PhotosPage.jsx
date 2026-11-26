@@ -47,11 +47,9 @@ function PhotosPage() {
   return (
     <>
       <main className="max-w-[1000px] mx-auto px-4 w-full pb-12">
-        <h1 className="font-bold text-5xl mt-5 mb-4">Photos 📸</h1>
+        <h1 className="font-bold text-5xl mt-5 mb-4">Photosynthesis</h1>
         <p className="max-w-[620px] mb-10">
-          Little snapshots from a keychain-sized camera, the Kodak Charmera. I sort
-          them in <Link to="/projects/pothos">Pothos</Link>, and the green ones end
-          up here.
+          Moments from my life in Japan. Captured with Kodak Charmera.
         </p>
 
         {status === "loading" && (
