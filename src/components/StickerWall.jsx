@@ -57,15 +57,18 @@ function StickerWall() {
   useEffect(() => {
     if (!open) return;
     const timer = setTimeout(() => setOpen(null), 3000);
-    const onDown = (e) => {
-      if (!e.target.closest(`[data-sticker="${open}"]`)) setOpen(null);
+    // A tap, not a touch: a scroll on a phone starts with a touch but sends no click,
+    // so scrolling keeps the bubble open. Taps on stickers with a comment are left to
+    // their own onClick (open that one, or close this one).
+    const onTap = (e) => {
+      if (!e.target.closest("[data-sticker][data-comment]")) setOpen(null);
     };
     const onKey = (e) => e.key === "Escape" && setOpen(null);
-    document.addEventListener("pointerdown", onDown);
+    document.addEventListener("click", onTap);
     document.addEventListener("keydown", onKey);
     return () => {
       clearTimeout(timer);
-      document.removeEventListener("pointerdown", onDown);
+      document.removeEventListener("click", onTap);
       document.removeEventListener("keydown", onKey);
     };
   }, [open]);
