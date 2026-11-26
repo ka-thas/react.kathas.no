@@ -3,6 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 import SearchDialog from "./SearchDialog.jsx";
 import ThemeToggle from "./ThemeToggle.jsx";
 
+// Dark theme is off for now (the front-page sketch doesn't suit it yet).
+// To turn it on, set this and DARK_THEME in index.html to true.
+const DARK_THEME = false;
+
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/projects", label: "Projects" },
@@ -91,11 +95,11 @@ function Navbar() {
               </Link>
             ),
           )}
-          <ThemeToggle />
+          {DARK_THEME && <ThemeToggle />}
         </nav>
 
         <div className="hidden max-[600px]:flex items-center gap-1">
-        <ThemeToggle />
+        {DARK_THEME && <ThemeToggle />}
         <button
           className="flex flex-col justify-center gap-[5px] w-9 h-9 p-[6px] bg-transparent border-none cursor-pointer rounded-lg transition-colors duration-150 hover:bg-ink/6"
           onClick={() => setOpen(!open)}

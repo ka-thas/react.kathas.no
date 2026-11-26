@@ -7,9 +7,11 @@
     <title>Ka Thas</title>
     <meta name="description" content="Ka's projects, blog, and more." />
     <meta name="theme-color" content="#003500" />
-    <!-- Before first paint, so dark mode doesn't flash light: saved choice, else the system's. -->
+    <!-- Before first paint, so dark mode doesn't flash light: saved choice, else the system's.
+         Off for now: set DARK_THEME here and in Navbar.jsx to true to turn it on. -->
     <script>
-      try {
+      const DARK_THEME = false;
+      if (DARK_THEME) try {
         const t = localStorage.getItem("theme");
         if (t === "dark" || (!t && matchMedia("(prefers-color-scheme: dark)").matches))
           document.documentElement.classList.add("dark");
