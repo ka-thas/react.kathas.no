@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import "../styles/global.css";
 import Footer from "../components/Footer";
 import MasonryLayout from "../components/photos/MasonryLayout";
+import BentoLayout from "../components/photos/BentoLayout";
 import PhotoLightbox from "../components/photos/PhotoLightbox";
 import { usePhotoManifest } from "../lib/usePhotoManifest";
 import { formatLocalDay } from "../lib/photos";
 
 // Swap the gallery layout here. Each one takes { groups, base, onOpen(photoId) }.
-const layouts = { masonry: MasonryLayout };
-const Layout = layouts.masonry;
+const layouts = { masonry: MasonryLayout, bento: BentoLayout };
+const Layout = layouts.bento;
 
 // Noto Sans JP for the captions, only loaded once this page is visited.
 const JP_FONT = "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap";
