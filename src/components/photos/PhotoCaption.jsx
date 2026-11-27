@@ -12,9 +12,12 @@ const sizeCls = {
 function PhotoCaption({ caption, size = "sm" }) {
   return (
     <p
-      className={`absolute inset-x-0 mx-auto m-0 w-fit max-w-[92%] px-2 py-1 text-center whitespace-pre-line font-caption pointer-events-none text-white leading-snug [text-shadow:0_1px_2px_rgba(0,0,0,0.85),0_0_10px_rgba(0,0,0,0.45)] ${sizeCls[size]}`}
+      className={`absolute inset-x-0 mx-auto m-0 max-w-[92%] text-center whitespace-pre-line font-caption pointer-events-none text-white leading-[1.75] ${sizeCls[size]}`}
     >
-      {caption}
+      {/* Old movie subtitles: a black box behind each line. */}
+      <span className="bg-black/85 px-1.5 py-0.5 [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">
+        {caption}
+      </span>
     </p>
   );
 }
