@@ -11,10 +11,11 @@ const sizeCls = {
  * A movie-style subtitle inside a photo frame. Japanese comes first; the English
  * translation fades in on hover (mouse) or on tap (phones). Put it inside an
  * element with the `group` class, so hovering the photo shows the English too.
+ * Line breaks in the text are kept.
  */
 function PhotoCaption({ caption, size = "sm" }) {
   const [showEn, setShowEn] = useState(false);
-  const place = `absolute inset-x-0 mx-auto w-fit max-w-[92%] px-2 py-1 text-center ${sizeCls[size]} ${textCls}`;
+  const place = `absolute inset-x-0 mx-auto w-fit max-w-[92%] px-2 py-1 text-center whitespace-pre-line ${sizeCls[size]} ${textCls}`;
 
   // English only: nothing to toggle, and taps fall through to the photo.
   if (!caption.ja) {
@@ -24,6 +25,9 @@ function PhotoCaption({ caption, size = "sm" }) {
     return <p lang="ja" className={`${place} m-0 font-jp pointer-events-none`}>{caption.ja}</p>;
   }
 
+  // A tap switches the language on phones. With a mouse, hovering already shows the
+  // English, so clicks pass through to the photo (the grid opens it) instead.
+  // Screen readers get the shown language only, plus what pressing does.
   const line = "[grid-area:1/1] transition-opacity duration-300";
   return (
     <button
@@ -32,15 +36,15 @@ function PhotoCaption({ caption, size = "sm" }) {
         e.stopPropagation();
         setShowEn((v) => !v);
       }}
-      aria-pressed={showEn}
-      className={`${place} grid cursor-pointer rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70`}
+      className={`${place} grid cursor-pointer rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 [@media(hover:hover)]:pointer-events-none`}
     >
-      <span lang="ja" className={`${line} font-jp ${showEn ? "opacity-0" : "opacity-100 group-hover:opacity-0"}`}>
+      <span lang="ja" aria-hidden={showEn} className={`${line} font-jp ${showEn ? "opacity-0" : "opacity-100 group-hover:opacity-0"}`}>
         {caption.ja}
       </span>
-      <span lang="en" className={`${line} ${showEn ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+      <span lang="en" aria-hidden={!showEn} className={`${line} ${showEn ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
         {caption.en}
       </span>
+      <span className="sr-only">{showEn ? " (show in Japanese)" : " (show in English)"}</span>
     </button>
   );
 }

@@ -37,6 +37,15 @@ function baseUrl() {
   return value.replace(/\/+$/, "");
 }
 
+// A photo's file name and content hash, like "pict0013-755dc370cef4", from a thumbnail
+// path or URL (thumbs/<id>-<hash>.jpg). It stays the same when only the photo's time,
+// and so its id, changes.
+function sameKey(text = "") {
+  const stem = text.match(/thumbs\/([^/)\s]+?)\.jpe?g/i)?.[1];
+  const parts = stem?.split("-") ?? [];
+  return parts.length >= 4 ? `${parts.slice(2, -1).join("-")}-${parts.at(-1)}` : "";
+}
+
 const cellsOf = (line) => line.split(/(?<!\\)\|/).slice(1, -1).map((c) => c.trim());
 const isSeparator = (line) => /^\|\s*:?-+/.test(line);
 
@@ -54,11 +63,26 @@ if (sep === -1) throw new Error("No table found in src/posts/photo-captions.md")
 let end = sep + 1;
 while (end < lines.length && lines[end].startsWith("|")) end++;
 
-// Captions already written, by photo id (cells as written, escapes kept).
+// Captions already written, by photo id (cells as written, escapes kept). If an id
+// has two rows, the first one with a caption wins, as on the site.
 const written = new Map();
 for (const line of lines.slice(sep + 1, end)) {
-  const [id = "", , ja = "", en = ""] = cellsOf(line);
-  written.set(id.replace(/`/g, ""), { ja, en });
+  const [id = "", photo = "", ja = "", en = ""] = cellsOf(line);
+  const key = id.replace(/`/g, "");
+  if (written.get(key)?.ja || written.get(key)?.en) continue;
+  written.set(key, { ja, en, same: sameKey(photo) });
+}
+
+// A photo whose time changed has a new id: its caption moves to the new row.
+const byKey = new Map(photos.map((p) => [sameKey(p.thumb), p.id]));
+const moved = [];
+for (const [id, c] of [...written]) {
+  const to = byKey.get(c.same);
+  if (!c.same || !to || to === id || !(c.ja || c.en) || photos.some((p) => p.id === id)) continue;
+  if (written.get(to)?.ja || written.get(to)?.en) continue; // the new row has its own caption
+  written.set(to, c);
+  written.delete(id);
+  moved.push(id);
 }
 
 // One row per published photo, newest first, with a fresh thumbnail. Rows for
@@ -77,5 +101,6 @@ lines.splice(sep + 1, end - sep - 1, ...rows);
 writeFileSync(NOTE, lines.join("\n") + "\n");
 console.log(
   `photo-captions.md: ${photos.length} photos, ${added} new, ${dropped} unpublished rows removed` +
+    (moved.length ? `, ${moved.length} captions moved to re-timed photos` : "") +
     (orphans.length ? `, ${orphans.length} captions kept for photos no longer published (at the bottom)` : ""),
 );

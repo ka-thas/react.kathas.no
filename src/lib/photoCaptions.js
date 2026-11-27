@@ -9,11 +9,25 @@ const note = import.meta.glob("../posts/photo-captions.md", {
   eager: true,
 });
 
-/** photo id -> { ja?, en? }, for rows with at least one caption filled in. */
+// Cells are Markdown: keep the words, and turn <br> (a line break in an Obsidian
+// table) into a real one.
+function plainText(cell) {
+  return cell
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/!?\[\[([^\]|]*)\|?([^\]]*)\]\]/g, (_, page, text) => text || page) // [[page|text]]
+    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, "$1") // [text](url)
+    .replace(/(\*\*|__|\*|~~|==|`)(.+?)\1/g, "$2") // **bold**, *italic*, ~~struck~~, ==marked==, `code`
+    .replace(/[ \t]*\n[ \t]*/g, "\n")
+    .trim();
+}
+
+/** photo id -> { ja?, en? }, for rows with at least one caption filled in.
+ * If an id has two rows, the first one with a caption wins. */
 export const noteCaptions = new Map();
-for (const [id = "", , ja = "", en = ""] of tableRows(Object.values(note)[0])) {
+for (const [rawId = "", , ja = "", en = ""] of tableRows(Object.values(note)[0])) {
+  const id = rawId.replace(/`/g, "");
   const caption = {};
-  if (ja) caption.ja = ja;
-  if (en) caption.en = en;
-  if (id && (caption.ja || caption.en)) noteCaptions.set(id.replace(/`/g, ""), caption);
+  if (plainText(ja)) caption.ja = plainText(ja);
+  if (plainText(en)) caption.en = plainText(en);
+  if (id && (caption.ja || caption.en) && !noteCaptions.has(id)) noteCaptions.set(id, caption);
 }

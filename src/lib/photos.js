@@ -135,9 +135,9 @@ export function photoUrl(base, path) {
   }
 }
 
-/** Alt text: the English caption if there is one, else the day it was taken. */
+/** Alt text: the day it was taken. The caption sits next to the image, so it isn't repeated here. */
 export function photoAlt(photo) {
-  return photo.caption?.en ?? photo.caption?.ja ?? `Photo taken ${formatDay(photo.takenAt)}`;
+  return `Photo taken ${formatDay(photo.takenAt)}`;
 }
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
