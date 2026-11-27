@@ -7,6 +7,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import remarkWikiLink from "remark-wiki-link";
 import remarkMdxImages from "remark-mdx-images";
+import { pagePreviews } from "./scripts/page-previews.mjs";
 
 const mdxPlugin = mdx({
   remarkPlugins: [
@@ -55,5 +56,6 @@ export default defineConfig({
     },
     react(),
     tailwindcss(),
+    pagePreviews(), // per-page link previews in dist/, see the script
   ],
 });

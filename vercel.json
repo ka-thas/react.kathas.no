@@ -1,4 +1,5 @@
 {
+  "cleanUrls": true,
   "redirects": [
     { "source": "/(.*)", "has": [{ "type": "host", "value": "qr.kathas.no" }], "destination": "https://kathas.no/social?src=qr", "permanent": false },
     { "source": "/(.*)", "has": [{ "type": "host", "value": "scan.kathas.no" }], "destination": "https://kathas.no/social?src=scan", "permanent": false },

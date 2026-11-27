@@ -21,7 +21,7 @@ To exercise the `/api/visit` serverless function locally you need the Vercel dev
 
 ## Architecture
 
-- **Routing** lives entirely in `src/App.jsx` via `react-router-dom`. Routes: `/`, `/projects`, `/social`, `/cv`, `/blog`, `/blog/:slug`, `/photos` (lazy-loaded), and `*` (NotFound). `ScrollToTop` and `HomeSticker` render outside `<Routes>` so they apply to every page. Vercel rewrites all non-`/api` paths to `index.html` (`vercel.json`) for client-side routing.
+- **Routing** lives entirely in `src/App.jsx` via `react-router-dom`. Routes: `/`, `/projects`, `/social`, `/cv`, `/blog`, `/blog/:slug`, `/photos` (lazy-loaded), and `*` (NotFound). `ScrollToTop` and `HomeSticker` render outside `<Routes>` so they apply to every page. Vercel rewrites all non-`/api` paths to `index.html` (`vercel.json`) for client-side routing. **Link previews:** `scripts/page-previews.mjs` (a Vite plugin, build only) writes a copy of `index.html` per page (`dist/photos.html`, `dist/blog/<slug>.html`, `dist/projects/<slug>.html`) with its own `og:title`, description and image (the note's first image, as a JPEG in `dist/og/`), served by `cleanUrls`. Main pages are listed in its `PAGES`; posts and projects come from the vault by themselves.
 
 - **Pages** (`src/pages/`) compose **components** (`src/components/`). Each page typically imports `../styles/global.css` and renders its own `<Footer />`.
 
