@@ -32,7 +32,7 @@ thumbs/<id>.jpg        small, shown in the grid
       "trip": "nagoya",
       "width": 1440,
       "height": 1080,
-      "caption": { "ja": "寒いね", "en": "It's cold, huh" }
+      "caption": "寒いね"
     }
   ]
 }
@@ -51,7 +51,7 @@ thumbs/<id>.jpg        small, shown in the grid
 | `photos[].takenAt` | yes | ISO 8601 **with the local offset** where the photo was taken. The site shows the date part as is. |
 | `photos[].width`, `photos[].height` | yes | Pixel size of the image as it should be displayed (after rotation). Used to reserve space so the page doesn't jump. |
 | `photos[].trip` | no | A trip `id`. Missing or unknown means the photo goes in an "Other" group at the end. |
-| `photos[].caption` | no | `{ "ja"?, "en"? }`, at least one. Only a few photos will have one. Usually written in the Obsidian note instead (see "Captions" below). |
+| `photos[].caption` | no | Text. Only a few photos will have one. Usually written in the Obsidian note instead (see "Captions" below). |
 
 ### Trip assignment (Pothos, at publish time)
 
@@ -72,11 +72,11 @@ Upload images first and `manifest.json` last, so the site never points at files 
 - Code: `src/lib/photos.js` (types, validation, grouping), `src/lib/usePhotoManifest.js` (fetch), `src/pages/PhotosPage.jsx`.
 - Photos are shown newest first (by `takenAt`) within each trip, and the trip with the newest photo comes first.
 - Bad trips or photos (missing fields, bad dates, duplicate ids) are skipped with a console warning. The page only shows an error if the manifest can't be fetched or isn't an object with a `photos` array.
-- Captions show inside the photo like a subtitle. Japanese first; English on hover or tap.
+- Captions show inside the photo like a subtitle.
 
 ## Captions
 
-Captions are written in Obsidian, in `src/posts/photo-captions.md` (`publish: false`): a table of ID, thumbnail, 日本語 and English. `npm run photo-captions` keeps one row per photo in the bucket's manifest (newest first, with its thumbnail), drops rows for unpublished photos and always keeps written captions. The site reads the table at build time (`src/lib/photoCaptions.js`), so caption changes go live on the next deploy. A caption in the note wins over one in the manifest.
+Captions are written in Obsidian, in `src/posts/photo-captions.md` (`publish: false`): a table of ID, thumbnail and caption (`<br>` for a new line). `npm run photo-captions` keeps one row per photo in the bucket's manifest (newest first, with its thumbnail), drops rows for unpublished photos and always keeps written captions. The site reads the table at build time (`src/lib/photoCaptions.js`), so caption changes go live on the next deploy. A caption in the note wins over one in the manifest.
 
 
 ## Infra setup (not done yet)

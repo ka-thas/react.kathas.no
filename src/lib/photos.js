@@ -3,7 +3,6 @@
 // The contract is described in docs/photos-manifest.md.
 
 /**
- * @typedef {{ ja?: string, en?: string }} Caption
  * @typedef {{ id: string, name: string, start: string, end: string }} Trip
  * @typedef {{
  *   id: string,
@@ -13,7 +12,7 @@
  *   trip: string,
  *   width: number,
  *   height: number,
- *   caption?: Caption,
+ *   caption?: string,
  * }} Photo
  * @typedef {{ updated: string, trips: Trip[], photos: Photo[] }} Manifest
  * @typedef {{ trip: Trip | null, photos: Photo[] }} PhotoGroup  trip is null for "Other"
@@ -22,15 +21,6 @@
 const isText = (x) => typeof x === "string" && x.trim() !== "";
 const isDate = (x) => isText(x) && !Number.isNaN(Date.parse(x));
 const isSize = (x) => Number.isFinite(x) && x > 0;
-
-/** @returns {Caption | undefined} */
-function parseCaption(c) {
-  if (!c || typeof c !== "object") return undefined;
-  const caption = {};
-  if (isText(c.ja)) caption.ja = c.ja.trim();
-  if (isText(c.en)) caption.en = c.en.trim();
-  return caption.ja || caption.en ? caption : undefined;
-}
 
 /** @returns {Trip | null} */
 function parseTrip(t) {
@@ -53,8 +43,7 @@ function parsePhoto(p) {
     width: p.width,
     height: p.height,
   };
-  const caption = parseCaption(p.caption);
-  if (caption) photo.caption = caption;
+  if (isText(p.caption)) photo.caption = p.caption.trim();
   return photo;
 }
 
@@ -93,7 +82,7 @@ export function parseManifest(raw) {
 /**
  * Captions from the Obsidian note (lib/photoCaptions.js) win over the manifest's.
  * @param {Manifest} manifest
- * @param {Map<string, Caption>} captions
+ * @param {Map<string, string>} captions
  * @returns {Manifest}
  */
 export function applyCaptions(manifest, captions) {

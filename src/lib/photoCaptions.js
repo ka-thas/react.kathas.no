@@ -1,5 +1,5 @@
 // Photo captions, written in Obsidian: the table in src/posts/photo-captions.md
-// (columns: ID | Photo | 日本語 | English), read when the site builds.
+// (columns: ID | Photo | Caption), read when the site builds.
 // `npm run photo-captions` adds a row for every published photo the table lacks.
 import { tableRows } from "./mdTable";
 
@@ -21,13 +21,11 @@ function plainText(cell) {
     .trim();
 }
 
-/** photo id -> { ja?, en? }, for rows with at least one caption filled in.
+/** photo id -> caption, for rows with a caption filled in.
  * If an id has two rows, the first one with a caption wins. */
 export const noteCaptions = new Map();
-for (const [rawId = "", , ja = "", en = ""] of tableRows(Object.values(note)[0])) {
+for (const [rawId = "", , cell = ""] of tableRows(Object.values(note)[0])) {
   const id = rawId.replace(/`/g, "");
-  const caption = {};
-  if (plainText(ja)) caption.ja = plainText(ja);
-  if (plainText(en)) caption.en = plainText(en);
-  if (id && (caption.ja || caption.en) && !noteCaptions.has(id)) noteCaptions.set(id, caption);
+  const caption = plainText(cell);
+  if (id && caption && !noteCaptions.has(id)) noteCaptions.set(id, caption);
 }

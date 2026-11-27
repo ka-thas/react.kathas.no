@@ -107,7 +107,7 @@ function PhotoLightbox({ items, index, base, onClose, onStep }) {
     >
       <figure
         onClick={stop}
-        className="group relative m-0 overflow-hidden rounded-lg bg-cover bg-center shadow-[0_8px_40px_rgba(0,0,0,0.6)]"
+        className="relative m-0 overflow-hidden rounded-lg bg-cover bg-center shadow-[0_8px_40px_rgba(0,0,0,0.6)]"
         style={{
           aspectRatio: `${photo.width} / ${photo.height}`,
           // dvh: the height left by the phone's browser bars (vh ignores them on iOS).
@@ -122,7 +122,7 @@ function PhotoLightbox({ items, index, base, onClose, onStep }) {
           alt={photoAlt(photo)}
           className="block w-full h-full object-cover"
         />
-        {photo.caption && <PhotoCaption key={`caption-${photo.id}`}caption={photo.caption} size="lg" />}
+        {photo.caption && <PhotoCaption key={`caption-${photo.id}`} caption={photo.caption} size="lg" />}
       </figure>
 
       <p onClick={stop} className="m-0 text-sm text-white/70 tabular-nums text-center">

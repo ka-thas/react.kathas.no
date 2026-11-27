@@ -19,10 +19,10 @@ title: Photo captions
 publish: false
 ---
 
-Captions for the [/photos](https://kathas.no/photos) gallery, shown like a movie subtitle inside the photo: Japanese first, English on hover or tap. Fill in either or both; leave both empty for no caption. Captions here win over any in the manifest, and go live on the next deploy. \`npm run photo-captions\` keeps one row per published photo, newest first (filled-in captions are always kept).
+Captions for the [/photos](https://kathas.no/photos) gallery, shown like a movie subtitle inside the photo. Leave it empty for no caption; \`<br>\` starts a new line. Captions here win over any in the manifest, and go live on the next deploy. \`npm run photo-captions\` keeps one row per published photo, newest first (filled-in captions are always kept).
 
-| ID | Photo | 日本語 | English |
-| --- | --- | --- | --- |
+| ID | Photo | Caption |
+| --- | --- | --- |
 `;
 
 function baseUrl() {
@@ -67,10 +67,10 @@ while (end < lines.length && lines[end].startsWith("|")) end++;
 // has two rows, the first one with a caption wins, as on the site.
 const written = new Map();
 for (const line of lines.slice(sep + 1, end)) {
-  const [id = "", photo = "", ja = "", en = ""] = cellsOf(line);
+  const [id = "", photo = "", caption = ""] = cellsOf(line);
   const key = id.replace(/`/g, "");
-  if (written.get(key)?.ja || written.get(key)?.en) continue;
-  written.set(key, { ja, en, same: sameKey(photo) });
+  if (written.get(key)?.caption) continue;
+  written.set(key, { caption, same: sameKey(photo) });
 }
 
 // A photo whose time changed has a new id: its caption moves to the new row.
@@ -78,8 +78,8 @@ const byKey = new Map(photos.map((p) => [sameKey(p.thumb), p.id]));
 const moved = [];
 for (const [id, c] of [...written]) {
   const to = byKey.get(c.same);
-  if (!c.same || !to || to === id || !(c.ja || c.en) || photos.some((p) => p.id === id)) continue;
-  if (written.get(to)?.ja || written.get(to)?.en) continue; // the new row has its own caption
+  if (!c.same || !to || to === id || !c.caption || photos.some((p) => p.id === id)) continue;
+  if (written.get(to)?.caption) continue; // the new row has its own caption
   written.set(to, c);
   written.delete(id);
   moved.push(id);
@@ -89,11 +89,11 @@ for (const [id, c] of [...written]) {
 // photos no longer published are dropped, unless they hold a caption.
 const ids = new Set(photos.map((p) => p.id));
 const rows = photos.map((p) => {
-  const { ja = "", en = "" } = written.get(p.id) ?? {};
-  return `| ${p.id} | ![photo\\|120](${new URL(p.thumb, `${base}/`).href}) | ${ja} | ${en} |`;
+  const { caption = "" } = written.get(p.id) ?? {};
+  return `| ${p.id} | ![photo\\|120](${new URL(p.thumb, `${base}/`).href}) | ${caption} |`;
 });
-const orphans = [...written].filter(([id, c]) => !ids.has(id) && (c.ja || c.en));
-for (const [id, c] of orphans) rows.push(`| ${id} | (not published) | ${c.ja} | ${c.en} |`);
+const orphans = [...written].filter(([id, c]) => !ids.has(id) && c.caption);
+for (const [id, c] of orphans) rows.push(`| ${id} | (not published) | ${c.caption} |`);
 
 const added = photos.filter((p) => !written.has(p.id)).length;
 const dropped = [...written.keys()].filter((id) => !ids.has(id)).length - orphans.length;

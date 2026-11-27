@@ -15,8 +15,8 @@
        against the light body background below. */
     --color-accent-green: #047857;
     --color-accent-yellow: #b45309;
-    /* Japanese photo captions; PhotosPage loads the font itself. */
-    --font-jp: "Noto Sans JP", "DM Sans", sans-serif;
+    /* Photo captions: Noto Sans JP for the Japanese; PhotosPage loads it itself. */
+    --font-caption: "DM Sans", "Noto Sans JP", sans-serif;
 }
 
 :root {

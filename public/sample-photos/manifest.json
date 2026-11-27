@@ -23,10 +23,7 @@
       "trip": "nagoya",
       "width": 1440,
       "height": 1080,
-      "caption": {
-        "ja": "寒いね",
-        "en": "It's cold, huh"
-      }
+      "caption": "寒いね"
     },
     {
       "id": "nagoya-002",
@@ -45,10 +42,7 @@
       "trip": "nagoya",
       "width": 1440,
       "height": 1080,
-      "caption": {
-        "ja": "夕焼けがきれい",
-        "en": "What a pretty sunset"
-      }
+      "caption": "夕焼けがきれい"
     },
     {
       "id": "nagoya-004",
@@ -67,9 +61,7 @@
       "trip": "nagoya",
       "width": 1080,
       "height": 1440,
-      "caption": {
-        "en": "First morning in the dorm"
-      }
+      "caption": "First morning in the dorm"
     },
     {
       "id": "kyoto-001",
@@ -79,10 +71,7 @@
       "trip": "kyoto",
       "width": 1440,
       "height": 1080,
-      "caption": {
-        "ja": "鹿がいっぱい",
-        "en": "So many deer"
-      }
+      "caption": "鹿がいっぱい"
     },
     {
       "id": "kyoto-002",
