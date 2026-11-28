@@ -6,14 +6,17 @@ import Timeline from "../components/Timeline.jsx";
 import LinktreeLink from "../components/LinktreeLink.jsx";
 import { externalLinkIcon } from "../assets/socialIcons.jsx";
 import { start, end, milestones } from "../data/thesisTimeline.js";
+import PageTitle from "../components/PageTitle.jsx";
+import { pages } from "../lib/pages";
 
 function MasterThesisPage() {
   return (
     <>
       <main className="max-w-[780px] mx-auto px-4 w-full">
-        <h1 className="font-bold text-5xl mt-5 mb-4">Master's Thesis 🎓</h1>
+        <PageTitle title={pages.thesis.title} />
+        <h1 className="font-bold text-5xl mt-5 mb-4">{pages.thesis.title}</h1>
         <p className="mb-8 opacity-70 max-w-[520px]">
-          Dashboard for everything regarding my master's thesis.
+          {pages.thesis.description}
         </p>
         <Timeline
           start={start}

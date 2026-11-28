@@ -4,12 +4,15 @@ import PostCard from "../components/PostCard";
 import SearchBox from "../components/SearchBox.jsx";
 import InlineCode from "../components/InlineCode.jsx";
 import { posts } from "../lib/posts";
+import PageTitle from "../components/PageTitle.jsx";
+import { pages } from "../lib/pages";
 
 function BlogPage() {
   return (
     <>
       <main className="max-w-[780px] mx-auto px-4 w-full gap-4">
-        <h1 className="font-bold text-5xl mt-5 mb-4">Blog ☕️</h1>
+        <PageTitle title={pages.blog.title} />
+        <h1 className="font-bold text-5xl mt-5 mb-4">{pages.blog.title}</h1>
         <p>
           Welcome to my blog! It’s a space of ideas, thoughts, projects and
           other writings I’d want to share with the world. This site might mean

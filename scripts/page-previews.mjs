@@ -4,9 +4,9 @@
 // for every page, with its own og:title, description and image:
 //   dist/photos.html, dist/blog/<slug>.html, dist/projects/<slug>.html, ...
 // Vercel serves them at /photos etc. (cleanUrls in vercel.json); every other
-// path still falls back to index.html. The browser tab title stays "Ka Thas".
+// path still falls back to index.html. The tab title is set too, as in the app.
 //
-// Main pages: the PAGES list below. Blog posts: title and description from the
+// Main pages: titles and descriptions from src/lib/pages.js, shared with the app. Blog posts: title and description from the
 // frontmatter. Projects: title, and the first sentence of the write-up. The
 // image is the note's first image (made into a JPEG in dist/og/), else the
 // site's og-image.png.
@@ -14,24 +14,12 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
+import { pages as mainPages, tabTitle } from "../src/lib/pages.js";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const POSTS = join(ROOT, "src/posts");
 const SITE = "https://kathas.no";
 
-// The main pages: their heading and intro, as on the page.
-const PAGES = [
-  { path: "/projects", title: "Projects", description: "A curated collection of my projects." },
-  {
-    path: "/blog",
-    title: "Blog ☕️",
-    description: "A space of ideas, thoughts, projects and other writings I’d want to share with the world.",
-  },
-  { path: "/photos", title: "Photosynthesis", description: "Moments from my life in Japan. Captured with Kodak Charmera." },
-  { path: "/thesis", title: "Master's Thesis 🎓", description: "Dashboard for everything regarding my master's thesis." },
-  { path: "/cv", title: "CV", description: "Studying AI and robotics at UiO." },
-  { path: "/social", title: "Socials", description: "Hi, I'm Ka from Oslo. I like sketching, plants and coffee. Always happy to chat ~" },
-];
 
 // Flat `key: value` frontmatter is all the notes use.
 function parseNote(file) {
@@ -94,7 +82,7 @@ function notes(dir, { recurse }) {
 }
 
 function collectPages() {
-  const pages = PAGES.map((p) => ({ ...p }));
+  const pages = Object.values(mainPages).map((p) => ({ ...p }));
   for (const file of notes(POSTS, { recurse: true })) {
     const { fm, body } = parseNote(file);
     if (fm.publish === "false") continue;
@@ -132,7 +120,7 @@ export async function writePagePreviews(dist) {
   const template = readFileSync(join(dist, "index.html"), "utf8");
   const pages = collectPages();
   for (const page of pages) {
-    let html = template;
+    let html = template.replace(/<title>[^<]*<\/title>/, `<title>${esc(tabTitle(page.title))}</title>`);
     html = setMeta(html, "name", "description", page.description);
     html = setMeta(html, "property", "og:title", page.title);
     html = setMeta(html, "property", "og:description", page.description);

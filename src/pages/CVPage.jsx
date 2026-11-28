@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Footer from "../components/Footer";
 import "../styles/global.css";
+import PageTitle from "../components/PageTitle.jsx";
+import { pages } from "../lib/pages";
 
 function EmailCopyButton({ children, className, style }) {
   const [state, setState] = useState("idle");
@@ -106,6 +108,7 @@ const languages = [
 function CVPage() {
   return (<>
     <main className="max-w-[1000px] mx-auto px-4 pb-16 flex flex-col">
+      <PageTitle title={pages.cv.title} />
 
       {/* Hero */}
       <div className="py-10 pb-6 flex items-end justify-between gap-6 flex-wrap border-b border-ink/10 mb-8">

@@ -7,6 +7,8 @@ import BentoLayout from "../components/photos/BentoLayout";
 import PhotoLightbox from "../components/photos/PhotoLightbox";
 import { usePhotoManifest } from "../lib/usePhotoManifest";
 import { formatLocalDay } from "../lib/photos";
+import PageTitle from "../components/PageTitle.jsx";
+import { pages } from "../lib/pages";
 
 // Swap the gallery layout here. Each one takes { groups, base, onOpen(photoId) }.
 const layouts = { masonry: MasonryLayout, bento: BentoLayout };
@@ -48,9 +50,10 @@ function PhotosPage() {
   return (
     <>
       <main className="max-w-[1000px] mx-auto px-4 w-full pb-12">
-        <h1 className="font-bold text-5xl mt-5 mb-4">Photosynthesis</h1>
+        <PageTitle title={pages.photos.title} />
+        <h1 className="font-bold text-5xl mt-5 mb-4">{pages.photos.title}</h1>
         <p className="max-w-[620px] mb-10">
-          Moments from my life in Japan. Captured with Kodak Charmera.
+          {pages.photos.description}
         </p>
 
         {status === "loading" && (

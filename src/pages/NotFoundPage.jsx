@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import "../styles/global.css";
 import Footer from "../components/Footer.jsx";
+import PageTitle from "../components/PageTitle.jsx";
 
 function NotFoundPage() {
   return (
     <>
       <main className="max-w-[680px] mx-auto px-4 py-24 flex flex-col items-center text-center">
+        <PageTitle title="Not found" />
         <h1 className="text-5xl opacity-30">404</h1>
         <p className="text-xl opacity-60 mt-4 mb-8">This page doesn't exist 🥀</p>
         <Link

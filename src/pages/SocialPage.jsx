@@ -8,6 +8,8 @@ import LinktreeLink from "../components/LinktreeLink";
 import KaThasTitle from "../components/KaThasTitle.jsx";
 import Marquee from "../components/Marquee.jsx";
 import Portrait from "../components/Portrait.jsx";
+import PageTitle from "../components/PageTitle.jsx";
+import { pages } from "../lib/pages";
 import {
   snapchatIcon,
   instagramIcon,
@@ -33,6 +35,7 @@ function SocialPage() {
       />
       {/* <img src={bannerImg} alt="banner image" className="banner" /> */}
       <main className="flex flex-col justify-flex-start items-center p-8 gap-2 z-10">
+        <PageTitle title={pages.social.title} />
         <Portrait
           className="w-32 h-32 rounded-full border-2 border-white shadow-[rgba(6,10,17,0.2)_0px_8px_24px] z-[1]"
         />

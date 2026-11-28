@@ -12,12 +12,14 @@ import PostCard from "../components/PostCard";
 import Countdown from "../components/Countdown";
 import { posts } from "../lib/posts";
 import kaSketch from "../assets/images/ka-sketch.webp";
+import PageTitle from "../components/PageTitle.jsx";
 
 function IndexPage() {
   const recentPosts = posts.slice(0, 3);
   return (
     <>
       <main className="max-w-2xl w-full mx-auto flex flex-col items-center justify-center p-8 pt-15 mb-6 gap-15">
+        <PageTitle title={null} />
 
 
 
